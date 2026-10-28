@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.fitforg.app",
+        "sha256_cert_fingerprints": ["A1:4E:34:D0:A2:7F:A8:70:50:73:65:08:01:A4:9C:77:EB:4F:EE:55:92:D0:2A:30:EC:68:78:D6:BD:65:35:0A"]
+      }
+    }]

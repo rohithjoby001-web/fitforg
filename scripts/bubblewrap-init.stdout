@@ -1,0 +1,15 @@
+[+] Spawning: bubblewrap init --manifest https://preview-chat-d3a20c61-31da-4cc8-a98b-f74e414cf802.space-z.ai/manifest.webmanifest --directory=/home/z/my-project/android-apk
+
+[~] Optional prompt not seen: 'Do you want Bubblewrap to install the JDK'
+
+[~] Optional prompt not seen: 'Path to your existing JDK 17'
+
+[~] Optional prompt not seen: 'Do you want Bubblewrap to install the Android SDK'
+
+[~] Optional prompt not seen: 'Path to your existing Android SDK'
+
+[+] Matched: '\\? Domain:' → sending: ''
+
+[+] Matched: 'URL path:' → sending: ''
+
+[+] Matched: 'Application name:' → sending: 'fitforg'
