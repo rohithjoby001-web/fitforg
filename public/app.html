@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fitforg</title>
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-130 -120 731 728'%3E%3Crect x='-130' y='-120' width='731' height='728' rx='120' fill='%23000'/%3E%3Cpath d='M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z' fill='%23fff'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--s1:#0d0d0d;--s2:#1e1e1e;--ln:#2b2b2b;--fg:#fff;--mu:#8c8c8c;--hd:'Inter Tight',system-ui,sans-serif;--lb:'Space Grotesk',system-ui,sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--hd);font-size:15px;line-height:1.4;display:flex;justify-content:center}
+button,input{font:inherit;color:inherit;background:none;border:0}button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+#app{width:100%;max-width:440px;height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden}
+@media (min-width:520px){body{background:#000;align-items:center}#app{height:min(880px,calc(100% - 32px));border-radius:36px;border:1px solid var(--ln)}}
+main{flex:1;overflow-y:auto;padding:20px 20px 110px;scrollbar-width:none}main::-webkit-scrollbar{display:none}
+h1{font-weight:800;font-size:38px;letter-spacing:-.045em;line-height:1}
+h2{font-weight:700;font-size:19px;letter-spacing:-.02em}
+.mu{color:var(--mu)}
+.lbl,.date,.pill,.chip,nav button,.chips b,.n{font-family:var(--lb)}
+.lbl,.date{text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;color:var(--mu)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.pill{border:1px solid var(--ln);border-radius:99px;padding:6px 12px;font-weight:600;font-size:13px}
+.card{background:var(--s1);border:1px solid var(--ln);border-radius:24px;padding:20px}
+.cta{width:100%;height:56px;border-radius:99px;background:#fff;color:#000;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;gap:9px}
+.cta:active{transform:scale(.98)}.cta.g{background:none;border:1.5px solid var(--ln);color:#fff}.cta.s{height:44px;font-size:15px;width:auto;padding:0 18px}
+.srch{display:flex;align-items:center;gap:10px;background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:0 14px;height:50px;margin:16px 0 12px}
+.srch input{flex:1;height:100%;outline:0}.srch input::placeholder{color:var(--mu)}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -20px 16px;padding:0 20px}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--ln);border-radius:99px;padding:0 16px;min-height:40px;font-size:14px;font-weight:500;color:var(--mu)}
+.chip.on{background:#fff;color:#000;border-color:#fff;font-weight:600}
+.row{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:10px;margin-bottom:10px;background:var(--s1);border:1px solid var(--ln);border-radius:20px;min-height:76px}
+.th{width:56px;height:56px;flex:none;background:var(--s2);border-radius:14px;padding:4px}
+.row .t{flex:1;min-width:0}.row strong{display:block;font-weight:600;font-size:16px;line-height:1.2}.row span.m{color:var(--mu);font-size:13.5px}
+.act{width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--ln)}
+.act.on{background:#fff;color:#000;border-color:#fff}.row.done{opacity:.55}
+.ticks{display:flex;gap:3px;height:22px;margin:14px 0 8px}.ticks i{flex:1;background:var(--s2);border-radius:1px}.ticks i.on{background:#fff}
+.fig{width:100%;height:100%;display:block}
+.sheet{position:absolute;inset:0;background:var(--bg);z-index:10;display:flex;flex-direction:column;animation:up .25s ease-out}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+.sh{display:flex;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 8px}
+.x{width:44px;height:44px;border-radius:50%;background:var(--s1);display:grid;place-items:center;flex:none}
+.sb{flex:1;overflow-y:auto;padding:8px 20px 20px;scrollbar-width:none}.sb::-webkit-scrollbar{display:none}
+.foot{padding:12px 20px calc(18px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;border-top:1px solid var(--ln)}
+.demo{position:relative;aspect-ratio:1;background:var(--s1);border:1px solid var(--ln);border-radius:28px;padding:22px;overflow:hidden;margin:6px 0 14px}
+.demo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.sp{position:absolute;right:12px;bottom:12px;z-index:2;background:rgba(0,0,0,.7);border:1px solid var(--ln);border-radius:99px;padding:0 14px;min-height:36px;font-family:var(--lb);font-size:13px;font-weight:600}
+.chips2{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px}.chips2 b{background:var(--s2);border-radius:12px;padding:6px 12px;font-weight:600;font-size:14px;font-family:var(--lb)}
+ol.st{list-style:none;margin:12px 0 22px}ol.st li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--ln);font-size:16px;line-height:1.35}ol.st li:last-child{border:0}
+ol.st .n{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--mu);flex:none;display:grid;place-items:center;font-size:13px;font-weight:600}
+.note{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:14px 16px;margin-bottom:12px;font-size:14.5px}.note b{font-weight:600}
+.gr{display:flex;align-items:center;gap:14px;padding:12px 16px;width:100%;text-align:left;min-height:68px;border-bottom:1px solid var(--ln)}.gr:last-child{border:0}
+.gr em{font-style:normal;font-size:22px;width:32px;text-align:center;filter:grayscale(1)}.gr div{flex:1;min-width:0}.gr strong{display:block;font-weight:600}.gr span{color:var(--mu);font-size:13.5px}
+.sw{width:52px;height:32px;border-radius:99px;background:var(--s2);position:relative;flex:none;border:1px solid var(--ln);transition:.2s}.sw:after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:var(--mu);transition:.2s}
+.on>.sw{background:#fff}.on>.sw:after{left:23px;background:#000}
+.rm{color:var(--mu);font-size:13px;padding:8px 10px;min-height:44px}
+nav{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:5;display:flex;gap:4px;background:rgba(30,30,30,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--ln);border-radius:99px;padding:6px;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+nav button{display:flex;align-items:center;gap:8px;padding:0 16px;height:48px;min-width:52px;justify-content:center;border-radius:99px;color:var(--mu);font-size:13.5px;font-weight:600}nav button.cur{background:#d9d9d9;color:#000}nav button span{display:none}nav button.cur span{display:inline}
+.badge{display:inline-block;border:1.5px dashed #6b6b6b;border-radius:20px;padding:8px 20px;margin:10px 0 6px;background:#0a0a0a}.badge h1{font-size:36px}
+.cm{display:inline-flex;gap:6px;align-items:center;background:var(--s2);border-radius:99px;padding:8px 14px;font-size:14px;color:var(--mu);font-family:var(--lb)}
+.pv{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:16px 0}.pv .th{width:60px;height:60px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.stat{background:var(--s1);border:1px solid var(--ln);border-radius:24px;padding:18px 6px;text-align:center}.stat b{display:block;font-size:30px;font-weight:700;letter-spacing:-.03em;margin:8px 0 2px}.stat span{color:var(--mu);font-size:13.5px}.stat svg{color:var(--mu)}
+.pills{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:14px}.pills i{height:24px;border-radius:99px;border:1.5px solid var(--ln)}.pills i.on{background:#d9d9d9;border-color:#d9d9d9}.pills i.rest{border-style:dashed;border-color:#4a4a4a}.pills i.now{border:2px solid #fff}
+.wk{display:flex;align-items:flex-end;height:120px;margin-top:12px;gap:8px}.wk div{flex:1;text-align:center;font-family:var(--lb);font-size:11.5px;color:var(--mu);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%}.wk i{display:block;width:100%;border-radius:8px;background:#3a3a3a}.wk .t i{background:#e5e5ea}.wk b{font-weight:600;color:#fff}
+.ch{display:flex;justify-content:space-between;align-items:baseline}.ch small{color:var(--mu);font-size:13.5px;font-family:var(--lb)}
+.mo{display:flex;gap:16px;align-items:center}.mo .dm{width:120px;height:120px;flex:none;background:var(--s2);border-radius:20px;padding:8px}.mo .cta{height:44px;font-size:15px;width:auto;padding:0 20px}
+.mask{position:absolute;inset:0;background:rgba(0,0,0,.7);z-index:20;display:flex;align-items:flex-end;animation:fade .2s}@keyframes fade{from{opacity:0}}
+.modal{background:var(--s1);border:1px solid var(--ln);border-radius:28px 28px 0 0;padding:24px 20px calc(20px + env(safe-area-inset-bottom,0px));width:100%;max-height:88%;display:flex;flex-direction:column;gap:12px}
+.modal .lst{overflow-y:auto;flex:1;min-height:80px}
+.pk{display:flex;gap:14px;align-items:center;width:100%;text-align:left;padding:14px;border:1px solid var(--ln);border-radius:18px;margin-bottom:8px;min-height:64px}.pk.on{border-color:#fff;background:var(--s2)}.pk div{flex:1}.pk strong{display:block;font-weight:600}.pk span{color:var(--mu);font-size:13.5px}
+.fld{background:var(--bg);border:1px solid var(--ln);border-radius:14px;height:50px;padding:0 14px;width:100%}
+.ck{display:flex;gap:12px;align-items:center;padding:10px 4px;min-height:48px;width:100%;text-align:left}.ck i{width:24px;height:24px;border:2px solid var(--mu);border-radius:7px;flex:none;display:grid;place-items:center;color:transparent}.ck.on i{background:#fff;border-color:#fff;color:#000}
+.toast{position:absolute;left:20px;right:20px;bottom:92px;background:#fff;color:#000;border-radius:16px;padding:14px 16px;font-weight:600;z-index:30;animation:up .25s}
+.segs{display:flex;gap:5px;flex:1}.segs i{flex:1;height:5px;border-radius:9px;background:var(--s2)}.segs i.d{background:#fff}.segs i.c{background:var(--mu)}
+.big{font-weight:800;font-size:54px;letter-spacing:-.04em;line-height:1}.dots{display:flex;gap:10px;justify-content:center;margin:12px 0}.dots i{width:14px;height:14px;border-radius:50%;background:var(--s2)}.dots i.d{background:#fff}.dots i.c{border:2px solid #fff}
+details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:14px 16px;margin-top:10px;text-align:left}summary{font-weight:600;min-height:24px}
+.demo{padding:46px 18px 42px!important}
+.hud{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px;font-family:var(--lb);font-size:12.5px;font-weight:600;z-index:1;pointer-events:none}
+.hud span{background:rgba(30,30,30,.9);border:1px solid var(--ln);border-radius:99px;padding:5px 11px;transition:color .15s,border-color .15s}
+.hud .ph.ok{color:#4ade80;border-color:#4ade80}
+.cue{position:absolute;left:12px;bottom:14px;max-width:58%;font-size:12.5px;font-weight:600;background:rgba(0,0,0,.8);border:1px solid var(--ln);border-radius:12px;padding:6px 10px;z-index:1;pointer-events:none}
+.pg{position:absolute;left:0;bottom:0;height:3px;background:#fff;opacity:.55;z-index:1}
+.demo.ok{border-color:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.18)}
+.demo.vid .fig,.demo.vid .hud,.demo.vid .cue,.demo.vid .pg{visibility:hidden}.sp.vd{right:84px}
+.fc{list-style:none;margin:8px 0 14px}.fc li{display:flex;gap:10px;padding:8px 0;align-items:flex-start;font-size:15.5px}.fc svg{color:#4ade80;flex:none;margin-top:2px}
+.note.bad{border-color:#5a2a2a}.note.bad b{color:#f87171}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+/* ===== Fitforg welcome screen (independent section) ===== */
+.mk{display:block;width:26px;height:auto;flex:none;fill:#fff}
+#splash{container-type:size;position:absolute;inset:0;z-index:60;background:#000;overflow:hidden;transition:opacity .4s ease,transform .4s ease}
+#splash.out{opacity:0;transform:scale(1.02);pointer-events:none}
+#splash .sp-ghost{position:absolute;width:560px;right:-190px;top:-40px;fill:none;stroke:#2b2b2b;stroke-width:1.2;pointer-events:none;width:96.5cqh;height:100cqh;right:auto;left:calc(61.7cqw - 44.05cqh);top:auto;bottom:calc(100px + env(safe-area-inset-bottom,0px) - .72cqh)}
+#splash .sp-sm{position:absolute;left:26px;top:calc(34px + env(safe-area-inset-top,0px));width:34px;height:auto;fill:#fff;left:8.67cqw;width:11.33cqw;top:calc(11.33cqw + env(safe-area-inset-top,0px))}
+#splash .sp-txt{position:absolute;left:26px;right:26px;bottom:calc(130px + env(safe-area-inset-bottom,0px));text-align:left;opacity:0;animation:sp-up .8s .5s forwards}
+#splash .sp-name{font-family:var(--lb);font-weight:400;font-size:36px;letter-spacing:.14em;line-height:1;margin:0 0 12px}
+#splash .sp-name b{font-weight:700}
+#splash .sp-tag{font-family:var(--hd);font-size:18px;line-height:1.3;color:#8c8c8c;letter-spacing:normal}
+#splash .sp-act{position:absolute;left:26px;right:26px;bottom:calc(48px + env(safe-area-inset-bottom,0px))}
+#splash .sp-act .cta{max-width:none;width:100%;height:52px;border:0;border-radius:99px;background:#fff;color:#000;font:700 16px var(--hd)}
+@keyframes sp-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#splash .sp-txt{opacity:1;transform:none;animation:none}#splash{transition:opacity .01s}}
+</style>
+</head>
+<body>
+<div id="app"><main id="main"></main><nav id="nav"></nav>
+<!-- ===== Fitforg welcome screen: remove this block (and #splash CSS/JS) to disable ===== -->
+<section id="splash" aria-label="Welcome to Fitforg">
+<svg class="sp-ghost" viewBox="0 0 471 488" aria-hidden="true"><path d="M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z"/></svg>
+<svg class="sp-sm" viewBox="0 0 471 488" aria-hidden="true"><path d="M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z"/></svg>
+<div class="sp-txt">
+<h1 class="sp-name" aria-label="Fitforg"><b>FIT</b>FORG</h1>
+<p class="sp-tag">Fit from basics.<br>Forge with form.</p>
+</div>
+<div class="sp-act">
+<button class="cta" id="sp-go">Start training</button>
+</div>
+</section>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ff-mark" viewBox="0 0 471 488"><path d="M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z"/></symbol></svg>
+<script>
+const $=s=>document.querySelector(s);
+const IC={today:'<path d="M5 20V11M12 20V4M19 20v-6"/>',ex:'<path d="M3 12h2M19 12h2M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/>',wo:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',gear:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',chk:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',plus:'<path d="M12 5v14M5 12h14"/>',srch:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',play:'<path d="M7 4l13 8-13 8z" fill="currentColor"/>'};
+const ic=(n,s=20,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+// id|name|muscle|equipment|motion|sets|reps|rest|steps;|tip|swap
+const E={};`squat-goblet|Goblet Squat|Legs|db|squat|3|12|75|Hold one dumbbell upright at your chest, elbows pointing down.;Sit your hips back and down until your thighs are parallel to the floor.;Drive through your whole foot to stand tall.|Keep your chest up and knees over your toes.|squat
+squat|Bodyweight Squat|Legs|bw|squat|3|15|60|Stand shoulder-width apart, toes slightly out, arms in front.;Push your hips back and bend your knees, lowering to parallel.;Press through your heels to stand back up.|Don’t let your knees cave inward.|
+db-lunge|Walking Lunge|Legs|db|lunge|3|12|75|Hold a dumbbell in each hand at your sides.;Step forward and lower until both knees reach 90°.;Push off the front foot and step the back leg through.|Keep your torso upright and take long steps.|lunge-rev
+lunge-rev|Reverse Lunge|Legs|bw|lunge|3|10|60|Stand tall with hands on your hips.;Step one foot back and lower until both knees bend to 90°.;Push through the front heel to stand.|Keep the front knee above your ankle.|
+rdl|Romanian Deadlift|Legs|db|hinge|3|10|75|Hold dumbbells in front of your thighs with soft knees.;Push your hips straight back, sliding the weights down your legs.;Stop at mid-shin, then drive your hips forward to stand.|Feel it in your hamstrings, not your lower back.|goodmorning
+goodmorning|Good Morning|Legs|bw|hinge|3|12|45|Place your hands behind your head, feet hip-width.;Hinge at the hips, pushing them back with a flat back.;Squeeze your glutes to rise.|Keep your spine long the whole time.|
+db-calf-raise|Dumbbell Calf Raise|Legs|db|calf|3|15|45|Stand holding dumbbells at your sides.;Rise onto the balls of your feet as high as you can.;Pause for a second, then lower slowly.|Lowering slowly builds the most strength.|calf
+calf|Calf Raise|Legs|bw|calf|3|20|45|Stand with feet hip-width, one hand on a wall.;Rise onto your toes.;Lower slowly to the floor.|Pause at the top of every rep.|
+bridge|Glute Bridge|Legs|bw|bridge|3|15|45|Lie on your back with knees bent, feet flat.;Drive through your heels to lift your hips.;Squeeze at the top, then lower with control.|Don’t arch your lower back.|
+pushup|Push-up|Chest|bw|push|3|12|60|Hands just wider than your shoulders, body in one straight line.;Lower your chest toward the floor, elbows about 45° from your body.;Press back up to full arm extension.|Brace your core so your hips don’t sag.|
+pushup-close|Close-grip Push-up|Arms|bw|push|3|10|60|Place your hands under your shoulders, thumbs close.;Lower with elbows tucked against your ribs.;Press up hard through your triceps.|Drop to your knees if you need to.|
+dip|Bench Dip|Arms|bw|push|3|12|60|Sit on a chair edge, hands beside your hips, legs forward.;Slide off and lower until elbows reach 90°.;Press back up without shrugging.|Keep your back close to the chair.|
+pike|Pike Push-up|Shoulders|bw|push|3|8|60|Start in a downward-dog shape with hips high.;Bend your elbows to lower your head toward the floor.;Press back up.|Keep your hips high throughout.|
+press|Dumbbell Shoulder Press|Shoulders|db|press|3|10|75|Hold dumbbells at shoulder height, palms forward.;Press up until your arms are straight.;Lower back to shoulder height.|Brace your core; don’t lean back.|pike
+row|Dumbbell Row|Back|db|row|3|12|75|Hinge forward with a flat back, dumbbells hanging.;Pull the weights to your ribs, squeezing your shoulder blades.;Lower slowly.|Lead with your elbows, not your hands.|towel-row
+towel-row|Towel Doorway Row|Back|bw|row|3|12|75|Loop a towel around a sturdy door handle and lean back.;Pull your chest toward the door.;Lower slowly.|Make sure the door is closed and solid.|
+pullup|Pull-up|Back|bar|pull|3|6|90|Hang from the bar, hands just wider than your shoulders.;Pull until your chin clears the bar.;Lower fully with control.|Avoid swinging your legs.|towel-row
+band-apart|Band Pull-apart|Back|band|row|3|15|45|Hold a band at chest height, arms straight.;Pull the band apart until your arms reach your sides.;Return slowly.|Keep your shoulders down.|towel-row
+curl|Dumbbell Curl|Arms|db|curl|3|12|60|Stand with dumbbells at your sides, palms forward.;Curl up, keeping your elbows pinned to your ribs.;Lower slowly.|No swinging.|towel-curl
+towel-curl|Isometric Towel Curl|Arms|bw|curl|3|30s|45|Stand on a towel and hold both ends.;Pull up hard as if curling while your foot resists.;Hold the tension.|Breathe steadily.|
+plank|Plank|Core|bw|plank|3|45s|30|Rest on your forearms, elbows under your shoulders.;Make a straight line from head to heels.;Squeeze your glutes and abs and hold.|Don’t let your hips drop.|
+deadbug|Dead Bug|Core|bw|crunch|3|12|30|Lie on your back, arms up, knees bent over your hips.;Lower the opposite arm and leg toward the floor.;Return and switch sides.|Keep your lower back pressed down.|
+bicycle|Bicycle Crunch|Core|bw|crunch|3|20|30|Put your hands behind your head and lift your legs.;Bring one elbow toward the opposite knee.;Switch sides in a pedalling motion.|Rotate your torso; don’t pull your neck.|
+climber|Mountain Climber|Cardio|bw|climb|3|30s|30|Start in a high plank.;Drive one knee toward your chest.;Switch legs quickly.|Keep your hips level.|
+swing|Kettlebell Swing|Cardio|kb|hinge|4|15|45|Hinge with the kettlebell between your legs.;Snap your hips forward to swing it to chest height.;Let it fall back and hinge again.|The power comes from your hips, not your arms.|squat-jump
+squat-jump|Squat Jump|Cardio|bw|squat|3|10|60|Lower into a squat.;Explode upward.;Land softly and go straight into the next squat.|Land with soft knees.|
+burpee|Burpee|Cardio|bw|climb|3|8|60|Squat down and place your hands on the floor.;Jump your feet back to a plank, then jump them in.;Jump up with your arms overhead.|Slow the pace to keep your form.|
+catcow|Cat–Cow|Mobility|bw|cat|2|10|20|Get on your hands and knees.;Arch your back, lifting your head and tailbone.;Round your spine and tuck your chin.|Move with your breath.|
+wgs|World’s Greatest Stretch|Mobility|bw|lunge|2|6|20|Step into a deep lunge.;Place both hands inside your front foot.;Rotate one arm up to the ceiling.|Hold the rotation for a full breath.|
+hip90|Hip 90/90|Mobility|bw|squat|2|8|20|Sit with both knees bent at 90°.;Rotate your knees from side to side.;Keep your torso tall.|Move slowly.|`.split("\n").forEach(l=>{const[id,name,m,eq,p,s,r,rs,st,tp,alt]=l.split("|");E[id]={id,name,m,eq,p,s:+s,r,rs:+rs,st:st.split(";"),tp,alt}});
+"goodmorning:gm,towel-row:inrow,band-apart:band,towel-curl:tcurl,deadbug:deadbug,bicycle:bicycle,swing:swing,squat-jump:sj,burpee:burpee,wgs:wgs,hip90:hip90,dip:dip,pike:pike".split(",").forEach(x=>{const[i,p]=x.split(":");E[i].p=p});
+// id|corrected steps (blank = keep)|form checks|common mistake
+`squat-goblet||Chest tall, elbows inside knees~Knees track over toes~Heels stay flat|Heels lifting or knees caving in
+squat||Chest up, eyes forward~Knees track over toes~Heels stay flat|Knees collapsing inward or rounding your back
+db-lunge||Torso upright~Front knee over ankle~Back knee hovers near floor|Tiny steps, or front knee drifting past your toes
+lunge-rev||Hips square, torso tall~Front shin near vertical~Push through the front heel|Leaning forward or stepping back too short
+rdl|Hold dumbbells in front of your thighs, knees slightly bent.;Push your hips back, sliding the weights close to your legs with a flat back.;Lower until you feel a hamstring stretch (about mid-shin), then drive your hips forward to stand.|Back stays flat~Weights slide along your legs~Hips go back, not down|Rounding your back or squatting the weight down
+goodmorning||Hands light behind your head~Back flat, neck neutral~Knees softly bent|Rounding the spine or locking your knees
+db-calf-raise||Rise straight up, no wobble~Pause 1s at the top~Lower for 2–3s|Bouncing through the rep
+calf||Heels as high as possible~Pause at the top~Lower slowly|Rolling your ankles outward
+bridge||Ribs down, no back arch~Squeeze glutes at the top~Push the floor away with your heels|Arching your lower back to get higher
+pushup||Body is one straight line~Elbows about 45° from your torso~Chest nearly touches the floor|Sagging hips or flaring elbows out to 90°
+pushup-close||Hands under shoulders~Elbows brush your ribs~Body stays straight|Elbows flaring wide
+dip|Sit on the edge of a sturdy chair with hands gripping beside your hips and legs out in front.;Slide your hips off the seat with arms straight.;Bend your elbows straight back to about 90°, then press up.|Elbows point straight back~Hips stay close to the chair~Shoulders away from ears|Going deeper than 90° or flaring elbows
+pike||Hips high, body an inverted V~Head goes between your hands~Elbows bend to about 90°|Letting hips drop into a push-up
+press||Ribs down, glutes tight~Press in a straight line~Full lockout overhead|Arching your lower back
+row||Back flat, neck neutral~Elbow brushes your ribs~Squeeze the shoulder blade|Twisting the torso or yanking with the arm
+towel-row||Body in one straight line~Pull elbows back, not shoulders up~Door closed and solid|Letting hips sag or shrugging
+pullup|Hang from the bar, hands just wider than your shoulders, shoulders pulled down away from your ears.;Pull your elbows down toward your ribs until your chin clears the bar.;Lower slowly to a full hang.|Start from a full hang~Chin clears the bar~Control the way down|Kipping or half reps
+band-apart||Arms straight at chest height~Squeeze shoulder blades~Shoulders stay down|Shrugging or arching your back
+curl||Elbows pinned to your ribs~Full range, no swing~Wrists stay straight|Swinging your body to lift
+towel-curl||Elbows bent at 90°~Keep tension the whole time~Breathe steadily|Holding your breath
+plank||Straight line from head to heels~Elbows under shoulders~Glutes and abs tight|Hips sagging or piking up
+deadbug|Lie on your back with arms straight up and knees bent at 90° over your hips.;Press your lower back into the floor and keep it there.;Slowly lower the opposite arm and leg toward the floor, then return and switch.|Lower back stays on the floor~Move slowly~Opposite arm and leg|Lower back arching off the floor
+bicycle||Rotate your shoulder, not just the elbow~Neck relaxed~Slow, controlled twist|Pulling on your neck
+climber||Shoulders over wrists~Hips level~Drive knees fast|Hips bouncing up
+swing|Stand feet shoulder-width apart with the kettlebell a foot in front. Hinge back and hike it behind your legs.;Snap your hips forward hard so the bell floats to chest height. Your arms only guide it.;Let it fall, hinge back and repeat.|Hips, not arms, lift the bell~Back flat at the bottom~Stand fully tall at the top|Squatting it or lifting with your arms
+squat-jump||Land softly~Knees over toes~Reset between jumps|Landing with stiff, straight legs
+burpee|Stand tall, then squat and place your hands on the floor.;Jump or step your feet back to a high plank.;Return your feet to your hands and jump up with arms overhead.|Straight plank, no sagging~Land softly~Steady pace|Letting your hips sag in the plank
+catcow||Hands under shoulders, knees under hips~Move one vertebra at a time~Match your breath|Rushing the movement
+wgs|Step into a deep lunge with the back knee off the floor.;Place both hands inside your front foot.;Rotate the inside arm up to the ceiling, following it with your eyes, then return.|Front knee over ankle~Chest rotates fully~Back leg stays straight|Rushing the rotation
+hip90|Sit with both knees bent at 90°, one in front and one to the side.;Keeping your feet on the floor, rotate both knees to the other side.;Keep your torso tall as you switch.|Torso stays tall~Move slowly~Knees stay near 90°|Leaning back to cheat the rotation`.split("\n").forEach(l=>{const[i,st,ck,bad]=l.split("|"),e=E[i];if(st)e.st=st.split(";");e.ck=ck.split("~");e.bad=bad});
+const WO={push:["Push","Chest · Shoulders · Arms",["pushup","press","pushup-close","pike","dip"]],pull:["Pull","Back · Biceps",["pullup","row","band-apart","curl","towel-row"]],legs:["Legs","Quads · Glutes · Calves",["squat-goblet","db-lunge","rdl","db-calf-raise","bridge"]],upper:["Upper body","Push + Pull",["pushup","row","press","curl","pushup-close"]],core:["Core & cardio","Abs · Conditioning",["plank","deadbug","swing","climber","bicycle"]],full:["Full body","Strength + Conditioning",["squat-jump","pushup","row","lunge-rev","burpee"]],rec:["Recovery","Mobility · Stretch",["catcow","wgs","hip90","goodmorning"]]};
+const BASE=[["bw","🤸","Bodyweight","Always on"],["db","🏋️","Dumbbells","Fixed or adjustable"],["bar","🚪","Pull-up bar","Doorway or wall-mounted"],["band","🧶","Resistance band","Loop or tube"],["kb","🪣","Kettlebell","Single or pair"]];
+const VID=["db-lunge","db-calf-raise"],MU=["All","Legs","Chest","Back","Shoulders","Arms","Core","Cardio","Mobility"];
+const R=Math.PI/180,V=(a,b)=>[b[0]-a[0],b[1]-a[1]],ease=u=>(1-Math.cos(Math.PI*u))/2,CY=2.4,HD=.6,MV=1.8;
+const un=v=>{const n=Math.hypot(v[0],v[1])||1;return[v[0]/n,v[1]/n]},an=(a,b,c)=>{const u=un(V(b,a)),v=un(V(b,c));return Math.acos(Math.max(-1,Math.min(1,u[0]*v[0]+u[1]*v[1])))/R};
+// pose = hip h, torso angle t, ankle a (far ankle a2), wrist w; limbs solved with 2-bone IK so joints always stay anatomical
+const pz=(h,t,a,w,x)=>({h,t,a,w,a2:a,b:0,hd:t,es:-1,...x});
+const ln=(a,s,w,x)=>{const d=V(a,s),k=38/62;return pz([a[0]+d[0]*k,a[1]+d[1]*k],Math.atan2(d[1],d[0])/R,a,w,x)};
+const mo=(P,lb,m,tg,x)=>{const q=[...P.keys()];return{P,lb,m:m||[],tg:tg||"",q:[...q,...q.slice(1,-1).reverse()],...x}};
+const STAND=pz([50,49],-90,[50,87],[52,52]),SQB=pz([33,68],-60,[50,87],[66,40]),HB=pz([37,54],-25,[50,87],[58,68]),PL=ln([14,86],[72,66],[81,86]),PK=ln([14,84],[72,62],[72,86]);
+// monitors: [joint,min°,max°]  k=knee h=hip e=elbow b=body line. Green when the angle is inside the target range.
+const M={
+squat:mo([pz([50,49],-90,[50,87],[68,34]),SQB],["Sit back & down","Stand tall"],[["k",70,100]],"Thighs parallel"),
+sj:mo([SQB,pz([50,45],-90,[50,81],[52,2])],["Explode up","Land softly"]),
+lunge:mo([STAND,pz([47,69],-88,[64,87],[52,52],{a2:[27,84]})],["Step & lower","Push back up"],[["k",75,100]],"90° front knee"),
+wgs:mo([pz([36,70],-10,[64,87],[62,86],{a2:[14,84]}),pz([38,69],-55,[64,87],[50,26],{a2:[14,84]})],["Rotate & reach","Return"]),
+hinge:mo([STAND,HB],["Hips back","Hips forward"],[["h",70,115]],"Hips back, flat back"),
+gm:mo([pz([50,49],-90,[50,87],[48,14]),pz([37,54],-25,[50,87],[62,36])],["Hips back","Squeeze up"],[["h",70,115]],"Hips back, flat back"),
+swing:mo([HB,pz([50,49],-90,[50,87],[70,28])],["Snap hips","Hike back"]),
+calf:mo([STAND,pz([50,44],-90,[50,82],[52,48])],["Rise","Lower slowly"]),
+bridge:mo([pz([46,84],180,[66,86],[34,85]),pz([46,64],136,[66,86],[34,85])],["Lift hips","Lower"],[["h",120,180]],"Hips lifted"),
+push:mo([ln([16,83],[74,60],[74,85]),ln([16,83],[76,70],[76,85])],["Lower chest","Press up"],[["e",65,100],["b",165,180]],"Chest low, elbows ~90°"),
+pike:mo([pz([42,50],48,[24,85],[70,86]),pz([48,58],25,[24,85],[70,86])],["Head down","Press up"],[["e",80,110]],"Elbows ~90°"),
+dip:mo([pz([36,52],-90,[54,86],[34,52]),pz([36,59],-90,[54,86],[34,52])],["Lower","Press up"],[["e",75,100]],"Elbows ~90°",{pr:'<rect x="12" y="53" width="24" height="4" rx="1.5" fill="#444" stroke="none"/><path d="M16 57V88M33 57V88" stroke="#444" stroke-width="2"/>'}),
+row:mo([HB,pz([37,54],-25,[50,87],[48,44])],["Pull elbow up","Lower slowly"],[["e",45,100]],"Elbow past back"),
+inrow:mo([ln([60,87],[40,29],[62,38]),ln([60,87],[54,27],[66,40])],["Pull chest in","Lower slowly"],[["e",70,110]],"Chest to door",{pr:'<path d="M77 -8V89" stroke="#444" stroke-width="3"/><path d="M62 38L77 41" stroke="#8c8c8c" stroke-width="1.8"/>'}),
+band:mo([pz([50,49],-90,[50,87],[73,26]),pz([50,49],-90,[50,87],[62,26])],["Pull apart","Return slowly"]),
+curl:mo([STAND,pz([50,49],-90,[50,87],[58,28])],["Curl up","Lower slowly"],[["e",30,60]],"Full curl, elbow pinned"),
+tcurl:mo([pz([50,49],-90,[50,87],[62,36]),pz([50,49],-90,[50,87],[62,36])],["Pull hard","Hold"],[["e",70,100]],"90° elbows",{g:0}),
+press:mo([pz([50,49],-90,[50,87],[57,27]),pz([50,49],-90,[50,87],[52,1])],["Press up","Lower"],[["e",165,180]],"Full lockout"),
+pull:mo([pz([50,52],-90,[44,84],[52,3.5],{es:1}),pz([50,33],-90,[46,70],[52,3.5],{es:1})],["Pull up","Lower fully"],[["e",15,70]],"Chin over bar",{pr:'<path d="M30 3.5H70" stroke="#8c8c8c" stroke-width="3"/>'}),
+plank:mo([PL,PL],["Hold steady","Hold steady"],[["b",168,180]],"Straight line",{g:0}),
+deadbug:mo([pz([50,84],180,[69,65],[26,60]),pz([50,84],180,[69,65],[4,82],{a2:[88,80]})],["Extend","Return"]),
+bicycle:mo([pz([50,83],206,[68,68],[26,62],{a2:[86,80]}),pz([50,83],206,[86,80],[26,62],{a2:[68,68]})],["Twist","Switch"],[],"",{g:0}),
+climb:mo([ln([14,84],[72,62],[72,86],{a2:[50,74]}),ln([14,84],[72,62],[72,86],{a:[50,74],a2:[14,84]})],["Drive knee","Switch"],[],"",{g:0}),
+burpee:mo([pz([50,49],-90,[50,87],[52,3]),pz([36,70],-20,[48,87],[62,86]),PK],["Down to plank","Jump back in"]),
+cat:mo([pz([30,60],0,[11,86],[54,84],{b:-7,hd:40}),pz([30,60],0,[11,86],[54,84],{b:7,hd:-40})],["Cow: arch & look up","Cat: round & tuck chin"]),
+hip90:mo([pz([46,82],-90,[64,86],[40,84],{a2:[56,86]}),pz([46,82],-90,[56,86],[40,84],{a2:[66,86]})],["Rotate","Rotate back"])};
+const mix=(P,Q,u)=>{const o={};for(const k in P)o[k]=P[k].map?P[k].map((v,i)=>v+(Q[k][i]-v)*u):P[k]+(Q[k]-P[k])*u;return o};
+function ik(p,q,l1,l2,s){let dx=q[0]-p[0],dy=q[1]-p[1],n=Math.hypot(dx,dy)||1,d=Math.min(n,l1+l2-.02);dx/=n;dy/=n;const a=(l1*l1-l2*l2+d*d)/(2*d),h=Math.sqrt(Math.max(l1*l1-a*a,0));return[[p[0]+dx*a+s*dy*h,p[1]+dy*a-s*dx*h],[p[0]+dx*d,p[1]+dy*d]]}
+const foot=a=>[a[0]+7,Math.min(87.5,a[1]+4)];
+function J(o){const t=o.t*R,h=o.h,s=[h[0]+24*Math.cos(t),h[1]+24*Math.sin(t)],d=o.hd*R,k=ik(h,o.a,19,19,1),k2=ik(h,o.a2,19,19,1);return{h,s,k,k2,e:ik(s,o.w,12.5,12,o.es>0?1:-1),hp:[s[0]+11.5*Math.cos(d),s[1]+11.5*Math.sin(d)],c:[(h[0]+s[0])/2,(h[1]+s[1])/2+o.b],f:foot(k[1]),f2:foot(k2[1])}}
+function put(g,P){const c=g.children,G=J(P),w=G.e[1];c[0].setAttribute("points",[G.h,G.k2[0],G.k2[1],G.f2].join(" "));c[1].setAttribute("d",`M${G.h}Q${G.c} ${G.s}`);c[2].setAttribute("points",[G.h,G.k[0],G.k[1],G.f].join(" "));c[3].setAttribute("points",[G.s,G.e[0],w].join(" "));c[4].setAttribute("cx",G.hp[0]);c[4].setAttribute("cy",G.hp[1]);const q=c[5],r=q.tagName=="rect";q.setAttribute(r?"x":"cx",w[0]-(r?5:0));q.setAttribute(r?"y":"cy",w[1]-(r?2.5:0));return G}
+const bg=(c,e)=>{const b=c=="bd",w=(k,x)=>b?` stroke="${k}" stroke-width="${x}"`:"";return`<g class="${c}" ${b?'stroke="#fff"':'stroke="#6a6a6a" stroke-width="2.6" stroke-dasharray="1.5 3.2"'}><polyline${w("#6a6a6a",4)}/><path${w("#fff",5.5)}/><polyline${w("#fff",4.5)}/><polyline${w("#fff",4)}/><circle r="5.5"${b?' fill="#fff" stroke="none"':""}/>${b&&e=="db"?'<rect width="10" height="5" rx="2" fill="#fff" stroke="none"/>':b&&e=="kb"?'<circle r="5" fill="#fff" stroke="none"/>':'<circle r="0"/>'}</g>`};
+const fig=(p,eq,live,id)=>{const m=M[p],X=m.m;return`<svg class="fig" ${live?'data-live="1"':""} data-p="${p}" data-eq="${eq}" data-id="${id||""}" viewBox="0 -10 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="94" y1="89" y2="89" stroke="#2b2b2b" stroke-width="1.5"/>${m.pr||""}${live&&m.g!==0?bg("gh"):""}${bg("bd",eq)}${live?X.map(d=>d[0]=="b"?'<line class="gl" stroke-width="1.3" stroke-dasharray="3 2.5"/>':"").join("")+X.map((d,j)=>`<path class="ar${j}" stroke-width="1.6"/><text class="tx${j}" font-size="5.5" font-weight="700" text-anchor="middle" stroke="#000" stroke-width="1.3" paint-order="stroke" style="font-family:var(--lb)"/>`).join(""):""}</svg>`};
+const hud=`<div class="hud"><span class="ph">Ready</span><span class="rc">Rep 1</span></div><div class="cue"></div><i class="pg"></i>`;
+const demo=(e,st)=>`<div class="demo"${st||""}>${fig(e.p,e.eq,1,e.id)}${hud}<button class="sp" data-a="sp" aria-label="Change speed">1×</button>${VID.includes(e.id)?`<button class="sp vd" data-a="vd" data-v="${e.id}">Video</button>`:""}</div>`;
+const fc=e=>`<h2>Form checks</h2><ul class="fc">${e.ck.map(c=>`<li>${ic("chk",16,3)}<span>${c}</span></li>`).join("")}</ul><div class="note bad"><b>Avoid.</b> ${e.bad}</div><p class="mu" style="font-size:13.5px;margin:10px 0 18px">Exhale on the effort, inhale on the way back.</p>`;
+function live(s,t){const m=M[s.dataset.p],q=m.q,f=(+s.dataset.sp||3)/3,tt=t/1000/f,cy=q.length*CY,w=tt%cy,k=Math.floor(w/CY),lc=w-k*CY,i0=q[k],i1=q[(k+1)%q.length],mv=lc>HD,u=mv?ease((lc-HD)/MV):0,rep=Math.floor(tt/cy)+1,G=put(s.querySelector(".bd"),mix(m.P[i0],m.P[i1],u)),gh=s.querySelector(".gh"),d=s.parentNode,ck=(E[s.dataset.id]||{}).ck||[];
+if(gh)put(gh,m.P[m.P.length-1]);let ok=0;
+m.m.forEach((x,j)=>{const[ty,lo,hi]=x,[a,b,c]=ty=="k"?[G.h,G.k[0],G.k[1]]:ty=="h"?[G.s,G.h,G.k[0]]:ty=="e"?[G.s,G.e[0],G.e[1]]:[G.s,G.h,G.k[1]],A=an(a,b,c),g=A>=lo&&A<=hi,col=g?"#4ade80":"#fff",n1=un(V(b,a)),n2=un(V(b,c)),bs=[-(n1[0]+n2[0]),-(n1[1]+n2[1])],bl=Math.hypot(bs[0],bs[1]),ar=s.querySelector(".ar"+j),tx=s.querySelector(".tx"+j);
+if(g&&ty!="b")ok=1;
+ar.setAttribute("d",A>172?"":`M${b[0]+n1[0]*8},${b[1]+n1[1]*8}A8,8 0 0 ${n1[0]*n2[1]-n1[1]*n2[0]>0?1:0} ${b[0]+n2[0]*8},${b[1]+n2[1]*8}`);ar.setAttribute("stroke",col);tx.setAttribute("fill",col);
+tx.setAttribute("x",bl<.3?b[0]:b[0]+bs[0]/bl*14);tx.setAttribute("y",(bl<.3?b[1]-9:b[1]+bs[1]/bl*14)+2);tx.textContent=Math.round(A)+"°";
+if(ty=="b"){const l=s.querySelector(".gl");l.setAttribute("x1",G.k[1][0]);l.setAttribute("y1",G.k[1][1]);l.setAttribute("x2",G.hp[0]);l.setAttribute("y2",G.hp[1]);l.setAttribute("stroke",col)}});
+const T=(c,v)=>{const e=d.querySelector(c);if(e&&e.textContent!==v)e.textContent=v};
+T(".ph",ok&&m.tg?"✓ "+m.tg:mv?(i1>i0?m.lb[0]:m.lb[1]):(i0?"Hold":"Ready"));T(".rc","Rep "+rep);if(ck.length)T(".cue",ck[(rep-1)%ck.length]);
+d.classList.toggle("ok",!!ok);const ph=d.querySelector(".ph");if(ph)ph.classList.toggle("ok",!!ok);const pg=d.querySelector(".pg");if(pg)pg.style.width=w/cy*100+"%"}
+const still=()=>document.querySelectorAll(".fig:not([data-live])").forEach(s=>put(s.querySelector(".bd"),M[s.dataset.p].P[1]));
+(function loop(t){document.querySelectorAll(".fig[data-live]").forEach(x=>live(x,t));requestAnimationFrame(loop)})(0);
+const iso=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),dy=n=>new Date(Date.now()-n*864e5);
+function seed(){const h={};for(let i=1;i<30;i++){const d=dy(i);if((d.getDay()+6)%7!==6&&((i*7+3)%5<3||i<=3))h[iso(d)]={s:12+(i*5)%7,r:140+(i*37)%90}}return h}
+let S;try{S=JSON.parse(localStorage.getItem("ff3"))}catch(e){}
+S=S||{gear:{bw:1,db:1},cg:[],wo:"legs",mine:[],done:{},h:seed(),tab:"today",q:"",mu:"All",mg:0};
+const save=()=>{try{localStorage.setItem("ff3",JSON.stringify(S))}catch(e){}};
+const gears=()=>[...BASE,...S.cg.map(g=>[g.id,"🧰",g.name,g.ex.length+" exercises",1])];
+const gname=k=>(gears().find(g=>g[0]===k)||[,,k])[2];
+const av=e=>e.eq==="bw"||S.gear[e.eq]||S.cg.some(g=>S.gear[g.id]&&g.ex.includes(e.id));
+const res=id=>{const e=E[id];return av(e)?{e}:e.alt&&E[e.alt]?{e:E[e.alt],from:e}:{e,lock:1}};
+const wl=()=>{const seen={};return(S.wo==="mine"?S.mine:WO[S.wo][2]).map(res).filter(x=>!seen[x.e.id]&&(seen[x.e.id]=1))};
+const wname=()=>S.wo==="mine"?"My workout":WO[S.wo][0];
+const hd=n=>S.h[iso(dy(n))]||{s:0,r:0},fmt=n=>n>=1e4?Math.round(n/1e3)+"k":n>=1e3?(n/1e3).toFixed(1)+"k":""+n;
+function streak(){let n=0;for(let i=0;i<400;i++){if(hd(i).s)n++;else if(i)break}return n}
+const dk=e=>S.wo+":"+e.id,rp=r=>/s$/.test(r)?r:r+" reps";
+function toast(m){const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.textContent=m;$("#app").append(t);setTimeout(()=>t.remove(),2600)}
+function nav(){$("#nav").innerHTML=[["today","Today"],["ex","Exercises"],["gear","Gear"]].map(([k,l])=>`<button data-a="tab" data-v="${k}" class="${S.tab===k?"cur":""}" aria-label="${l}" aria-current="${S.tab===k}">${ic(k,22)}<span>${l}</span></button>`).join("")}
+function exrows(){const q=S.q.toLowerCase(),L=Object.values(E).filter(e=>(S.mu==="All"||e.m===S.mu)&&(!q||(e.name+e.m).toLowerCase().includes(q))&&(!S.mg||av(e)));
+return L.length?L.map(e=>`<div class="row" style="padding-right:12px"><button class="row" style="border:0;margin:0;padding:0;min-height:0;background:none;flex:1" data-a="open" data-v="${e.id}"><div class="th">${fig(e.p,e.eq)}</div><div class="t"><strong>${e.name}</strong><span class="m">${e.m} · ${gname(e.eq)}${av(e)?"":" · locked"}</span></div></button><button class="act ${S.mine.includes(e.id)?"on":""}" data-a="mine" data-v="${e.id}" aria-label="${S.mine.includes(e.id)?"Remove from":"Add to"} my workout">${ic(S.mine.includes(e.id)?"chk":"plus",20,2.5)}</button></div>`).join(""):`<p class="mu" style="text-align:center;padding:30px 0">No exercises match. Try another filter or add gear.</p>`}
+function vEx(){return`<h1>Exercises</h1><p class="mu" style="margin-top:8px">Tap any move to see exactly how it’s done.</p>
+<label class="srch">${ic("srch",20)}<input id="q" type="search" placeholder="Search exercises" value="${S.q}" aria-label="Search exercises"></label>
+<div class="chips">${MU.map(m=>`<button class="chip ${S.mu===m?"on":""}" data-a="mu" data-v="${m}">${m}</button>`).join("")}<button class="chip ${S.mg?"on":""}" data-a="mg">My gear only</button></div><div id="exl">${exrows()}</div>`}
+function vToday(){const L=wl(),n=L.length,d=L.filter(x=>S.done[dk(x.e)]).length,min=Math.round(L.reduce((a,x)=>a+x.e.s*(40+x.e.rs)/60,0));
+let W=0,St=0,R=0,pl="";for(let i=0;i<30;i++){const h=hd(i);if(h.s){W++;St+=h.s;R+=h.r}}
+for(let i=29;i>=0;i--){const h=hd(i);pl+=`<i class="${i===0?"now ":""}${h.s?"on":(dy(i).getDay()+6)%7===6?"rest":""}"></i>`}
+const TD=(new Date().getDay()+6)%7,wr=[...Array(7)].map((_,j)=>TD-j>=0?hd(TD-j).r:0),tw=wr.reduce((a,b)=>a+b,0),lw=wr.reduce((a,_,j)=>a+(j<=TD?hd(TD-j+7).r:0),0),dl=lw?Math.round((tw-lw)/lw*100):0,mx=Math.max(...wr,1);
+const pool=Object.values(E),m=pool[(new Date().getDate()*7+new Date().getMonth())%pool.length];
+return`<div class="top"><span style="display:flex;align-items:center;gap:10px;font-family:var(--lb);font-size:17px;letter-spacing:.14em" aria-label="Fitforg"><svg class="mk" style="width:22px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><span><b style="font-weight:700">FIT</b>FORG</span></span><span class="pill">${streak()}-day streak</span></div><p class="date" style="margin:0 0 14px">${new Date().toLocaleDateString("en",{weekday:"long",day:"numeric",month:"short"})}</p>
+<div class="card"><p class="mu" style="font-size:14px">Today</p><div class="badge"><h1>${wname()}</h1></div><p class="mu" style="font-size:14px">${S.wo==="mine"?"Your own list":WO[S.wo][1]}</p>
+${n?`<div style="display:flex;gap:8px;margin:14px 0 0;flex-wrap:wrap"><span class="cm">${ic("wo",16)}~${min} min</span><span class="cm">${ic("ex",16)}${n} exercises</span>${d?`<span class="cm">${d}/${n} done</span>`:""}</div>
+<div class="pv" aria-label="Moves in this workout">${L.map(x=>`<button class="th" data-a="open" data-v="${x.e.id}" aria-label="${x.e.name}">${fig(x.e.p,x.e.eq)}</button>`).join("")}</div>
+<button class="cta" data-a="go">${ic("play",18)} ${d===n?"Restart workout":d?"Resume workout":"Start workout"}</button>`
+:`<p class="mu" style="margin:14px 0">No moves yet. Add some from the Exercises tab.</p><button class="cta" data-a="tab" data-v="ex">Browse exercises</button>`}
+<button class="cta g" style="margin-top:10px;height:48px;font-size:15px" data-a="pick">Change workout</button></div>
+<div class="stats"><div class="stat">${ic("wo",20)}<b>${W}</b><span>workouts</span></div><div class="stat">${ic("ex",20)}<b>${St}</b><span>sets</span></div><div class="stat">${ic("today",20)}<b>${fmt(R)}</b><span>reps</span></div></div>
+<div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:14px">Last 30 days</span><small>${W} active days</small></div><div class="pills" role="img" aria-label="${W} active days in the last 30">${pl}</div></div>
+<div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:15px;font-weight:600">This week</span><small>Daily reps</small></div><p style="margin-top:6px"><b style="font-size:26px;letter-spacing:-.03em">${tw}</b> <span class="mu">reps</span> <small style="font-family:var(--lb);font-weight:600;margin-left:8px">${dl>=0?"▲":"▼"} ${Math.abs(dl)}%</small></p>
+<div class="wk">${wr.map((r,j)=>`<div class="${j===TD?"t":""}"><b>${r||""}</b><i style="height:${8+r/mx*60}px"></i>${"MTWTFSS"[j]}</div>`).join("")}</div></div>
+<div class="card"><p class="mu" style="font-size:14px;margin-bottom:12px">Move of the day</p><div class="mo"><div class="dm">${fig(m.p,m.eq,1)}</div><div><h2>${m.name}</h2><p class="mu" style="margin:4px 0 12px;font-size:14px">${m.m} · ${gname(m.eq)}</p><button class="cta" data-a="open" data-v="${m.id}">Learn it</button></div></div></div>`}
+function vGear(){return`<h1>Your gear</h1><p class="mu" style="margin:8px 0 18px">Switch gear on or off, or add your own. Exercises and workouts adapt to what you have.</p>
+<div class="card" style="padding:0;margin-bottom:16px">${gears().map(([k,e,n,d,c])=>`<div style="display:flex;align-items:center;border-bottom:1px solid var(--ln)"><button class="gr ${S.gear[k]?"on":""}" style="border:0" data-a="tg" data-v="${k}" role="switch" aria-checked="${!!S.gear[k]}" ${k==="bw"?"disabled":""}><em>${e}</em><div><strong>${n}</strong><span>${d}</span></div><i class="sw"></i></button>${c?`<button class="rm" data-a="rmg" data-v="${k}" aria-label="Remove ${n}">Remove</button>`:""}</div>`).join("")}</div>
+<button class="cta" data-a="addg">${ic("plus",20,2.5)} Add equipment</button>
+<p class="mu" style="font-size:13.5px;margin:22px 0 10px">Reset clears completed moves and your streak. Gear and your workout list stay.</p><button class="cta g" data-a="rs">Reset progress</button>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:30px"><svg class="mk" style="width:22px;opacity:.55" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><p class="lbl">Fitforg · No accounts · Works offline</p></div>`}
+function render(){nav();$("#main").innerHTML={today:vToday,ex:vEx,gear:vGear}[S.tab]();still()}
+function sheet(h,b,f){const s=document.createElement("div");s.className="sheet";s.innerHTML=`<div class="sh"><button class="x" data-a="close" aria-label="Close">${ic("x")}</button>${h}</div><div class="sb">${b}</div>${f?`<div class="foot">${f}</div>`:""}`;$("#app").append(s);still();return s}
+function open_(id){const e=E[id],ok=av(e),mine=S.mine.includes(id);
+const s=sheet(`<span class="lbl">${e.m}</span>`,`${demo(e)}
+<h1>${e.name}</h1><div class="chips2"><b>${e.s} sets</b><b>${rp(e.r)}</b><b>${e.rs}s rest</b><b>${gname(e.eq)}</b></div>
+${ok?"":`<div class="note"><b>Needs ${gname(e.eq)}.</b> ${e.alt?`Your workouts will use ${E[e.alt].name} instead.`:"Add the gear in the Gear tab to unlock it."}</div>`}
+<h2>How to do it</h2><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>
+<div class="note"><b>Form tip.</b> ${e.tp}</div>${fc(e)}${e.alt&&E[e.alt]?`<button class="row" data-a="open2" data-v="${e.alt}" style="margin-top:14px"><div class="th">${fig(E[e.alt].p,E[e.alt].eq)}</div><div class="t"><strong>${E[e.alt].name}</strong><span class="m">No-gear alternative</span></div></button>`:""}`,
+`<button class="cta" data-a="mine2" data-v="${id}">${mine?"Remove from my workout":"Add to my workout"}</button>`);s.dataset.id=id}
+function ask(html,onok){const m=document.createElement("div");m.className="mask";m.innerHTML=`<div class="modal" role="dialog">${html}</div>`;$("#app").append(m);m.onclick=e=>{if(e.target===m)m.remove()};return m}
+function pick(){const m=ask(`<h2>Choose a workout</h2><div class="lst">${Object.entries(WO).map(([k,[n,d,l]])=>`<button class="pk ${S.wo===k?"on":""}" data-a="setwo" data-v="${k}"><div><strong>${n}</strong><span>${d} · ${l.length} moves</span></div>${S.wo===k?ic("chk",20,3):""}</button>`).join("")}<button class="pk ${S.wo==="mine"?"on":""}" data-a="setwo" data-v="mine"><div><strong>My workout</strong><span>Build your own · ${S.mine.length} moves</span></div>${S.wo==="mine"?ic("chk",20,3):""}</button></div>`)}
+function addg(){ask(`<h2>Add equipment</h2><input class="fld" id="gn" placeholder="e.g. Yoga mat, Chair, Jump rope" aria-label="Equipment name"><p class="mu" style="font-size:14px">Which exercises can you do with it?</p><div class="lst">${Object.values(E).map(e=>`<button class="ck" data-a="ckx" data-v="${e.id}"><i>${ic("chk",14,3.5)}</i><span>${e.name} <span class="mu">· ${e.m}</span></span></button>`).join("")}</div><button class="cta" data-a="saveg">Save equipment</button>`)}
+// workout session
+let ss=null,tm=null;
+function stop(){clearInterval(tm);ss=null;$(".sheet")?.remove();render()}
+function sv(){document.querySelector(".sheet")?.remove();const L=ss.L,e=L[ss.i],nx=L.find((x,j)=>j!==ss.i&&!S.done[dk(x)]);let b,f="";
+const hd=`<div class="segs">${L.map((x,j)=>`<i class="${S.done[dk(x)]?"d":j===ss.i?"c":""}"></i>`).join("")}</div><span style="width:44px"></span>`;
+if(ss.fin)b=`<div style="text-align:center;padding:60px 0"><div class="big">Done.</div><p class="mu" style="margin-top:12px">${wname()} complete. Streak: ${streak()} days.</p></div>`,f=`<button class="cta" data-a="stop">Back to workout</button>`;
+else if(ss.rest){const C=2*Math.PI*88;b=`<div style="text-align:center;padding-top:10px"><p class="lbl">Rest</p><div style="position:relative;width:200px;height:200px;margin:14px auto"><svg width="200" height="200" style="transform:rotate(-90deg)"><circle cx="100" cy="100" r="88" fill="none" stroke="#1e1e1e" stroke-width="10"/><circle cx="100" cy="100" r="88" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-ss.rest/ss.max)}"/></svg><div class="big" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb)">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center"><button class="cta g s" data-a="p15">+15s</button><button class="cta g s" data-a="skip">Skip rest</button></div></div><p class="lbl" style="margin:26px 0 8px">Up next</p><div class="row"><div class="th">${fig(e.p,e.eq)}</div><div class="t"><strong>${e.name}</strong><span class="m">Set ${ss.set} of ${e.s}</span></div></div>`}
+else b=`${demo(e,' style="margin-top:0;aspect-ratio:4/3"')}<div style="text-align:center"><h1 style="font-size:30px">${e.name}</h1><div class="big" style="margin:14px 0 4px">${e.r.replace("s","")}<span class="mu" style="font-size:20px;letter-spacing:0"> ${/s$/.test(e.r)?"sec":"reps"}</span></div><div class="dots" aria-label="Set ${ss.set} of ${e.s}">${[...Array(e.s)].map((_,j)=>`<i class="${j<ss.set-1?"d":j===ss.set-1?"c":""}"></i>`).join("")}</div><p class="mu">Set ${ss.set} of ${e.s}</p></div><details><summary>How to do it</summary><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>${fc(e)}</details>`,f=`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`;
+const sh=sheet(hd,b,f);sh.querySelector(".x").dataset.a="stop"}
+function rest(sec){if(!sec){sv();return}ss.rest=ss.max=sec;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);if(--ss.rest<=0){clearInterval(tm);ss.rest=0}sv()},1000)}
+document.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;$("#exl").innerHTML=exrows();still()}});
+$("#app").onclick=ev=>{const b=ev.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,v=b.dataset.v;
+if(a==="tab"){S.tab=v;render();$("#main").scrollTop=0}
+else if(a==="mu"){S.mu=v;render()}else if(a==="mg"){S.mg^=1;render()}
+else if(a==="open"||a==="open2"){if(a==="open2")document.querySelector(".sheet")?.remove();open_(v)}
+else if(a==="close"){document.querySelector(".sheet")?.remove();render()}
+else if(a==="mine"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();render();toast(i<0?"Added to My workout":"Removed from My workout")}
+else if(a==="mine2"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();b.textContent=i<0?"Remove from my workout":"Add to my workout";toast(i<0?"Added to My workout":"Removed")}
+else if(a==="vd"){const d=b.parentNode,q=d.querySelector("video");if(q){q.remove();d.classList.remove("vid");b.textContent="Video"}else{d.insertAdjacentHTML("afterbegin",`<video src="/videos/exercises/${v}.mp4" autoplay muted loop playsinline onerror="this.parentNode.classList.remove('vid');this.remove()"></video>`);d.classList.add("vid");b.textContent="Guide"}}
+else if(a==="sp"){const f=b.parentNode.querySelector(".fig"),h=f.dataset.sp==="6";f.dataset.sp=h?3:6;b.textContent=h?"1×":"0.5×"}
+else if(a==="pick")pick();else if(a==="setwo"){S.wo=v;save();document.querySelector(".mask").remove();render()}
+else if(a==="go"){const L=wl().map(x=>x.e);if(L.every(x=>S.done[dk(x)]))L.forEach(x=>delete S.done[dk(x)]);ss={L,i:L.findIndex(x=>!S.done[dk(x)]),set:1,rest:0,fin:0};sv()}
+else if(a==="cs"){const e=ss.L[ss.i];{const t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0};h.s++;h.r+=/s$/.test(e.r)?0:parseInt(e.r)||0;save()}if(ss.set<e.s){ss.set++;rest(e.rs)}else{S.done[dk(e)]=1;const n=ss.L.findIndex(x=>!S.done[dk(x)]);if(n<0){ss.fin=1;save();sv()}else{ss.i=n;ss.set=1;save();rest(e.rs)}}}
+else if(a==="skip"){clearInterval(tm);ss.rest=0;sv()}else if(a==="p15"){ss.rest+=15;ss.max+=15;sv()}else if(a==="stop")stop();
+else if(a==="tg"){S.gear[v]^=1;save();render();toast("Workouts updated for your gear")}
+else if(a==="rmg"){S.cg=S.cg.filter(g=>g.id!==v);delete S.gear[v];save();render()}
+else if(a==="addg")addg();else if(a==="ckx")b.classList.toggle("on");
+else if(a==="saveg"){const n=$("#gn").value.trim();if(!n){$("#gn").focus();return}const ex=[...document.querySelectorAll(".ck.on")].map(x=>x.dataset.v);const id="c"+Date.now();S.cg.push({id,name:n,ex});S.gear[id]=1;save();document.querySelector(".mask").remove();render();toast(n+" added — "+ex.length+" exercises unlocked")}
+else if(a==="rs"){const m=ask(`<h2>Reset progress?</h2><p class="mu">This clears completed moves and your streak. This can’t be undone.</p><button class="cta" data-a="rs2">Yes, reset</button><button class="cta g" data-a="close2">Cancel</button>`)}
+else if(a==="rs2"){S.done={};S.h={};save();document.querySelector(".mask").remove();render();toast("Progress reset")}
+else if(a==="close2")document.querySelector(".mask").remove()};
+render();
+</script>
+<script>
+// Fitforg welcome screen: first launch shows the full welcome with a button; later launches show a brief splash.
+(function(){
+const sp=document.getElementById("splash"),go=document.getElementById("sp-go"),lock=["main","nav"].map(i=>document.getElementById(i));
+let seen=0;try{seen=localStorage.getItem("ff_welcome")==="1"}catch(e){}
+if(location.hash==="#welcome")seen=0;
+lock.forEach(n=>n.inert=true);
+let done=0;
+function leave(){if(done)return;done=1;try{localStorage.setItem("ff_welcome","1")}catch(e){}
+sp.classList.add("out");lock.forEach(n=>n.inert=false);setTimeout(()=>sp.remove(),450)}
+go.onclick=leave;
+})();
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/sw.js").catch(function(){})}</script>
+</body>
+</html>
