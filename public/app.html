@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fitforg</title>
 <meta name="theme-color" content="#000000">
+<meta name="background-color" content="#000000">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-130 -120 731 728'%3E%3Crect x='-130' y='-120' width='731' height='728' rx='120' fill='%23000'/%3E%3Cpath d='M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z' fill='%23fff'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@ html,body{height:100%}
 body{background:var(--bg);color:var(--fg);font-family:var(--hd);font-size:15px;line-height:1.4;display:flex;justify-content:center}
 button,input{font:inherit;color:inherit;background:none;border:0}button{cursor:pointer}
 button:focus-visible,input:focus-visible{outline:2px solid #fff;outline-offset:2px}
-#app{width:100%;max-width:440px;height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden}
+#app{width:100%;max-width:440px;height:100%;display:flex;flex-direction:column;position:relative;overflow:hidden;background:#000}
 @media (min-width:520px){body{background:#000;align-items:center}#app{height:min(880px,calc(100% - 32px));border-radius:36px;border:1px solid var(--ln)}}
 main{flex:1;overflow-y:auto;padding:20px 20px 110px;scrollbar-width:none}main::-webkit-scrollbar{display:none}
 h1{font-weight:800;font-size:38px;letter-spacing:-.045em;line-height:1}
@@ -106,7 +107,9 @@ details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;paddi
 @media (prefers-reduced-motion:reduce){#splash .sp-txt{opacity:1;transform:none;animation:none}#splash{transition:opacity .01s}}
 </style>
 </head>
-<body>
+<body style="background:#000">
+<div id="preloader" style="position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .3s"><div style="width:30px;height:30px;border:2px solid #333;border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite"></div></div>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <div id="app"><main id="main"></main><nav id="nav"></nav>
 <!-- ===== Fitforg welcome screen: remove this block (and #splash CSS/JS) to disable ===== -->
 <section id="splash" aria-label="Welcome to Fitforg">
@@ -347,6 +350,8 @@ lock.forEach(n=>n.inert=true);
 let done=0;
 function leave(){if(done)return;done=1;try{localStorage.setItem("ff_welcome","1")}catch(e){}
 sp.classList.add("out");lock.forEach(n=>n.inert=false);setTimeout(()=>sp.remove(),450)}
+// Remove preloader once app is ready
+var pl=document.getElementById("preloader");if(pl){pl.style.opacity="0";setTimeout(function(){pl.remove()},300)}
 go.onclick=leave;
 })();
 </script>
