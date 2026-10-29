@@ -3,6 +3,6 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.fitforg.app",
-        "sha256_cert_fingerprints": ["A2:ED:BA:C6:16:B6:AB:AB:31:37:46:D3:BB:06:22:F3:65:EC:7C:1F:DD:42:09:87:BE:B6:84:10:E1:20:07:05"]
+        "sha256_cert_fingerprints": ["71:21:5D:D8:28:2C:B9:75:2C:7C:AC:80:8D:02:FB:26:A7:AD:C4:5B:A6:5C:AB:6D:C9:E4:9D:3F:25:FF:E3:EA"]
       }
     }]
