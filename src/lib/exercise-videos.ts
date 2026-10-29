@@ -13,7 +13,7 @@
 
 // Cache-busting version — bump this when replacing a video file
 // to force browsers to fetch the new version instead of using cache
-const VIDEO_VERSION = 'v6'
+const VIDEO_VERSION = 'v7'
 
 export const EXERCISE_VIDEOS: Record<string, string> = {
   // Dumbbell Walking Lunge — 3D exercise demo video (portrait 720x1280, matches
