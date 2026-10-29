@@ -31,6 +31,7 @@ import {
 } from '@/lib/workout-generator'
 import { FitforgLogo } from '@/components/fitforg-logo'
 import { PWAInstallBanner } from '@/components/pwa-install-banner'
+import { SplashScreen } from '@/components/splash-screen'
 import { ExerciseAnimationView } from '@/components/exercise-animation'
 
 type TabKey = 'today' | 'week' | 'gear'
@@ -146,6 +147,8 @@ export default function Home() {
 
   return (
     <>
+      {/* Splash screen — text-only FITFORG wordmark, fades to app */}
+      <SplashScreen />
 
       <div className="min-h-screen flex flex-col bg-background">
         {/* Header — minimal, no logo (splash already showed it) */}

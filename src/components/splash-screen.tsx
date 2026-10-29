@@ -1,21 +1,27 @@
 'use client'
 
 import { useEffect, useState, useSyncExternalStore } from 'react'
-import { FitforgLogo } from '@/components/fitforg-logo'
 
 // ============================================================
-// SplashScreen — centered logo + FITFORG wordmark shown on
-// app open. Fades out after a brief moment to reveal the app.
-// Uses sessionStorage so it only shows once per app session
-// (not every time you switch tabs within the app).
+// SplashScreen — text-only splash shown when the app launches.
+// Replaces Android's native splash (logo only) with a smooth
+// fade to the "FITFORG" wordmark, then fades into the app.
+//
+// Text style:
+//   - "FIT" bold
+//   - "FORG" normal weight
+//   - Space Grotesk font (via .font-display class)
+//   - Same styling as the in-app header text
+//
+// Shows once per browser session (sessionStorage), so switching
+// tabs within the app doesn't trigger it again.
 // ============================================================
 
-const STORAGE_KEY = 'fitforg:splash-seen'
-const SPLASH_DURATION = 1800 // ms — how long the splash is visible
-const FADE_DURATION = 500    // ms — how long the fade-out lasts
+const STORAGE_KEY = 'fitforg:splash-seen-text'
+const SPLASH_VISIBLE_MS = 1400  // ms — how long the text splash is visible
+const FADE_MS = 400             // ms — how long the fade-out lasts
 
 // useSyncExternalStore: subscribe to sessionStorage "already seen" state.
-// Avoids setState-in-effect lint issue.
 function subscribeSeen(callback: () => void) {
   if (typeof window === 'undefined') return () => {}
   window.addEventListener('storage', callback)
@@ -35,19 +41,18 @@ function getSeenServerSnapshot(): boolean {
 
 export function SplashScreen() {
   const alreadySeen = useSyncExternalStore(subscribeSeen, getSeenSnapshot, getSeenServerSnapshot)
-  // If already seen this session, never mount the splash at all
   const [fading, setFading] = useState(false)
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    if (alreadySeen) return // nothing to do — splash is already not rendered
+    if (alreadySeen) return // splash already shown this session
 
-    // After SPLASH_DURATION, start the fade
+    // After SPLASH_VISIBLE_MS, start fading out
     const fadeTimer = setTimeout(() => {
       setFading(true)
-    }, SPLASH_DURATION)
+    }, SPLASH_VISIBLE_MS)
 
-    // After fade completes, unmount the splash + mark seen
+    // After fade completes, unmount the splash + mark as seen
     const hideTimer = setTimeout(() => {
       setHidden(true)
       try {
@@ -55,7 +60,7 @@ export function SplashScreen() {
       } catch {
         // ignore
       }
-    }, SPLASH_DURATION + FADE_DURATION)
+    }, SPLASH_VISIBLE_MS + FADE_MS)
 
     return () => {
       clearTimeout(fadeTimer)
@@ -68,29 +73,22 @@ export function SplashScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] bg-background grid place-items-center transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] bg-background grid place-items-center transition-opacity duration-400 ${
         fading ? 'opacity-0' : 'opacity-100'
       }`}
       aria-hidden={fading}
+      style={{ transitionDuration: `${FADE_MS}ms` }}
     >
-      <div className="flex flex-col items-center gap-5">
-        {/* Big centered logo */}
-        <FitforgLogo size={96} />
+      <div className="flex flex-col items-center gap-3">
+        {/* Text-only wordmark — same styling as the in-app header */}
+        <h1 className="font-display text-5xl sm:text-6xl tracking-tight">
+          <b>FIT</b>FORG
+        </h1>
 
-        {/* Wordmark */}
-        <div className="text-center">
-          <h1 className="impact text-3xl tracking-tight">fitforg</h1>
-          <p className="label-eyebrow text-muted-foreground mt-2">
-            THE GRIND, SYSTEMATIZED
-          </p>
-        </div>
-      </div>
-
-      {/* Subtle pulse loader at bottom — indicates the app is loading */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-1">
-        <span className="block h-1 w-1 bg-foreground/60 animate-pulse" style={{ animationDelay: '0ms' }} />
-        <span className="block h-1 w-1 bg-foreground/60 animate-pulse" style={{ animationDelay: '150ms' }} />
-        <span className="block h-1 w-1 bg-foreground/60 animate-pulse" style={{ animationDelay: '300ms' }} />
+        {/* Tagline — small mono eyebrow */}
+        <p className="label-eyebrow text-muted-foreground mt-1">
+          THE GRIND, SYSTEMATIZED
+        </p>
       </div>
     </div>
   )
