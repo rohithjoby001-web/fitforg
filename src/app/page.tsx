@@ -31,6 +31,7 @@ import {
 } from '@/lib/workout-generator'
 import { FitforgLogo } from '@/components/fitforg-logo'
 import { PWAInstallBanner } from '@/components/pwa-install-banner'
+import { SplashScreen } from '@/components/splash-screen'
 import { ExerciseAnimationView } from '@/components/exercise-animation'
 
 type TabKey = 'today' | 'week' | 'gear'
@@ -146,12 +147,14 @@ export default function Home() {
 
   return (
     <>
+      {/* Splash screen — shows on first app open, fades to app */}
+      <SplashScreen />
 
       <div className="min-h-screen flex flex-col bg-background">
         {/* Header — minimal, no logo (splash already showed it) */}
         <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur-md">
           <div className="mx-auto max-w-3xl px-5 py-3.5 flex items-center justify-between">
-            <span className="impact text-lg tracking-tight">fitforg</span>
+            <span className="font-display text-lg tracking-tight"><b>fit</b>forg</span>
             {streak > 0 && (
               <div className="flex items-center gap-2 px-2.5 py-1 border border-border">
                 <span className="label-eyebrow text-muted-foreground">STREAK</span>
@@ -240,7 +243,7 @@ function OnboardingScreen({
         <div className="mb-10">
           <div className="flex items-center gap-4 mb-8">
             <FitforgLogo size={64} />
-            <span className="impact text-3xl tracking-tight">fitforg</span>
+            <span className="font-display text-3xl tracking-tight"><b>fit</b>forg</span>
           </div>
           <h1 className="font-display text-5xl sm:text-6xl font-semibold leading-[1.05] tracking-tight mb-5">
             Pick your gear.
@@ -795,7 +798,7 @@ function GearView({
       </div>
 
       <div className="text-center py-4">
-        <p className="impact text-sm mb-1">fitforg</p>
+        <p className="font-display text-sm mb-1"><b>fit</b>forg</p>
         <p className="label-eyebrow text-muted-foreground">
           NO ACCOUNTS · NO ADS · OFFLINE
         </p>
