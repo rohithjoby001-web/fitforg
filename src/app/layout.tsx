@@ -1,9 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Inter_Tight, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-const inter = Inter({
+// ============================================================
+// fitforg fonts — premium dashboard typography
+//   - Inter Tight: main body + UI text (tighter than Inter)
+//   - Space Grotesk: display headings (FITFORG, hero titles)
+//   - IBM Plex Mono: numeric data labels, eyebrows, stats
+// ============================================================
+
+const interTight = Inter_Tight({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -80,12 +87,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        {/* PWA meta tags that Next.js metadata doesn't cover directly */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content="fitforg" />
       </head>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${plexMono.variable} antialiased bg-background text-foreground min-h-screen`}
+        className={`${interTight.variable} ${spaceGrotesk.variable} ${plexMono.variable} antialiased bg-background text-foreground min-h-screen`}
       >
         {children}
         <Toaster />
