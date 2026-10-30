@@ -100,6 +100,34 @@ details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;paddi
 .note.bad{border-color:#5a2a2a}.note.bad b{color:#f87171}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 
+/* ===== Explore tab ===== */
+.eq{display:flex;flex-wrap:wrap;gap:8px}
+.eb{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:99px;border:1.5px solid var(--ln);font-family:var(--lb);font-size:14px;font-weight:600;color:var(--mu)}
+.eb em{font-style:normal;font-size:16px;filter:grayscale(1)}
+.eb.on{background:#fff;color:#000;border-color:#fff}.eb:disabled{cursor:default}
+.xs{position:sticky;top:0;z-index:4;margin:22px -20px 6px;padding:10px 20px 0;background:#000}
+.xs:after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:linear-gradient(#000,transparent);pointer-events:none}
+.xs .srch{margin:0 0 12px}.xs .chips{margin-bottom:0;padding-bottom:10px}
+.chip b{font-weight:600;font-size:12.5px;opacity:.55;margin-left:6px}
+.xr{display:flex;align-items:center;justify-content:space-between;gap:10px;font-family:var(--lb);font-size:13.5px;color:var(--mu);margin:14px 0 12px;min-height:36px}.xr .chip{min-height:36px;font-size:13.5px}
+.xg{display:grid;grid-template-columns:1fr 1fr;gap:20px 12px}
+.xc{position:relative}
+.xo{display:block;width:100%;text-align:left}
+.xt{position:relative;aspect-ratio:1;background:var(--s1);border:1px solid var(--ln);border-radius:22px;padding:18px 14px 14px}
+.xtag{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:5px;font-family:var(--lb);font-size:11.5px;font-weight:600;color:var(--mu);background:rgba(30,30,30,.92);border:1px solid var(--ln);border-radius:99px;padding:3px 9px}
+.xn{margin-top:10px;font-weight:600;font-size:15.5px;line-height:1.2;letter-spacing:-.01em}
+.xm{margin-top:3px;font-family:var(--lb);font-size:13px;color:var(--mu)}
+.xa{position:absolute;top:4px;right:4px;width:44px;height:44px;display:grid;place-items:center;z-index:2}
+.xa span{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--ln);background:rgba(0,0,0,.7)}
+.xa.on span{background:#fff;color:#000;border-color:#fff}
+.xc.lk .fig{opacity:.3}.xc.lk .xn{color:var(--mu)}
+.em{text-align:center;padding:36px 0 8px;display:flex;flex-direction:column;align-items:center;gap:8px}.em strong{font-size:17px}.em .cta{margin-top:10px}
+.xf{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:40px;text-align:center}.xf p{font-size:13px}
+
+.xo:active .xt{border-color:#555}.eb:active,.chip:active{transform:scale(.97)}
+.th{position:relative}.th.dn .fig{opacity:.4}.th .tk{position:absolute;right:3px;bottom:3px;width:20px;height:20px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center}
+.rt-c{transition:stroke-dashoffset .5s linear}
+#splash.quick .sp-act{visibility:hidden}
 /* ===== Fitforg welcome screen (independent section) ===== */
 .mk{display:block;width:26px;height:auto;flex:none;fill:#fff}
 #splash{container-type:size;position:absolute;inset:0;z-index:60;background:#000;overflow:hidden;transition:opacity .4s ease,transform .4s ease}
@@ -134,7 +162,7 @@ details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;paddi
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ff-mark" viewBox="0 0 471 488"><path d="M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z"/></symbol></svg>
 <script>
 const $=s=>document.querySelector(s);
-const IC={today:'<path d="M5 20V11M12 20V4M19 20v-6"/>',stats:'<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>',library:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M9 7h7M9 11h7"/>',ex:'<path d="M3 12h2M19 12h2M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/>',wo:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',gear:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',chk:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',plus:'<path d="M12 5v14M5 12h14"/>',srch:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',play:'<path d="M7 4l13 8-13 8z" fill="currentColor"/>'};
+const IC={eq_bw:'<circle cx="12" cy="4.5" r="2"/><path d="M5.5 9.5l6.5 1.5 6.5-1.5M12 11v4.5M12 15.5l-3 5.5M12 15.5l3 5.5"/>',eq_db:'<rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/><path d="M7 12h10M2 10v4M22 10v4"/>',eq_bar:'<path d="M3 4.5v5M21 4.5v5M3 7h18"/><circle cx="12" cy="10.5" r="1.8"/><path d="M8 7l2.5 5.5M16 7l-2.5 5.5M12 12.5v4.5M12 17l-2 4M12 17l2 4"/>',eq_band:'<rect x="2" y="8.5" width="3.5" height="7" rx="1.3"/><rect x="18.5" y="8.5" width="3.5" height="7" rx="1.3"/><path d="M5.5 12c2-4.5 4-4.5 6.5 0s4.5 4.5 6.5 0"/>',eq_kb:'<path d="M8.5 10.5v-3a3.5 3.5 0 0 1 7 0v3"/><circle cx="12" cy="15.5" r="5.5"/>',today:'<path d="M5 20V11M12 20V4M19 20v-6"/>',stats:'<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>',library:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M9 7h7M9 11h7"/>',ex:'<path d="M3 12h2M19 12h2M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/>',wo:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',gear:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',chk:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',plus:'<path d="M12 5v14M5 12h14"/>',srch:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',play:'<path d="M7 4l13 8-13 8z" fill="currentColor"/>'};
 const ic=(n,s=20,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
 // id|name|muscle|equipment|motion|sets|reps|rest|steps;|tip|swap
 const E={};`squat-goblet|Goblet Squat|Legs|db|squat|3|12|75|Hold one dumbbell upright at your chest, elbows pointing down.;Sit your hips back and down until your thighs are parallel to the floor.;Drive through your whole foot to stand tall.|Keep your chest up and knees over your toes.|squat
@@ -263,6 +291,7 @@ const iso=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),dy=n=>new Date
 function seed(){const h={};for(let i=1;i<30;i++){const d=dy(i);if((d.getDay()+6)%7!==6&&((i*7+3)%5<3||i<=3))h[iso(d)]={s:12+(i*5)%7,r:140+(i*37)%90}}return h}
 let S;try{S=JSON.parse(localStorage.getItem("ff3"))}catch(e){}
 S=S||{gear:{bw:1,db:1},wo:"legs",mine:[],done:{},h:seed(),tab:"today",q:"",mu:"All",mg:0};
+S.done=S.done||{};{const t=iso(new Date())+"|";for(const k in S.done)if(k.indexOf(t)!==0)delete S.done[k]}
 const save=()=>{try{localStorage.setItem("ff3",JSON.stringify(S))}catch(e){}};
 const gears=()=>BASE;
 const gname=k=>(gears().find(g=>g[0]===k)||[,,k])[2];
@@ -272,71 +301,57 @@ const wl=()=>{const seen={};return(S.wo==="mine"?S.mine:WO[S.wo][2]).map(res).fi
 const wname=()=>S.wo==="mine"?"My workout":WO[S.wo][0];
 const hd=n=>S.h[iso(dy(n))]||{s:0,r:0},fmt=n=>n>=1e4?Math.round(n/1e3)+"k":n>=1e3?(n/1e3).toFixed(1)+"k":""+n;
 function streak(){let n=0;for(let i=0;i<400;i++){if(hd(i).s)n++;else if(i)break}return n}
-const dk=e=>S.wo+":"+e.id,rp=r=>/s$/.test(r)?r:r+" reps";
+const dk=e=>iso(new Date())+"|"+S.wo+":"+e.id,rp=r=>/s$/.test(r)?r:r+" reps";
 function toast(m){const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.textContent=m;$("#app").append(t);setTimeout(()=>t.remove(),2600)}
 function nav(){$("#nav").innerHTML=[["today","Today"],["stats","Progress"],["library","Explore"]].map(([k,l])=>`<button data-a="tab" data-v="${k}" class="${S.tab===k?"cur":""}" aria-label="${l}" aria-current="${S.tab===k}">${ic(k,22)}<span>${l}</span></button>`).join("")}
+function xcard(e){var ok=av(e),on=S.mine.includes(e.id);
+return '<div class="xc'+(ok?'':' lk')+'"><button class="xo" data-a="open" data-v="'+e.id+'"><div class="xt">'+fig(e.p,e.eq)+(e.eq!=="bw"?'<span class="xtag">'+(ok?ic("eq_"+e.eq,13,2.2):ic("lock",12,2.5))+gname(e.eq)+'</span>':'')+'</div><div class="xn">'+e.name+'</div><div class="xm">'+e.m+' · '+e.s+' × '+e.r+'</div></button><button class="xa'+(on?' on':'')+'" data-a="mine" data-v="'+e.id+'" aria-label="'+(on?'Remove '+e.name+' from':'Add '+e.name+' to')+' my workout"><span>'+ic(on?"chk":"plus",16,2.5)+'</span></button></div>'}
 function exrows(){const q=S.q.toLowerCase(),L=Object.values(E).filter(e=>(S.mu==="All"||e.m===S.mu)&&(!q||(e.name+e.m).toLowerCase().includes(q))&&(!S.mg||av(e)));
-return L.length?L.map(function(e){return '<button class="row" style="width:100%;text-align:left;padding:10px 8px;margin-bottom:6px" data-a="open" data-v="'+e.id+'"><div class="th" style="width:48px;height:48px">'+fig(e.p,e.eq)+'</div><div class="t"><strong style="font-size:15px">'+e.name+'</strong><span class="m" style="font-size:13px">'+e.m+' · '+gname(e.eq)+(av(e)?'':' · locked')+'</span></div><div class="act '+(S.mine.includes(e.id)?'on':'')+'" style="width:36px;height:36px;border-width:1px">'+ic(S.mine.includes(e.id)?'chk':'plus',18,2.5)+'</div></button>'}).join(''):'<p class="mu" style="text-align:center;padding:30px 0">No exercises match.</p>'}
+return '<div class="xr"><span>'+L.length+(L.length===1?' exercise':' exercises')+'</span>'+(S.mine.length?'<button class="chip" data-a="usemine">Use My workout · '+S.mine.length+'</button>':'')+'</div>'+(L.length?'<div class="xg">'+L.map(xcard).join('')+'</div>':'<div class="em"><strong>No exercises match</strong><p class="mu">Try another muscle group or clear your filters.</p><button class="cta g s" data-a="clr">Clear filters</button></div>')}
 function vStats(){let W=0,St=0,R=0,pl="";for(let i=0;i<30;i++){const h=hd(i);if(h.s){W++;St+=h.s;R+=h.r}}
 for(let i=29;i>=0;i--){const h=hd(i);pl+=`<i class="${i===0?"now ":""}${h.s?"on":(dy(i).getDay()+6)%7===6?"rest":""}"></i>`}
 const TD=(new Date().getDay()+6)%7,wr=[...Array(7)].map((_,j)=>TD-j>=0?hd(TD-j).r:0),tw=wr.reduce((a,b)=>a+b,0),lw=wr.reduce((a,_,j)=>a+(j<=TD?hd(TD-j+7).r:0),0),dl=lw?Math.round((tw-lw)/lw*100):0,mx=Math.max(...wr,1);
-var avg=Math.round(W/4),best=0,bd="";for(var i=0;i<30;i++){var h=hd(i);if(h.r>best){best=h.r;bd=dy(i).toLocaleDateString("en",{day:"numeric",month:"short"})}}
+var avg=Math.round(W/30*70)/10,best=0,bd="";for(var i=0;i<30;i++){var h=hd(i);if(h.r>best){best=h.r;bd=dy(i).toLocaleDateString("en",{day:"numeric",month:"short"})}}
 return`<div class="top"><span style="display:flex;align-items:center;gap:10px;font-family:var(--lb);font-size:17px;letter-spacing:.14em"><svg class="mk" style="width:22px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><span><b style="font-weight:700">FIT</b>FORG</span></span><span class="pill">${streak()}-day streak</span></div>
 <h1 style="margin:20px 0 16px">Progress</h1>
 <div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:14px">Last 30 days</span><small>${W} active days</small></div><div class="pills" role="img" aria-label="${W} active days in the last 30">${pl}</div></div>
-<div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:15px;font-weight:600">This week</span><small>Daily reps</small></div><p style="margin-top:6px"><b style="font-size:26px;letter-spacing:-.03em">${tw}</b> <span class="mu">reps</span> <small style="font-family:var(--lb);font-weight:600;margin-left:8px">${dl>=0?"▲":"▼"} ${Math.abs(dl)}%</small></p>
+<div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:15px;font-weight:600">This week</span><small>Daily reps</small></div><p style="margin-top:6px"><b style="font-size:26px;letter-spacing:-.03em">${tw}</b> <span class="mu">reps</span> ${lw?`<small style="font-family:var(--lb);font-weight:600;margin-left:8px">${dl>=0?"▲":"▼"} ${Math.abs(dl)}% vs last week</small>`:""}</p>
 <div class="wk">${wr.map((r,j)=>`<div class="${j===TD?"t":""}"><b>${r||""}</b><i style="height:${8+r/mx*60}px"></i>${"MTWTFSS"[j]}</div>`).join("")}</div></div>
-<div class="stats" style="grid-template-columns:1fr 1fr"><div class="stat"><b style="font-size:22px">${avg||0}</b><span>avg workouts/week</span></div><div class="stat"><b style="font-size:22px">${best||0}</b><span>best day: ${bd||"—"}</span></div></div>
+<div class="stats" style="grid-template-columns:1fr 1fr"><div class="stat"><b style="font-size:22px">${avg||0}</b><span>avg workouts/week</span></div><div class="stat"><b style="font-size:22px">${best||0}</b><span>reps on best day${bd?" ("+bd+")":""}</span></div></div>
 <div class="card"><p class="mu" style="font-size:14px;margin-bottom:10px">Quick summary</p><p class="mu" style="font-size:15px;line-height:1.6">You've trained <b style="color:#fff">${W} times</b> in the last 30 days, completing <b style="color:#fff">${St} sets</b> and <b style="color:#fff">${fmt(R)} reps</b>. ${streak()>1?"You're on a "+streak()+"-day streak — keep it going!":"Start your streak today."}</p></div>`}
 function vToday(){const L=wl(),n=L.length,d=L.filter(x=>S.done[dk(x.e)]).length,min=Math.round(L.reduce((a,x)=>a+x.e.s*(40+x.e.rs)/60,0));
 let W=0,St=0,R=0,pl="";for(let i=0;i<30;i++){const h=hd(i);if(h.s){W++;St+=h.s;R+=h.r}}
 for(let i=29;i>=0;i--){const h=hd(i);pl+=`<i class="${i===0?"now ":""}${h.s?"on":(dy(i).getDay()+6)%7===6?"rest":""}"></i>`}
 const TD=(new Date().getDay()+6)%7,wr=[...Array(7)].map((_,j)=>TD-j>=0?hd(TD-j).r:0),tw=wr.reduce((a,b)=>a+b,0),lw=wr.reduce((a,_,j)=>a+(j<=TD?hd(TD-j+7).r:0),0),dl=lw?Math.round((tw-lw)/lw*100):0,mx=Math.max(...wr,1);
-const pool=Object.values(E),m=pool[(new Date().getDate()*7+new Date().getMonth())%pool.length];
+const all=Object.values(E),pool=all.filter(av).length?all.filter(av):all,m=pool[(new Date().getDate()*7+new Date().getMonth())%pool.length];
 return`<div class="top"><span style="display:flex;align-items:center;gap:10px;font-family:var(--lb);font-size:17px;letter-spacing:.14em" aria-label="Fitforg"><svg class="mk" style="width:22px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><span><b style="font-weight:700">FIT</b>FORG</span></span><span class="pill">${streak()}-day streak</span></div><p class="date" style="margin:0 0 14px">${new Date().toLocaleDateString("en",{weekday:"long",day:"numeric",month:"short"})}</p>
 <div class="card"><p class="mu" style="font-size:14px">Today</p><div class="badge"><h1>${wname()}</h1></div><p class="mu" style="font-size:14px">${S.wo==="mine"?"Your own list":WO[S.wo][1]}</p>
 ${n?`<div style="display:flex;gap:8px;margin:14px 0 0;flex-wrap:wrap"><span class="cm">${ic("wo",16)}~${min} min</span><span class="cm">${ic("ex",16)}${n} exercises</span>${d?`<span class="cm">${d}/${n} done</span>`:""}</div>
-<div class="pv" aria-label="Moves in this workout">${L.map(x=>`<button class="th" data-a="open" data-v="${x.e.id}" aria-label="${x.e.name}">${fig(x.e.p,x.e.eq)}</button>`).join("")}</div>
+<div class="pv" aria-label="Moves in this workout">${L.map(x=>`<button class="th ${S.done[dk(x.e)]?"dn":""}" data-a="open" data-v="${x.e.id}" aria-label="${x.e.name}${S.done[dk(x.e)]?" (done)":""}">${fig(x.e.p,x.e.eq)}${S.done[dk(x.e)]?`<i class="tk">${ic("chk",12,3.5)}</i>`:""}</button>`).join("")}</div>
 <button class="cta" data-a="go">${ic("play",18)} ${d===n?"Restart workout":d?"Resume workout":"Start workout"}</button>`
-:`<p class="mu" style="margin:14px 0">No moves yet. Add some from the Exercises tab.</p><button class="cta" data-a="tab" data-v="library">Browse exercises</button>`}
+:`<p class="mu" style="margin:14px 0">No moves yet. Add some from Explore.</p><button class="cta" data-a="tab" data-v="library">Browse exercises</button>`}
 <button class="cta g" style="margin-top:10px;height:48px;font-size:15px" data-a="pick">Change workout</button></div>
+<p class="mu" style="margin:18px 2px -2px;font-size:14px">Last 30 days</p>
 <div class="stats"><div class="stat">${ic("wo",20)}<b>${W}</b><span>workouts</span></div><div class="stat">${ic("ex",20)}<b>${St}</b><span>sets</span></div><div class="stat">${ic("today",20)}<b>${fmt(R)}</b><span>reps</span></div></div>
 <div class="card"><p class="mu" style="font-size:14px;margin-bottom:12px">Move of the day</p><div class="mo"><div class="dm">${fig(m.p,m.eq,1)}</div><div><h2>${m.name}</h2><p class="mu" style="margin:4px 0 12px;font-size:14px">${m.m} · ${gname(m.eq)}</p><button class="cta" data-a="open" data-v="${m.id}">Learn it</button></div></div></div>
 <button class="cta g" style="margin-top:12px;height:48px;font-size:15px" data-a="tab" data-v="stats">${ic("stats",20)} View progress</button>`}
 function vLibrary(){
-var exCount=Object.values(E).filter(function(e){return !S.mg||av(e)}).length;
-var gearCount=gears().filter(function(g){return S.gear[g[0]]}).length;
-var firstEx=Object.values(E).find(function(e){return !S.mg||av(e)})||Object.values(E)[0];
-
-return '<h1 style="margin:20px 0 16px;font-size:32px;letter-spacing:-0.04em">Explore</h1>'+
-'<div class="card" style="padding:0;margin-bottom:16px;overflow:hidden">'+
-'<button style="display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px 16px;background:none;border:0;border-bottom:1px solid var(--ln);cursor:pointer" data-a="toggle" data-v="exSec">'+
-'<div class="th" style="width:56px;height:56px;flex:none">'+fig(firstEx.p,firstEx.eq)+'</div>'+
-'<div style="flex:1;min-width:0"><strong style="display:block;font-size:17px;margin-bottom:2px">Exercises</strong><span class="m" style="font-size:14px">'+exCount+' moves</span></div>'+
-'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="exArrow" style="transition:transform .2s;color:var(--mu);flex:none"><path d="M6 9l6 6 6-6"/></svg>'+
-'</button>'+
-'<div id="exSec" style="display:none">'+
-'<label class="srch" style="margin:12px 16px;border-radius:12px">'+ic("srch",18)+'<input id="q" type="search" placeholder="Search" value="'+S.q+'" aria-label="Search"></label>'+
-'<div class="chips" style="margin:0 16px 12px">'+MU.map(function(m){return '<button class="chip '+(S.mu===m?"on":"")+'" data-a="mu" data-v="'+m+'">'+m+'</button>'}).join("")+'<button class="chip '+(S.mg?"on":"")+'" data-a="mg">My gear</button></div>'+
-'<div id="exl" style="padding:0 8px 8px">'+exrows()+'</div>'+
-'</div></div>'+
-'<div class="card" style="padding:0;overflow:hidden">'+
-'<button style="display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px 16px;background:none;border:0;border-bottom:1px solid var(--ln);cursor:pointer" data-a="toggle" data-v="gearSec">'+
-'<div class="th" style="width:56px;height:56px;flex:none;display:grid;place-items:center;font-size:24px">'+(gears().find(function(g){return S.gear[g[0]]})||gears()[0])[1]+'</div>'+
-'<div style="flex:1;min-width:0"><strong style="display:block;font-size:17px;margin-bottom:2px">Gear</strong><span class="m" style="font-size:14px">'+gearCount+' active</span></div>'+
-'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="gearArrow" style="transition:transform .2s;color:var(--mu);flex:none"><path d="M6 9l6 6 6-6"/></svg>'+
-'</button>'+
-'<div id="gearSec" style="display:none">'+
-gears().map(function(g){var k=g[0],e=g[1],n=g[2],d=g[3];return '<div style="display:flex;align-items:center;padding:14px 16px;border-bottom:1px solid var(--ln)"><em style="font-style:normal;font-size:22px;width:32px;text-align:center;margin-right:14px">'+e+'</em><div style="flex:1;min-width:0"><strong style="display:block;font-size:15px">'+n+'</strong><span class="m" style="font-size:13px">'+d+'</span></div><button class="gr '+(S.gear[k]?"on":"")+'" style="border:0;padding:0;background:none" data-a="tg" data-v="'+k+'" role="switch" aria-checked="'+(!!S.gear[k])+'" '+(k==="bw"?"disabled":"")+'><i class="sw"></i></button></div>'}).join("")+
-'<div style="padding:16px"><p class="mu" style="font-size:13px;margin:0 0 12px">Reset clears progress and streak. Gear stays.</p><button class="cta g" data-a="rs" style="height:44px;font-size:14px">Reset progress</button></div>'+
-'<div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 0 16px"><svg class="mk" style="width:20px;opacity:.4" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><p class="lbl" style="opacity:.5">Fitforg · Works offline</p></div>'+
-'</div></div>'}
-function render(){nav();$("#main").innerHTML={today:vToday,stats:vStats,library:vLibrary}[S.tab]();still()}
+var base=Object.values(E).filter(function(e){return !S.mg||av(e)});
+var chips=MU.map(function(m){var c=m==="All"?base.length:base.filter(function(e){return e.m===m}).length;return '<button class="chip '+(S.mu===m?"on":"")+'" data-a="mu" data-v="'+m+'" aria-pressed="'+(S.mu===m)+'">'+m+'<b>'+c+'</b></button>'}).join("");
+var eq=gears().map(function(g){var k=g[0],on=!!S.gear[k];return '<button class="eb '+(on?"on":"")+'" data-a="tg" data-v="'+k+'" role="switch" aria-checked="'+on+'" title="'+g[3]+'"'+(k==="bw"?" disabled":"")+'>'+ic("eq_"+k,20,2)+g[2]+(on?ic("chk",14,3):"")+'</button>'}).join("");
+return '<div class="top"><span style="display:flex;align-items:center;gap:10px;font-family:var(--lb);font-size:17px;letter-spacing:.14em" aria-label="Fitforg"><svg class="mk" style="width:22px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><span><b style="font-weight:700">FIT</b>FORG</span></span><span class="pill">'+streak()+'-day streak</span></div>'+
+'<h1 style="margin:20px 0 22px">Explore</h1>'+
+'<div class="ch" style="align-items:center;margin-bottom:12px"><h2>Your equipment</h2><button class="chip '+(S.mg?"on":"")+'" data-a="mg" role="switch" aria-checked="'+(!!S.mg)+'" style="min-height:36px;font-size:13.5px">'+(S.mg?ic("chk",13,3)+" ":"")+'Hide locked</button></div>'+
+'<div class="eq">'+eq+'</div>'+
+'<div class="xs"><label class="srch">'+ic("srch",18)+'<input id="q" type="search" placeholder="Search exercises" value="'+S.q.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'" aria-label="Search exercises"></label><div class="chips">'+chips+'</div></div>'+
+'<div id="exl">'+exrows()+'</div>'+
+'<div class="xf"><button class="cta g s" data-a="rs">Reset progress</button><p class="mu">Clears progress and streak. Your gear stays.</p><svg class="mk" style="width:20px;opacity:.4;margin-top:12px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><p class="lbl" style="opacity:.5">Fitforg · Works offline</p></div>'}
+function render(){const m=$("#main"),y=m.scrollTop;nav();m.innerHTML={today:vToday,stats:vStats,library:vLibrary}[S.tab]();still();m.scrollTop=y}
 function sheet(h,b,f){const s=document.createElement("div");s.className="sheet";s.innerHTML=`<div class="sh"><button class="x" data-a="close" aria-label="Close">${ic("x")}</button>${h}</div><div class="sb">${b}</div>${f?`<div class="foot">${f}</div>`:""}`;$("#app").append(s);still();return s}
 function open_(id){const e=E[id],ok=av(e),mine=S.mine.includes(id);
 const s=sheet(`<span class="lbl">${e.m}</span>`,`${demo(e)}
 <h1>${e.name}</h1><div class="chips2"><b>${e.s} sets</b><b>${rp(e.r)}</b><b>${e.rs}s rest</b><b>${gname(e.eq)}</b></div>
-${ok?"":`<div class="note"><b>Needs ${gname(e.eq)}.</b> ${e.alt?`Your workouts will use ${E[e.alt].name} instead.`:"Add the gear in the Gear tab to unlock it."}</div>`}
+${ok?"":`<div class="note"><b>Needs ${gname(e.eq)}.</b> ${e.alt?`Your workouts will use ${E[e.alt].name} instead.`:"Turn it on under Your equipment in Explore."}</div>`}
 <h2>How to do it</h2><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>
 <div class="note"><b>Form tip.</b> ${e.tp}</div>${fc(e)}${e.alt&&E[e.alt]?`<button class="row" data-a="open2" data-v="${e.alt}" style="margin-top:14px"><div class="th">${fig(E[e.alt].p,E[e.alt].eq)}</div><div class="t"><strong>${E[e.alt].name}</strong><span class="m">No-gear alternative</span></div></button>`:""}`,
 `<button class="cta" data-a="mine2" data-v="${id}">${mine?"Remove from my workout":"Add to my workout"}</button>`);s.dataset.id=id}
@@ -349,15 +364,15 @@ function stop(){clearInterval(tm);ss=null;$(".sheet")?.remove();render()}
 function sv(){document.querySelector(".sheet")?.remove();const L=ss.L,e=L[ss.i],nx=L.find((x,j)=>j!==ss.i&&!S.done[dk(x)]);let b,f="";
 const hd=`<div class="segs">${L.map((x,j)=>`<i class="${S.done[dk(x)]?"d":j===ss.i?"c":""}"></i>`).join("")}</div><span style="width:44px"></span>`;
 if(ss.fin)b=`<div style="text-align:center;padding:60px 0"><div class="big">Done.</div><p class="mu" style="margin-top:12px">${wname()} complete. Streak: ${streak()} days.</p></div>`,f=`<button class="cta" data-a="stop">Back to workout</button>`;
-else if(ss.rest){const C2=2*Math.PI*80;b=`<div style="text-align:center;padding-top:20px"><p class="lbl">Rest</p><div style="position:relative;width:180px;height:180px;margin:18px auto"><div class="rest-extra" id="restExtra"></div><svg width="180" height="180" style="transform:rotate(-90deg)"><circle cx="90" cy="90" r="80" fill="none" stroke="#1e1e1e" stroke-width="8"/><circle cx="90" cy="90" r="80" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C2}" stroke-dashoffset="${C2*(1-ss.rest/ss.max)}"/></svg><div class="big" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb);font-size:48px">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center"><button class="cta g s" data-a="p15" style="border-color:#4ade80;color:#4ade80">+15s</button><button class="cta g s skip-red" data-a="skip">Skip rest</button></div></div><div class="rest-card-glow" style="margin:20px 0 0;padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:20px"><p class="lbl" style="margin:0 0 10px">Up next</p><div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:100px;flex:none;background:var(--s2);border-radius:14px;padding:6px;box-shadow:0 0 12px rgba(255,255,255,.08)">${fig(e.p,e.eq)}</div><div><strong style="font-size:17px;display:block;margin-bottom:4px">${e.name}</strong><span class="m" style="font-size:14px">Set ${ss.set} of ${e.s} · ${e.r} reps</span></div></div></div>`}
+else if(ss.rest){const C2=2*Math.PI*80;b=`<div style="text-align:center;padding-top:20px"><p class="lbl">Rest</p><div style="position:relative;width:180px;height:180px;margin:18px auto"><div class="rest-extra" id="restExtra"></div><svg width="180" height="180" style="transform:rotate(-90deg)"><circle cx="90" cy="90" r="80" fill="none" stroke="#1e1e1e" stroke-width="8"/><circle class="rt-c" cx="90" cy="90" r="80" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C2}" stroke-dashoffset="${C2*(1-ss.rest/ss.max)}"/></svg><div class="big rt-n" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb);font-size:48px">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center"><button class="cta g s" data-a="p15" style="border-color:#4ade80;color:#4ade80">+15s</button><button class="cta g s skip-red" data-a="skip">Skip rest</button></div></div><div class="rest-card-glow" style="margin:20px 0 0;padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:20px"><p class="lbl" style="margin:0 0 10px">Up next</p><div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:100px;flex:none;background:var(--s2);border-radius:14px;padding:6px;box-shadow:0 0 12px rgba(255,255,255,.08)">${fig(e.p,e.eq)}</div><div><strong style="font-size:17px;display:block;margin-bottom:4px">${e.name}</strong><span class="m" style="font-size:14px">Set ${ss.set} of ${e.s} · ${e.r} reps</span></div></div></div>`}
 else b=`${demo(e,' style="margin-top:0"')}<div style="text-align:center"><h1 style="font-size:30px">${e.name}</h1><div class="big" style="margin:14px 0 4px">${e.r.replace("s","")}<span class="mu" style="font-size:20px;letter-spacing:0"> ${/s$/.test(e.r)?"sec":"reps"}</span></div><div class="dots" aria-label="Set ${ss.set} of ${e.s}">${[...Array(e.s)].map((_,j)=>`<i class="${j<ss.set-1?"d":j===ss.set-1?"c":""}"></i>`).join("")}</div><p class="mu">Set ${ss.set} of ${e.s}</p></div><details><summary>How to do it</summary><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>${fc(e)}</details>`,f=`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`;
-const sh=sheet(hd,b,f);sh.querySelector(".x").dataset.a="stop"}
-function rest(sec){if(!sec){sv();return}ss.rest=ss.max=sec;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest--;var el=document.querySelector(".big[style*=\"position:absolute\"]");if(el)el.textContent=ss.rest;var circ=document.querySelector("circle:last-of-type");if(circ){var C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;sv()}},1000)}
+const sh=sheet(hd,b,f);sh.querySelector(".x").dataset.a="quit"}
+function rest(sec){if(!sec){sv();return}ss.rest=ss.max=sec;ss.end=Date.now()+sec*1000;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest=Math.max(0,Math.ceil((ss.end-Date.now())/1000));var el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;var circ=document.querySelector(".rt-c");if(circ){var C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;try{navigator.vibrate&&navigator.vibrate(200)}catch(e){}sv()}},500)}
 document.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;$("#exl").innerHTML=exrows();still()}});
 $("#app").onclick=ev=>{const b=ev.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,v=b.dataset.v;
 if(a==="tab"){S.tab=v;render();$("#main").scrollTop=0}
 else if(a==="toggle"){var sec=document.getElementById(v);var arrow=document.getElementById(v.replace("Sec","Arrow"));if(sec.style.display==="none"){sec.style.display="block";if(arrow)arrow.style.transform="rotate(180deg)"}else{sec.style.display="none";if(arrow)arrow.style.transform="rotate(0deg)"}}
-else if(a==="mu"){S.mu=v;render()}else if(a==="mg"){S.mg^=1;render()}
+else if(a==="mu"){S.mu=v;render()}else if(a==="clr"){S.q="";S.mu="All";S.mg=0;render()}else if(a==="usemine"){S.wo="mine";save();S.tab="today";render();$("#main").scrollTop=0;toast("Today is now My workout")}else if(a==="quit"){if(ss&&ss.fin)stop();else ask(`<h2>End workout?</h2><p class="mu">Finished sets are saved. You can resume later.</p><button class="cta" data-a="close2">Keep going</button><button class="cta g" data-a="stop2">End workout</button>`)}else if(a==="stop2"){document.querySelector(".mask")?.remove();stop()}else if(a==="mg"){S.mg^=1;render()}
 else if(a==="open"||a==="open2"){if(a==="open2")document.querySelector(".sheet")?.remove();open_(v)}
 else if(a==="close"){document.querySelector(".sheet")?.remove();render()}
 else if(a==="mine"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();render();toast(i<0?"Added to My workout":"Removed from My workout")}
@@ -367,7 +382,7 @@ else if(a==="sp"){const f=b.parentNode.querySelector(".fig"),h=f.dataset.sp==="6
 else if(a==="pick")pick();else if(a==="setwo"){S.wo=v;save();document.querySelector(".mask").remove();render()}
 else if(a==="go"){const L=wl().map(x=>x.e);if(L.every(x=>S.done[dk(x)]))L.forEach(x=>delete S.done[dk(x)]);ss={L,i:L.findIndex(x=>!S.done[dk(x)]),set:1,rest:0,fin:0,p15count:0};sv()}
 else if(a==="cs"){const e=ss.L[ss.i];{const t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0};h.s++;h.r+=/s$/.test(e.r)?0:parseInt(e.r)||0;save()}if(ss.set<e.s){ss.set++;rest(e.rs)}else{S.done[dk(e)]=1;const n=ss.L.findIndex(x=>!S.done[dk(x)]);if(n<0){ss.fin=1;save();sv()}else{ss.i=n;ss.set=1;save();rest(e.rs)}}}
-else if(a==="skip"){clearInterval(tm);ss.rest=0;sv()}else if(a==="p15"){if(ss.p15count>=3){toast("Stop resting, start grinding. You got this.");return}ss.p15count++;ss.rest+=15;ss.max+=15;var el=document.querySelector(".big[style*=\"position:absolute\"]");if(el)el.textContent=ss.rest;var circ=document.querySelector("circle:last-of-type");if(circ){var C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}var eb=document.getElementById("restExtra");if(eb){eb.textContent="+"+(ss.p15count*15)+"s";eb.classList.add("show")}var msgs=["Good to go.","One last breather.","That's all the rest you need."];toast(msgs[ss.p15count-1]||"")}else if(a==="stop")stop();
+else if(a==="skip"){clearInterval(tm);ss.rest=0;sv()}else if(a==="p15"){if(ss.p15count>=3){toast("Stop resting, start grinding. You got this.");return}ss.p15count++;ss.rest+=15;ss.max+=15;ss.end+=15000;var el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;var circ=document.querySelector(".rt-c");if(circ){var C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}var eb=document.getElementById("restExtra");if(eb){eb.textContent="+"+(ss.p15count*15)+"s";eb.classList.add("show")}var msgs=["Good to go.","One last breather.","That's all the rest you need."];toast(msgs[ss.p15count-1]||"")}else if(a==="stop")stop();
 else if(a==="tg"){if(v!=="bw"&&S.gear[v]===1){var onCount=0;for(var k in S.gear){if(S.gear[k])onCount++}if(onCount<=1){toast("Keep at least one gear active. You need something to train with!");return}}S.gear[v]^=1;save();render();toast("Workouts updated for your gear")}
 
 
@@ -388,6 +403,7 @@ let done=0;
 function leave(){if(done)return;done=1;try{localStorage.setItem("ff_welcome","1")}catch(e){}
 sp.classList.add("out");lock.forEach(n=>n.inert=false);setTimeout(function(){sp.remove();render();still()},450)}
 go.onclick=leave;
+if(seen){sp.classList.add("quick");setTimeout(leave,1500)}
 
 })();
 </script>
