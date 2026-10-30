@@ -49,7 +49,7 @@ h2{font-weight:700;font-size:19px;letter-spacing:-.02em}
 .foot{padding:12px 20px calc(18px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;border-top:1px solid var(--ln)}
 .demo{position:relative;aspect-ratio:1;background:var(--s1);border:1px solid var(--ln);border-radius:28px;padding:22px;overflow:hidden;margin:6px 0 14px}
 .demo video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
-.sp{position:absolute;right:10px;bottom:10px;z-index:2;background:rgba(0,0,0,.6);border:1px solid var(--ln);border-radius:99px;padding:0 12px;min-height:32px;font-family:var(--lb);font-size:12px;font-weight:600;opacity:.85}
+.sp{position:absolute;right:12px;bottom:12px;z-index:2;background:rgba(0,0,0,.7);border:1px solid var(--ln);border-radius:99px;padding:0 14px;min-height:36px;font-family:var(--lb);font-size:13px;font-weight:600}
 .chips2{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 22px}.chips2 b{background:var(--s2);border-radius:12px;padding:6px 12px;font-weight:600;font-size:14px;font-family:var(--lb)}
 ol.st{list-style:none;margin:12px 0 22px}ol.st li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--ln);font-size:16px;line-height:1.35}ol.st li:last-child{border:0}
 ol.st .n{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--mu);flex:none;display:grid;place-items:center;font-size:13px;font-weight:600}
@@ -79,14 +79,15 @@ nav button{display:flex;align-items:center;gap:8px;padding:0 16px;height:48px;mi
 .segs{display:flex;gap:5px;flex:1}.segs i{flex:1;height:5px;border-radius:9px;background:var(--s2)}.segs i.d{background:#fff}.segs i.c{background:var(--mu)}
 .big{font-weight:800;font-size:54px;letter-spacing:-.04em;line-height:1}.dots{display:flex;gap:10px;justify-content:center;margin:12px 0}.dots i{width:14px;height:14px;border-radius:50%;background:var(--s2)}.dots i.d{background:#fff}.dots i.c{border:2px solid #fff}
 details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;padding:14px 16px;margin-top:10px;text-align:left}summary{font-weight:600;min-height:24px}
-.demo{padding:40px 18px 48px!important}
+.demo{padding:46px 18px 42px!important}
 .hud{position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;gap:8px;font-family:var(--lb);font-size:12.5px;font-weight:600;z-index:1;pointer-events:none}
 .hud span{background:rgba(30,30,30,.9);border:1px solid var(--ln);border-radius:99px;padding:5px 11px;transition:color .15s,border-color .15s}
 .hud .ph.ok{color:#4ade80;border-color:#4ade80}
-.cue{display:block;text-align:center;font-size:13px;font-weight:600;color:var(--mu);background:var(--s2);border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:10px 12px 0;pointer-events:none}
+.cue{position:absolute;left:12px;bottom:14px;max-width:58%;font-size:12.5px;font-weight:600;background:rgba(0,0,0,.8);border:1px solid var(--ln);border-radius:12px;padding:6px 10px;z-index:1;pointer-events:none}
 .pg{position:absolute;left:0;bottom:0;height:3px;background:#fff;opacity:.55;z-index:1}
 .demo.ok{border-color:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.18)}
 .demo.vid .fig,.demo.vid .hud,.demo.vid .cue,.demo.vid .pg{visibility:hidden}.sp.vd{right:84px}
+.rot-ind{position:absolute;left:50%;top:8px;transform:translateX(-50%);font-family:var(--lb);font-size:11px;color:var(--mu);background:rgba(30,30,30,.9);border:1px solid var(--ln);border-radius:99px;padding:3px 10px;z-index:3;pointer-events:none;opacity:0;transition:opacity .2s}.demo:hover .rot-ind{opacity:.7}.rot-hint{position:absolute;left:50%;bottom:46px;transform:translateX(-50%);font-family:var(--lb);font-size:10px;color:var(--mu);opacity:.3;pointer-events:none;z-index:1}.demo{cursor:grab}.demo:active{cursor:grabbing}
 .fc{list-style:none;margin:8px 0 14px}.fc li{display:flex;gap:10px;padding:8px 0;align-items:flex-start;font-size:15.5px}.fc svg{color:#4ade80;flex:none;margin-top:2px}
 .note.bad{border-color:#5a2a2a}.note.bad b{color:#f87171}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
@@ -108,8 +109,6 @@ details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;paddi
 </style>
 </head>
 <body style="background:#000">
-<div id="preloader" style="position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity .3s"><div style="width:30px;height:30px;border:2px solid #333;border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite"></div></div>
-<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 <div id="app"><main id="main"></main><nav id="nav"></nav>
 <!-- ===== Fitforg welcome screen: remove this block (and #splash CSS/JS) to disable ===== -->
 <section id="splash" aria-label="Welcome to Fitforg">
@@ -233,11 +232,14 @@ hip90:mo([pz([46,82],-90,[64,86],[40,84],{a2:[56,86]}),pz([46,82],-90,[56,86],[4
 const mix=(P,Q,u)=>{const o={};for(const k in P)o[k]=P[k].map?P[k].map((v,i)=>v+(Q[k][i]-v)*u):P[k]+(Q[k]-P[k])*u;return o};
 function ik(p,q,l1,l2,s){let dx=q[0]-p[0],dy=q[1]-p[1],n=Math.hypot(dx,dy)||1,d=Math.min(n,l1+l2-.02);dx/=n;dy/=n;const a=(l1*l1-l2*l2+d*d)/(2*d),h=Math.sqrt(Math.max(l1*l1-a*a,0));return[[p[0]+dx*a+s*dy*h,p[1]+dy*a-s*dx*h],[p[0]+dx*d,p[1]+dy*d]]}
 const foot=a=>[a[0]+7,Math.min(87.5,a[1]+4)];
+let rotY=0;
+function projY(p,z){const r=rotY*Math.PI/180,c=Math.cos(r),s=Math.sin(r);return[p[0]*c+z*s,p[1]];}
+function setRot(v){rotY=Math.max(-60,Math.min(60,v));document.querySelectorAll('.rot-ind').forEach(function(e){e.textContent=Math.round(rotY)+'°'});}
 function J(o){const t=o.t*R,h=o.h,s=[h[0]+24*Math.cos(t),h[1]+24*Math.sin(t)],d=o.hd*R,k=ik(h,o.a,19,19,1),k2=ik(h,o.a2,19,19,1);return{h,s,k,k2,e:ik(s,o.w,12.5,12,o.es>0?1:-1),hp:[s[0]+11.5*Math.cos(d),s[1]+11.5*Math.sin(d)],c:[(h[0]+s[0])/2,(h[1]+s[1])/2+o.b],f:foot(k[1]),f2:foot(k2[1])}}
-function put(g,P){const c=g.children,G=J(P),w=G.e[1];c[0].setAttribute("points",[G.h,G.k2[0],G.k2[1],G.f2].join(" "));c[1].setAttribute("d",`M${G.h}Q${G.c} ${G.s}`);c[2].setAttribute("points",[G.h,G.k[0],G.k[1],G.f].join(" "));c[3].setAttribute("points",[G.s,G.e[0],w].join(" "));c[4].setAttribute("cx",G.hp[0]);c[4].setAttribute("cy",G.hp[1]);const q=c[5],r=q.tagName=="rect";q.setAttribute(r?"x":"cx",w[0]-(r?5:0));q.setAttribute(r?"y":"cy",w[1]-(r?2.5:0));return G}
-const bg=(c,e)=>{const b=c=="bd",w=(k,x)=>b?` stroke="${k}" stroke-width="${x}"`:"";return`<g class="${c}" ${b?'stroke="#fff"':'stroke="#6a6a6a" stroke-width="2.6" stroke-dasharray="1.5 3.2"'}><polyline${w("#6a6a6a",4)}/><path${w("#fff",5.5)}/><polyline${w("#fff",4.5)}/><polyline${w("#fff",4)}/><circle r="5.5"${b?' fill="#fff" stroke="none"':""}/>${b&&e=="db"?'<rect width="10" height="5" rx="2" fill="#fff" stroke="none"/>':b&&e=="kb"?'<circle r="5" fill="#fff" stroke="none"/>':'<circle r="0"/>'}</g>`};
-const fig=(p,eq,live,id)=>{const m=M[p],X=m.m;return`<svg class="fig" ${live?'data-live="1"':""} data-p="${p}" data-eq="${eq}" data-id="${id||""}" viewBox="0 -8 100 96" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="94" y1="89" y2="89" stroke="#2b2b2b" stroke-width="1.5"/>${m.pr||""}${live&&m.g!==0?bg("gh"):""}${bg("bd",eq)}${live?X.map(d=>d[0]=="b"?'<line class="gl" stroke-width="1.3" stroke-dasharray="3 2.5"/>':"").join("")+X.map((d,j)=>`<path class="ar${j}" stroke-width="1.6"/><text class="tx${j}" font-size="5.5" font-weight="700" text-anchor="middle" stroke="#000" stroke-width="1.3" paint-order="stroke" style="font-family:var(--lb)"/>`).join(""):""}</svg>`};
-const hud=`<div class="hud"><span class="ph">Ready</span><span class="rc">Rep 1</span></div><i class="pg"></i>`;const cueBar=`<div class="cue"></div>`;
+function put(g,P){const c=g.children,G=J(P),w=G.e[1];const zF=6,zB=-6,zA=(P.es>0?7:-7);const h=projY(G.h,0),s=projY(G.s,0),k0=projY(G.k[0],zF),k1=projY(G.k[1],zF),f=projY(G.f,zF),k20=projY(G.k2[0],zB),k21=projY(G.k2[1],zB),f2=projY(G.f2,zB),e0=projY(G.e[0],zA),wP=projY(w,zA),hp=projY(G.hp,0),cP=projY(G.c,0);c[0].setAttribute("points",[h,k20,k21,f2].join(" "));c[1].setAttribute("d",`M${h}Q${cP} ${s}`);c[2].setAttribute("points",[h,k0,k1,f].join(" "));c[3].setAttribute("points",[s,e0,wP].join(" "));c[4].setAttribute("cx",hp[0]);c[4].setAttribute("cy",hp[1]);const q=c[5];if(q.tagName=="g"){q.setAttribute("transform",`translate(${wP[0]},${wP[1]})`)}else{const r=q.tagName=="rect";q.setAttribute(r?"x":"cx",wP[0]-(r?8:0));q.setAttribute(r?"y":"cy",wP[1]-(r?4:0))}return G}
+const bg=(c,e)=>{const b=c=="bd",w=(k,x)=>b?` stroke="${k}" stroke-width="${x}"`:"";return`<g class="${c}" ${b?'stroke="#fff"':'stroke="#6a6a6a" stroke-width="2.6" stroke-dasharray="1.5 3.2"'}><polyline${w("#6a6a6a",4)}/><path${w("#fff",5.5)}/><polyline${w("#fff",4.5)}/><polyline${w("#fff",4)}/><circle r="5.5"${b?' fill="#fff" stroke="none"':""}/>${b&&e=="db"?'<g><rect x="-9" y="-3" width="18" height="6" rx="2" fill="#fff" stroke="#888" stroke-width="0.4"/><rect x="-13" y="-5" width="4" height="10" rx="1" fill="#fff" stroke="#888" stroke-width="0.4"/><rect x="9" y="-5" width="4" height="10" rx="1" fill="#fff" stroke="#888" stroke-width="0.4"/></g>':b&&e=="kb"?'<g><circle r="7" fill="#fff" stroke="#888" stroke-width="0.4"/><path d="M-4.5,-2 Q0,-9 4.5,-2" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g>':b&&e=="band"?'<g><line x1="-12" y1="0" x2="12" y2="0" stroke="#fff" stroke-width="2" stroke-dasharray="2 1.5"/><circle cx="-12" cy="0" r="2" fill="#fff"/><circle cx="12" cy="0" r="2" fill="#fff"/></g>':'<circle r="0"/>'}</g>`};
+const fig=(p,eq,live,id)=>{const m=M[p],X=m.m;return`<svg class="fig" ${live?'data-live="1"':""} data-p="${p}" data-eq="${eq}" data-id="${id||""}" viewBox="0 -10 100 100" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="94" y1="89" y2="89" stroke="#2b2b2b" stroke-width="1.5"/>${m.pr||""}${live&&m.g!==0?bg("gh"):""}${bg("bd",eq)}${live?X.map(d=>d[0]=="b"?'<line class="gl" stroke-width="1.3" stroke-dasharray="3 2.5"/>':"").join("")+X.map((d,j)=>`<path class="ar${j}" stroke-width="1.6"/><text class="tx${j}" font-size="5.5" font-weight="700" text-anchor="middle" stroke="#000" stroke-width="1.3" paint-order="stroke" style="font-family:var(--lb)"/>`).join(""):""}</svg>`};
+const hud=`<div class="hud"><span class="ph">Ready</span><span class="rc">Rep 1</span></div><i class="pg"></i><span class="rot-ind">0°</span><span class="rot-hint">drag to rotate</span>`;const cueBar=`<div class="cue"></div>`;
 const demo=(e,st)=>`<div class="demo"${st||""}>${fig(e.p,e.eq,1,e.id)}${hud}<button class="sp" data-a="sp" aria-label="Change speed">1×</button>${VID.includes(e.id)?`<button class="sp vd" data-a="vd" data-v="${e.id}">Video</button>`:""}</div>${cueBar}`;
 const fc=e=>`<h2>Form checks</h2><ul class="fc">${e.ck.map(c=>`<li>${ic("chk",16,3)}<span>${c}</span></li>`).join("")}</ul><div class="note bad"><b>Avoid.</b> ${e.bad}</div><p class="mu" style="font-size:13.5px;margin:10px 0 18px">Exhale on the effort, inhale on the way back.</p>`;
 function live(s,t){const m=M[s.dataset.p],q=m.q,f=(+s.dataset.sp||3)/3,tt=t/1000/f,cy=q.length*CY,w=tt%cy,k=Math.floor(w/CY),lc=w-k*CY,i0=q[k],i1=q[(k+1)%q.length],mv=lc>HD,u=mv?ease((lc-HD)/MV):0,rep=Math.floor(tt/cy)+1,G=put(s.querySelector(".bd"),mix(m.P[i0],m.P[i1],u)),gh=s.querySelector(".gh"),d=s.parentNode,ck=(E[s.dataset.id]||{}).ck||[];
@@ -248,7 +250,7 @@ ar.setAttribute("d",A>172?"":`M${b[0]+n1[0]*8},${b[1]+n1[1]*8}A8,8 0 0 ${n1[0]*n
 tx.setAttribute("x",bl<.3?b[0]:b[0]+bs[0]/bl*14);tx.setAttribute("y",(bl<.3?b[1]-9:b[1]+bs[1]/bl*14)+2);tx.textContent=Math.round(A)+"°";
 if(ty=="b"){const l=s.querySelector(".gl");l.setAttribute("x1",G.k[1][0]);l.setAttribute("y1",G.k[1][1]);l.setAttribute("x2",G.hp[0]);l.setAttribute("y2",G.hp[1]);l.setAttribute("stroke",col)}});
 const T=(c,v)=>{const e=d.querySelector(c);if(e&&e.textContent!==v)e.textContent=v};
-T(".ph",ok&&m.tg?"✓ "+m.tg:mv?(i1>i0?m.lb[0]:m.lb[1]):(i0?"Hold":"Ready"));T(".rc","Rep "+rep);if(ck.length){const cueEl=d.parentNode.querySelector(".cue");if(cueElif(ck.length){var cueEl=d.parentNode.querySelector(".cue");if(cueEl&&cueEl.textContent!==ck[(rep-1)%ck.length])cueEl.textContent=ck[(rep-1)%ck.length];}if(ck.length){var cueEl=d.parentNode.querySelector(".cue");if(cueEl&&cueEl.textContent!==ck[(rep-1)%ck.length])cueEl.textContent=ck[(rep-1)%ck.length];}cueEl.textContent!==ck[(rep-1)%ck.length])cueEl.textContent=ck[(rep-1)%ck.length];}
+T(".ph",ok&&m.tg?"✓ "+m.tg:mv?(i1>i0?m.lb[0]:m.lb[1]):(i0?"Hold":"Ready"));T(".rc","Rep "+rep);if(ck.length){var cueEl=d.parentNode.querySelector(".cue");if(cueEl&&cueEl.textContent!==ck[(rep-1)%ck.length])cueEl.textContent=ck[(rep-1)%ck.length];}
 d.classList.toggle("ok",!!ok);const ph=d.querySelector(".ph");if(ph)ph.classList.toggle("ok",!!ok);const pg=d.querySelector(".pg");if(pg)pg.style.width=w/cy*100+"%"}
 const still=()=>document.querySelectorAll(".fig:not([data-live])").forEach(s=>put(s.querySelector(".bd"),M[s.dataset.p].P[1]));
 (function loop(t){document.querySelectorAll(".fig[data-live]").forEach(x=>live(x,t));requestAnimationFrame(loop)})(0);
@@ -314,12 +316,23 @@ function sv(){document.querySelector(".sheet")?.remove();const L=ss.L,e=L[ss.i],
 const hd=`<div class="segs">${L.map((x,j)=>`<i class="${S.done[dk(x)]?"d":j===ss.i?"c":""}"></i>`).join("")}</div><span style="width:44px"></span>`;
 if(ss.fin)b=`<div style="text-align:center;padding:60px 0"><div class="big">Done.</div><p class="mu" style="margin-top:12px">${wname()} complete. Streak: ${streak()} days.</p></div>`,f=`<button class="cta" data-a="stop">Back to workout</button>`;
 else if(ss.rest){const C=2*Math.PI*88;b=`<div style="text-align:center;padding-top:10px"><p class="lbl">Rest</p><div style="position:relative;width:200px;height:200px;margin:14px auto"><svg width="200" height="200" style="transform:rotate(-90deg)"><circle cx="100" cy="100" r="88" fill="none" stroke="#1e1e1e" stroke-width="10"/><circle cx="100" cy="100" r="88" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-ss.rest/ss.max)}"/></svg><div class="big" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb)">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center"><button class="cta g s" data-a="p15">+15s</button><button class="cta g s" data-a="skip">Skip rest</button></div></div><p class="lbl" style="margin:26px 0 8px">Up next</p><div class="row"><div class="th">${fig(e.p,e.eq)}</div><div class="t"><strong>${e.name}</strong><span class="m">Set ${ss.set} of ${e.s}</span></div></div>`}
-else b=`${demo(e,' style="margin-top:0;aspect-ratio:16/10;max-height:60vh"')}<div style="text-align:center"><h1 style="font-size:30px">${e.name}</h1><div class="big" style="margin:14px 0 4px">${e.r.replace("s","")}<span class="mu" style="font-size:20px;letter-spacing:0"> ${/s$/.test(e.r)?"sec":"reps"}</span></div><div class="dots" aria-label="Set ${ss.set} of ${e.s}">${[...Array(e.s)].map((_,j)=>`<i class="${j<ss.set-1?"d":j===ss.set-1?"c":""}"></i>`).join("")}</div><p class="mu">Set ${ss.set} of ${e.s}</p></div><details><summary>How to do it</summary><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>${fc(e)}</details>`,f=`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`;
+else b=`${demo(e,' style="margin-top:0;aspect-ratio:16/10;max-height:55vh"')}<div style="text-align:center;margin-top:18px"><h1 style="font-size:30px">${e.name}</h1><div class="big" style="margin:14px 0 4px">${e.r.replace("s","")}<span class="mu" style="font-size:20px;letter-spacing:0"> ${/s$/.test(e.r)?"sec":"reps"}</span></div><div class="dots" aria-label="Set ${ss.set} of ${e.s}">${[...Array(e.s)].map((_,j)=>`<i class="${j<ss.set-1?"d":j===ss.set-1?"c":""}"></i>`).join("")}</div><p class="mu">Set ${ss.set} of ${e.s}</p></div><details><summary>How to do it</summary><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>${fc(e)}</details>`,f=`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`;
 const sh=sheet(hd,b,f);sh.querySelector(".x").dataset.a="stop"}
 function rest(sec){if(!sec){sv();return}ss.rest=ss.max=sec;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest--;var el=document.querySelector(".big[style*=\"position:absolute\"]");if(el)el.textContent=ss.rest;var circ=document.querySelector("circle:last-of-type");if(circ){var C=2*Math.PI*88;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;sv()}},1000)}
 document.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;$("#exl").innerHTML=exrows();still()}});
 $("#app").onclick=ev=>{const b=ev.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,v=b.dataset.v;
-if(a==="tab"){S.tab=v;render();$("#main").scrollTop=0}
+if(a==="tab"){S.tab=v;render();
+// === Touch/drag rotation handler ===
+let dragStart=null;
+document.addEventListener('pointerdown',function(e){const demo=e.target.closest('.demo');if(!demo||e.target.closest('button')||e.target.closest('.sp'))return;dragStart={x:e.clientX,rot:rotY};e.preventDefault()});
+document.addEventListener('pointermove',function(e){if(!dragStart)return;const delta=(e.clientX-dragStart.x)*0.4;setRot(dragStart.rot+delta);e.preventDefault()});
+document.addEventListener('pointerup',function(){dragStart=null});
+document.addEventListener('pointercancel',function(){dragStart=null});
+// Double-tap to reset rotation
+let lastTap=0;
+document.addEventListener('click',function(e){if(!e.target.closest('.demo')||e.target.closest('button'))return;const now=Date.now();if(now-lastTap<300){setRot(0)}lastTap=now});
+// Reset rotation when opening a new exercise
+const origOpen=open_;open_=function(id){setRot(0);origOpen(id)};$("#main").scrollTop=0}
 else if(a==="mu"){S.mu=v;render()}else if(a==="mg"){S.mg^=1;render()}
 else if(a==="open"||a==="open2"){if(a==="open2")document.querySelector(".sheet")?.remove();open_(v)}
 else if(a==="close"){document.querySelector(".sheet")?.remove();render()}
@@ -350,8 +363,6 @@ lock.forEach(n=>n.inert=true);
 let done=0;
 function leave(){if(done)return;done=1;try{localStorage.setItem("ff_welcome","1")}catch(e){}
 sp.classList.add("out");lock.forEach(n=>n.inert=false);setTimeout(()=>sp.remove(),450)}
-// Remove preloader once app is ready
-var pl=document.getElementById("preloader");if(pl){pl.style.opacity="0";setTimeout(function(){pl.remove()},300)}
 go.onclick=leave;
 })();
 </script>
