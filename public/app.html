@@ -137,6 +137,135 @@ details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;paddi
 .eb.fx{background:transparent;color:#fff;border:1.5px dashed #555}.eb.fx b{opacity:.55}
 .eb .al{font-style:normal;font-family:var(--lb);font-size:11.5px;font-weight:600;color:var(--mu);border-left:1px solid var(--ln);padding-left:8px;margin-left:2px}
 .sh2{display:flex;align-items:baseline;gap:8px;font-size:18px;margin:24px 0 12px}.sh2 span{font-family:var(--lb);font-size:13.5px;font-weight:600;color:var(--mu)}
+/* ===== Today + Progress refresh (scoped: .tdy / .prg) ===== */
+.tdy,.prg{--ok:#4ade80;--hi:rgba(255,255,255,.06)}
+.tdy-date{margin:0 0 14px;font-size:15px;font-weight:500;color:var(--mu)}
+.tdy-k{font-size:14px;font-weight:500;color:var(--mu)}
+
+/* hero */
+.tdy-hero{background:linear-gradient(180deg,#151515 0,#0b0b0b 72%);border:1px solid var(--ln);border-radius:28px;padding:22px 20px 20px;box-shadow:inset 0 1px 0 var(--hi)}
+.tdy-name{margin-top:6px;font-size:40px;line-height:1.02}
+.tdy-desc{margin-top:8px;max-width:34ch;font-size:15px;line-height:1.35;color:var(--mu)}
+.tdy-none{margin:16px 0;color:var(--mu)}
+.tdy-meta{display:flex;margin-top:18px;border:1px solid var(--ln);border-radius:16px;background:rgba(255,255,255,.02)}
+.tdy-meta span{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 8px;font-family:var(--lb);font-size:13.5px;font-weight:600;white-space:nowrap}
+.tdy-meta span+span{border-left:1px solid var(--ln)}
+.tdy-meta svg{flex:none;color:var(--mu)}
+
+/* session rail: one segment per move, grouped by phase */
+.tdy-rail{margin-top:22px}
+.tdy-phs{display:flex;gap:10px}
+.tdy-ph{min-width:72px}
+.tdy-segs{display:flex;gap:3px}
+.tdy-segs i{flex:1;height:10px;border-radius:4px;background:#2e2e2e;transform-origin:left;animation:tdy-fill .45s cubic-bezier(.2,.8,.2,1) both}
+.tdy-segs i.on{background:#fff}
+.tdy-ph span{display:block;margin-top:8px;font-family:var(--lb);font-size:12.5px;font-weight:500;color:var(--mu);white-space:nowrap}
+.tdy-ph span b{margin-left:2px;font-weight:600;color:#fff}
+.tdy-cap{margin-top:10px;font-family:var(--lb);font-size:13px;color:var(--mu)}.tdy-cap b{color:var(--ok);font-weight:600}
+@keyframes tdy-fill{from{transform:scaleX(0);opacity:0}}
+
+/* move strip */
+.tdy-moves{display:flex;align-items:flex-start;gap:10px;overflow-x:auto;scrollbar-width:none;margin:20px -20px 0;padding:0 20px 2px}.tdy-moves::-webkit-scrollbar{display:none}
+.tdy-mv{flex:none;width:78px;text-align:left}
+.tdy-mv .th{display:block;width:100%;height:auto;aspect-ratio:1;padding:6px;border:1px solid var(--ln);border-radius:18px}
+.tdy-mv:active .th{border-color:#555}
+.tdy-mv .th.dn{border-color:rgba(74,222,128,.4)}
+.tdy-mv .th .tk{right:5px;bottom:5px;width:22px;height:22px;background:var(--ok)}
+.tdy-mn{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;font-size:12.5px;font-weight:500;line-height:1.25;color:#cfcfcf}
+
+.tdy-go{margin-top:22px;height:60px;font-size:18px;box-shadow:0 10px 30px rgba(255,255,255,.08)}
+.tdy-alt{margin-top:10px;height:48px;font-size:15px}
+
+/* last 30 days summary */
+.tdy-sec{display:flex;align-items:center;justify-content:space-between;margin:28px 2px 12px}
+.tdy-more{display:inline-flex;align-items:center;gap:2px;min-height:44px;margin:-12px -6px -12px 0;padding:0 6px;font-family:var(--lb);font-size:13.5px;font-weight:600;color:var(--mu)}.tdy-more:active{color:#fff}
+.tdy-sum{display:grid;grid-template-columns:repeat(3,1fr);background:var(--s1);border:1px solid var(--ln);border-radius:22px}
+.tdy-sum>div{padding:16px 6px 15px;text-align:center}.tdy-sum>div+div{border-left:1px solid var(--ln)}
+.tdy-sum svg{color:var(--mu)}
+.tdy-sum b{display:block;margin:8px 0 1px;font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.tdy-sum span{font-size:13px;color:var(--mu)}
+.tdy-ghost b{color:#3a3a3a}.tdy-ghost svg{opacity:.5}
+.tdy-hint{margin:12px 2px 0;font-size:14.5px;line-height:1.45;color:var(--mu)}
+
+/* move of the day */
+.tdy-motd{display:flex;gap:16px;align-items:center;margin-top:14px;padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:24px}
+.tdy-dm{width:116px;height:116px;flex:none;padding:8px;background:var(--s2);border-radius:18px}
+.tdy-mi{flex:1;min-width:0}
+.tdy-mi h2{margin-top:4px;font-size:19px;line-height:1.15}
+.tdy-tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+.tdy-tags span{padding:3px 10px;border:1px solid var(--ln);border-radius:99px;font-family:var(--lb);font-size:12.5px;font-weight:600;color:var(--mu)}
+.tdy-motd .cta{width:auto;height:42px;padding:0 20px;font-size:15px}
+
+/* ---------- Progress ---------- */
+.prg-h{margin:20px 0 18px}
+.prg-hero{padding:22px 20px 0;overflow:hidden;background:linear-gradient(180deg,#151515 0,#0b0b0b 80%);border:1px solid var(--ln);border-radius:28px;box-shadow:inset 0 1px 0 var(--hi)}
+.prg-top{display:flex;align-items:center;gap:16px}
+.prg-fl{width:56px;height:56px;flex:none;display:grid;place-items:center;border:1px solid var(--ln);border-radius:50%;background:#161616;color:#5a5a5a}
+.prg-fl.hot{color:#fff;border-color:#4a4a4a}
+.prg-sk b{display:block;font-size:52px;font-weight:800;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums}
+.prg-sk span{font-size:14px;color:var(--mu)}
+.prg-msg{margin-top:14px;font-size:15px;line-height:1.4;color:#cfcfcf}
+.prg-30{margin:20px -20px 0;border-top:1px solid var(--ln)}
+.prg-kh{padding:14px 20px 0;font-size:13.5px;font-weight:500;color:var(--mu)}
+.prg-kpis{display:grid;grid-template-columns:repeat(3,1fr)}
+.prg-kpis>div{padding:8px 8px 18px 20px}.prg-kpis>div+div{border-left:1px solid var(--ln)}
+.prg-kpis b{display:block;font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1.15;font-variant-numeric:tabular-nums}
+.prg-kpis span{font-size:13px;color:var(--mu)}
+
+.prg-card{margin-top:12px;padding:20px;background:var(--s1);border:1px solid var(--ln);border-radius:24px}
+.prg-ch{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.prg-ch h2{font-size:17px}
+.prg-ch small{font-family:var(--lb);font-size:13.5px;color:var(--mu)}
+
+/* weekly reps */
+.prg-wtot{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 8px;margin-top:10px}
+.prg-wtot b{font-size:34px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.prg-wtot>span{font-size:15px;color:var(--mu)}
+.prg-dl{margin-left:auto;padding:4px 10px;border-radius:99px;font-family:var(--lb);font-size:12.5px;font-style:normal;font-weight:600}
+.prg-dl.up{color:var(--ok);background:rgba(74,222,128,.1)}.prg-dl.dn{color:#d4d4d4;background:#1e1e1e}
+.prg-wk{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:18px}
+.prg-wk>div{display:flex;flex-direction:column;align-items:center;gap:6px}
+.prg-wk .v{height:16px;font-family:var(--lb);font-size:12px;font-weight:600;color:#bdbdbd;font-variant-numeric:tabular-nums}
+.prg-wk .bar{width:100%;height:104px;display:flex;align-items:flex-end;overflow:hidden;background:#131313;border-radius:10px}
+.prg-wk .bar i{display:block;width:100%;background:#6b6b6b;border-radius:10px;transform-origin:bottom;animation:prg-grow .55s cubic-bezier(.2,.8,.2,1) both}
+.prg-wk .d{font-family:var(--lb);font-size:12px;font-weight:600;color:var(--mu)}
+.prg-wk .t .bar i{background:#fff}.prg-wk .t .d{color:#fff}
+.prg-wk .f .bar{background:none;border:1px dashed #262626}.prg-wk .f .d{color:#5a5a5a}
+@keyframes prg-grow{from{transform:scaleY(0)}}
+
+/* 30-day grid, aligned to weekdays, shaded by sets */
+.prg-dow,.prg-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.prg-dow{margin:16px 0 8px}
+.prg-dow span{text-align:center;font-family:var(--lb);font-size:11.5px;font-weight:600;color:#808080}
+.prg-cal i{font-style:normal;display:grid;place-items:center;aspect-ratio:1/.9;background:#131313;border:1px solid #1f1f1f;border-radius:11px}
+.prg-cal i span{font-family:var(--lb);font-size:11.5px;font-weight:600;color:#7f7f7f}
+.prg-cal i.pl{visibility:hidden}
+.prg-cal i.rest{background:none;border:1px dashed #333}
+.prg-cal i.now{box-shadow:0 0 0 2px #0d0d0d,0 0 0 3.5px #fff}.prg-cal i.now span{color:#fff}
+.prg-cal i.on{border-color:transparent}
+.prg-cal i.l1{background:rgba(255,255,255,.26)}.prg-cal i.l1 span{color:#fff}
+.prg-cal i.l2{background:rgba(255,255,255,.6)}.prg-cal i.l2 span{color:#000}
+.prg-cal i.l3{background:#fff}.prg-cal i.l3 span{color:#000}
+.prg-leg{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:16px;font-family:var(--lb);font-size:12.5px;color:var(--mu)}
+.prg-leg span{display:inline-flex;align-items:center;gap:6px}
+.prg-leg i{display:inline-block;width:12px;height:12px;background:#fff;border-radius:4px}
+.prg-leg i.r{background:none;border:1px dashed #555}
+.prg-leg i.n{margin-right:1px;background:none;box-shadow:0 0 0 1.5px #fff}
+.prg-leg .sc{margin-left:auto;gap:4px}.prg-leg .sc i:first-of-type{margin-left:4px}.prg-leg .sc i:last-of-type{margin-right:4px}
+.prg-leg i.a{background:rgba(255,255,255,.26)}.prg-leg i.b{background:rgba(255,255,255,.6)}
+
+.prg-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.prg-tile{padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:20px}
+.prg-tile b{display:block;font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.prg-tile span{display:block;margin-top:8px;font-size:13.5px;line-height:1.3;color:var(--mu)}
+.prg-tile small{display:block;margin-top:2px;font-family:var(--lb);font-size:12.5px;color:#808080}
+
+.prg-empty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:26px 20px 28px;text-align:center;background:var(--s1);border:1px solid var(--ln);border-radius:28px}
+.prg-ghost{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;width:100%;max-width:260px;margin-bottom:14px;-webkit-mask-image:linear-gradient(#000 15%,transparent);mask-image:linear-gradient(#000 15%,transparent)}
+.prg-ghost i{aspect-ratio:1/.9;border:1px dashed #2f2f2f;border-radius:10px}
+.prg-empty strong{font-size:18px}
+.prg-empty p{max-width:270px;font-size:15px;color:var(--mu)}
+.prg-empty .cta{margin-top:12px}
 /* ===== Fitforg welcome screen (independent section) ===== */
 .mk{display:block;width:26px;height:auto;flex:none;fill:#fff}
 #splash{container-type:size;position:absolute;inset:0;z-index:60;background:#000;overflow:hidden;transition:opacity .4s ease,transform .4s ease}
@@ -590,31 +719,41 @@ else h+=`<div class="em"><strong>${q&&H.length?"Nothing with your current equipm
 if(H.length&&q)h+=sec("Needs other equipment",H.length)+grid(H);
 return h}
 function vStats(){let W=0,St=0,R=0,pl="";for(let i=0;i<30;i++){const h=hd(i);if(h.s){W++;St+=h.s;R+=h.r}}
-if(!Object.keys(S.h).length)return`${topBar()}<h1 style="margin:20px 0 16px">Progress</h1><div class="card em" style="padding:34px 20px"><svg class="mk" style="width:34px;opacity:.5" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><strong>No workouts yet</strong><p class="mu" style="max-width:260px">Finish your first set and your days, sets, reps and streak will show up here.</p><button class="cta s" data-a="tab" data-v="today">Go to today’s workout</button></div>`;
-for(let i=29;i>=0;i--){const h=hd(i);pl+=`<i class="${i===0?"now ":""}${h.s?"on":(dy(i).getDay()+6)%7===6?"rest":""}"></i>`}
+if(!Object.keys(S.h).length)return`<div class="prg">${topBar()}<h1 class="prg-h">Progress</h1><div class="prg-empty"><div class="prg-ghost" aria-hidden="true">${"<i></i>".repeat(28)}</div><strong>No workouts yet</strong><p>Finish your first set and your days, sets, reps and streak will show up here.</p><button class="cta s" data-a="tab" data-v="today">Go to today’s workout</button></div></div>`;
+let mxs=1;for(let i=0;i<30;i++)mxs=Math.max(mxs,hd(i).s);
+pl="<i class=\"pl\"></i>".repeat((dy(29).getDay()+6)%7);
+for(let i=29;i>=0;i--){const h=hd(i),dt=dy(i);pl+=`<i class="${i===0?"now ":""}${h.s?"on l"+Math.min(3,Math.ceil(h.s/mxs*3)):(dt.getDay()+6)%7===6?"rest":""}"><span>${dt.getDate()===1?dt.toLocaleDateString("en",{month:"short"}):dt.getDate()}</span></i>`}
 const TD=(new Date().getDay()+6)%7,wr=[...Array(7)].map((_,j)=>j<=TD?hd(TD-j).r:0),tw=wr.reduce((a,b)=>a+b,0),lw=wr.reduce((a,_,j)=>a+(j<=TD?hd(TD-j+7).r:0),0),dl=lw?Math.round((tw-lw)/lw*100):0,mx=Math.max(...wr,1);
 let avg=Math.round(W/30*70)/10,best=0,bd="";for(let i=0;i<30;i++){const h=hd(i);if(h.r>best){best=h.r;bd=dy(i).toLocaleDateString("en",{day:"numeric",month:"short"})}}
-return`${topBar()}<h1 style="margin:20px 0 16px">Progress</h1>
-<div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:15px;font-weight:600">Last 30 days</span><small>${W} active ${W===1?"day":"days"}</small></div><div class="pills" role="img" aria-label="${W} active days in the last 30">${pl}</div></div>
-<div class="card" style="margin-bottom:12px"><div class="ch"><span class="mu" style="font-size:15px;font-weight:600">This week</span><small>Daily reps</small></div><p style="margin-top:6px"><b style="font-size:26px;letter-spacing:-.03em">${tw}</b> <span class="mu">reps</span> ${lw?`<small style="font-family:var(--lb);font-weight:600;margin-left:8px">${dl>=0?"▲":"▼"} ${Math.abs(dl)}% vs last week</small>`:""}</p>
-<div class="wk">${wr.map((r,j)=>`<div class="${j===TD?"t":""}"><b>${r||""}</b><i style="height:${8+r/mx*60}px"></i>${"MTWTFSS"[j]}</div>`).join("")}</div></div>
-<div class="stats" style="grid-template-columns:1fr 1fr"><div class="stat"><b style="font-size:22px">${avg||0}</b><span>avg workouts/week</span></div><div class="stat"><b style="font-size:22px">${best||0}</b><span>reps on best day${bd&&best?" ("+bd+")":""}</span></div></div>
-<div class="card"><p class="mu" style="font-size:15px;font-weight:600;margin-bottom:10px">Quick summary</p><p class="mu" style="font-size:15px;line-height:1.6">You’ve trained <b style="color:#fff">${W} ${W===1?"time":"times"}</b> in the last 30 days, completing <b style="color:#fff">${St} sets</b> and <b style="color:#fff">${fmt(R)} reps</b>. ${streak()>1?"You’re on a "+streak()+"-day streak. Keep it going!":"Train today to build your streak."}</p></div>`}
+const sk=streak(),fl=`<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`;
+return`<div class="prg">${topBar()}<h1 class="prg-h">Progress</h1>
+<section class="prg-hero"><div class="prg-top"><span class="prg-fl${sk?" hot":""}">${fl}</span><div class="prg-sk"><b>${sk}</b><span>day streak</span></div></div>
+<p class="prg-msg">${sk>1?"Keep it going!":"Train today to build your streak."}</p>
+<div class="prg-30"><p class="prg-kh">Last 30 days</p><div class="prg-kpis"><div><b>${W}</b><span>${W===1?"workout":"workouts"}</span></div><div><b>${St}</b><span>sets</span></div><div><b>${fmt(R)}</b><span>reps</span></div></div></div></section>
+<section class="prg-card"><div class="prg-ch"><h2>This week</h2><small>Daily reps</small></div>
+<div class="prg-wtot"><b>${tw}</b><span>reps</span>${lw?`<em class="prg-dl ${dl>=0?"up":"dn"}">${dl>=0?"▲":"▼"} ${Math.abs(dl)}% vs last week</em>`:""}</div>
+<div class="prg-wk" role="img" aria-label="Reps per day this week: ${wr.slice(0,TD+1).join(", ")}">${wr.map((r,j)=>`<div class="${j===TD?"t":j>TD?"f":""}"><span class="v">${r||""}</span><div class="bar"><i style="height:${r?Math.max(10,Math.round(r/mx*100)):0}%;animation-delay:${j*45}ms"></i></div><span class="d">${"MTWTFSS"[j]}</span></div>`).join("")}</div></section>
+<section class="prg-card"><div class="prg-ch"><h2>Last 30 days</h2><small>${W} active ${W===1?"day":"days"}</small></div>
+<div class="prg-dow" aria-hidden="true">${[..."MTWTFSS"].map(c=>`<span>${c}</span>`).join("")}</div>
+<div class="prg-cal" role="img" aria-label="${W} active days in the last 30">${pl}</div>
+<div class="prg-leg"><span><i class="r"></i>Rest day</span><span><i class="n"></i>Today</span><span class="sc">Fewer sets<i class="a"></i><i class="b"></i><i></i>More sets</span></div></section>
+<div class="prg-two"><div class="prg-tile"><b>${avg||0}</b><span>avg workouts/week</span></div><div class="prg-tile"><b>${best||0}</b><span>reps on best day</span>${bd&&best?`<small>${bd}</small>`:""}</div></div></div>`}
 function vToday(){const L=plan(),MN=L.filter(x=>x.b==="m"),n=MN.length,d=L.filter(x=>S.done[dk(x)]).length,wc=L.filter(x=>x.b==="w").length,cc=L.filter(x=>x.b==="c").length,mine=S.wo==="mine";
 let W=0,St=0,R=0;for(let i=0;i<30;i++){const h=hd(i);if(h.s){W++;St+=h.s;R+=h.r}}
 const all=Object.values(E),pool=all.filter(av),m=pool[(new Date().getDate()*7+new Date().getMonth())%pool.length];
-return`${topBar()}<p class="date" style="margin:0 0 14px">${new Date().toLocaleDateString("en",{weekday:"long",day:"numeric",month:"short"})}</p>
-<div class="card"><p class="mu" style="font-size:14px">Today</p><div class="badge"><h1>${wname()}</h1></div><p class="mu" style="font-size:14px">${mine?"Your own list":WO[S.wo][1]}</p>
-${n?`<div style="display:flex;gap:8px;margin:14px 0 0;flex-wrap:wrap"><span class="cm">${ic("wo",16)}~${mins(L)} min</span><span class="cm">${ic("ex",16)}${n} ${n===1?"exercise":"exercises"}</span>${mine?"":`<span class="cm">${LV[S.lvl]}</span>`}${d?`<span class="cm">${d}/${L.length} done</span>`:""}</div>
-${wc||cc?`<p class="mu" style="font-size:13px;margin-top:10px;font-family:var(--lb)">${[wc?`Warm-up · ${wc}`:"",`Main · ${n}`,cc?`Cool-down · ${cc}`:""].filter(Boolean).join("  →  ")}</p>`:""}
-<div class="pv" aria-label="Moves in this workout">${MN.map(x=>`<button class="th ${S.done[dk(x)]?"dn":""}" data-a="open" data-v="${x.e.id}" aria-label="${x.e.name}${S.done[dk(x)]?" (done)":""}">${fig(x.e)}${S.done[dk(x)]?`<i class="tk">${ic("chk",12,3.5)}</i>`:""}</button>`).join("")}</div>
-<button class="cta" data-a="go">${ic("play",18)} ${d===L.length?"Restart workout":d?"Resume workout":"Start workout"}</button>`
-:`<p class="mu" style="margin:14px 0">No moves yet. Add some from Explore.</p><button class="cta" data-a="tab" data-v="library">Browse exercises</button>`}
-<button class="cta g" style="margin-top:10px;height:48px;font-size:15px" data-a="pick">${ic("gear",18)} Change workout</button></div>
-${W?`<p class="mu" style="margin:18px 2px -2px;font-size:14px">Last 30 days</p><div class="stats"><div class="stat">${ic("wo",20)}<b>${W}</b><span>workouts</span></div><div class="stat">${ic("ex",20)}<b>${St}</b><span>sets</span></div><div class="stat">${ic("today",20)}<b>${fmt(R)}</b><span>reps</span></div></div>`
-:`<div class="card" style="margin:12px 0"><p class="mu" style="font-size:14px;margin-bottom:6px">Your progress</p><p style="font-size:15px">Finish your first workout to start tracking your sets, reps and streak.</p></div>`}
-<div class="card"><p class="mu" style="font-size:14px;margin-bottom:12px">Move of the day</p><div class="mo"><div class="dm">${fig(m,1)}</div><div><h2>${m.name}</h2><p class="mu" style="margin:4px 0 12px;font-size:14px">${m.m} · ${LV[m.lv]}</p><button class="cta" data-a="open" data-v="${m.id}">Learn it</button></div></div></div>
-${W?`<button class="cta g" style="margin-top:12px;height:48px;font-size:15px" data-a="tab" data-v="stats">${ic("stats",20)} View progress</button>`:""}`}
+const chv=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>`;let qn=0;
+const rail=[["w","Warm-up"],["m","Main"],["c","Cool-down"]].map(([b,l])=>{const g=L.filter(x=>x.b===b);return g.length?`<div class="tdy-ph" style="flex:${g.length} 1 0"><div class="tdy-segs">${g.map(x=>`<i class="${S.done[dk(x)]?"on":""}" style="animation-delay:${qn++*40}ms"></i>`).join("")}</div><span>${l} <b>${g.length}</b></span></div>`:""}).join("");
+return`<div class="tdy">${topBar()}<p class="tdy-date">${new Date().toLocaleDateString("en",{weekday:"long",day:"numeric",month:"short"})}</p>
+<section class="tdy-hero"><p class="tdy-k">Today’s workout</p><h1 class="tdy-name">${wname()}</h1><p class="tdy-desc">${mine?"Your own list":WO[S.wo][1]}</p>
+${n?`<div class="tdy-meta"><span>${ic("wo",16)}~${mins(L)} min</span><span>${ic("ex",16)}${n} ${n===1?"exercise":"exercises"}</span>${mine?"":`<span>${LV[S.lvl]}</span>`}</div>
+<div class="tdy-rail" role="img" aria-label="${d} of ${L.length} moves done"><div class="tdy-phs">${rail}</div>${d?`<p class="tdy-cap"><b>${d}</b> of ${L.length} done</p>`:""}</div>
+<div class="tdy-moves" aria-label="Moves in this workout">${MN.map(x=>`<button class="tdy-mv" data-a="open" data-v="${x.e.id}" aria-label="${x.e.name}${S.done[dk(x)]?" (done)":""}"><span class="th${S.done[dk(x)]?" dn":""}">${fig(x.e)}${S.done[dk(x)]?`<i class="tk">${ic("chk",12,3.5)}</i>`:""}</span><span class="tdy-mn">${x.e.name}</span></button>`).join("")}</div>
+<button class="cta tdy-go" data-a="go">${ic("play",18)} ${d===L.length?"Restart workout":d?"Resume workout":"Start workout"}</button>`
+:`<p class="tdy-none">No moves yet. Add some from Explore.</p><button class="cta" data-a="tab" data-v="library">Browse exercises</button>`}
+<button class="cta g tdy-alt" data-a="pick">${ic("gear",18)} Change workout</button></section>
+${W?`<div class="tdy-sec"><h2>Last 30 days</h2><button class="tdy-more" data-a="tab" data-v="stats">See progress ${chv}</button></div><div class="tdy-sum"><div>${ic("wo",18)}<b>${W}</b><span>workouts</span></div><div>${ic("ex",18)}<b>${St}</b><span>sets</span></div><div>${ic("today",18)}<b>${fmt(R)}</b><span>reps</span></div></div>`
+:`<div class="tdy-sec"><h2>Your progress</h2></div><div class="tdy-sum tdy-ghost"><div>${ic("wo",18)}<b>0</b><span>workouts</span></div><div>${ic("ex",18)}<b>0</b><span>sets</span></div><div>${ic("today",18)}<b>0</b><span>reps</span></div></div><p class="tdy-hint">Finish your first workout to start tracking your sets, reps and streak.</p>`}
+<section class="tdy-motd"><div class="tdy-dm">${fig(m,1)}</div><div class="tdy-mi"><p class="tdy-k">Move of the day</p><h2>${m.name}</h2><p class="tdy-tags"><span>${m.m}</span><span>${LV[m.lv]}</span></p><button class="cta" data-a="open" data-v="${m.id}">Learn it</button></div></section></div>`}
 function vLibrary(){const base=Object.values(E).filter(av),chips=MU.map(m=>{const c=m==="All"?base.length:base.filter(e=>e.m===m).length;return`<button class="chip ${S.mu===m?"on":""}" data-a="mu" data-v="${m}" aria-pressed="${S.mu===m}">${m}<b>${c}</b></button>`}).join("");
 return`${topBar()}<h1 style="margin:20px 0 22px">Explore</h1><h2 style="margin:0 0 6px">Your equipment</h2>${bwNote()}<div class="eq">${eqPills("tg")}</div>
 <div class="xs"><label class="srch">${ic("srch",18)}<input id="q" type="search" placeholder="Search exercises" value="${S.q.replace(/&/g,"&amp;").replace(/"/g,"&quot;")}" aria-label="Search exercises"></label><div class="chips">${chips}</div></div>
