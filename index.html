@@ -220,69 +220,69 @@ main{padding-bottom:120px}
 .wc b{color:#fff;font-weight:700}
 .wc:active,.ibtn:active{background:var(--s2)}
 .ibtn{width:38px;height:38px;border:1px solid var(--ln);border-radius:50%;display:grid;place-items:center;color:#d4d4d4}
-.tdy-date{margin:0 0 16px;font-size:15px;font-weight:500;color:var(--mu)}
+/* page title row (Today) */
+.tdy-h{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:2px 12px;margin:20px 0 18px}
+.tdy-h .prg-h{margin:0}
+.tdy-date{font-size:14.5px;font-weight:500;color:var(--mu)}
 
-/* hero card */
-.hero{background:linear-gradient(180deg,#171717 0,#0a0a0a 75%);border:1px solid var(--ln);border-radius:28px;padding:22px 18px 18px;box-shadow:inset 0 1px 0 var(--hi)}
-.hero-k{font-size:14px;font-weight:500;color:var(--mu)}
-.hero-name{margin-top:8px;font-size:42px;line-height:1;letter-spacing:-.05em}
-.hero-name.sm{font-size:32px;margin-top:14px}
-.hero-desc{margin-top:10px;max-width:34ch;font-size:15px;line-height:1.4;color:var(--mu)}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:20px;border:1px solid var(--ln);border-radius:18px;background:rgba(255,255,255,.02)}
-.facts>div{padding:12px 12px 11px;min-width:0}.facts>div+div{border-left:1px solid var(--ln)}
-.facts b{display:block;font-family:var(--lb);font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.facts span{display:block;margin-top:1px;font-size:12.5px;color:var(--mu)}
+/* Today hero: the same card as Progress (ring + text, then a stats strip) */
+.hero .hero-k{display:block;margin:0;font-size:13.5px;font-weight:500;color:var(--mu)}
+.hero .hero-name{margin:3px 0 0;font-size:30px;font-weight:800;line-height:1.05;letter-spacing:-.04em}
+.hero .hero-desc{display:block;margin-top:7px;font-size:14px;line-height:1.35;color:var(--mu)}
 .okc{width:52px;height:52px;border-radius:50%;background:var(--ok);color:#000;display:grid;place-items:center}
 .okc.big{width:72px;height:72px;margin:0 auto 22px;background:#fff}
-.hero.is-done .hero-desc{max-width:none}
+.prg-kpis.two{grid-template-columns:1fr 1fr}
+.prg-kpis.two b{font-size:22px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-act{margin:0 -20px;padding:18px 20px 20px;border-top:1px solid var(--ln)}
+.hero>.prg-top+.hero-act{margin-top:20px}
 
 /* session timeline: warm-up / workout / cool-down, sized by minutes */
-.tl{display:flex;gap:6px;margin-top:20px;height:12px}
+.tl{display:flex;gap:6px;margin-top:22px;height:12px}
 .tl-p{display:flex;gap:2px;min-width:0}
 .tl-p i{flex:1 1 0;min-width:3px;border-radius:3px;background:var(--c);opacity:.34}
 .tl-p i.on{opacity:1}
 .tl-p.w,.tl-l .w{--c:var(--wu)}.tl-p.m,.tl-l .m{--c:#fff}.tl-p.c,.tl-l .c{--c:var(--cd)}
 .tl-l{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-family:var(--lb);font-size:12.5px;color:var(--mu)}
 .tl-l span{display:inline-flex;align-items:center;gap:6px}.tl-l i{width:8px;height:8px;border-radius:50%;background:var(--c)}.tl-l .w i{background:none;box-shadow:inset 0 0 0 2px var(--wu)}.tl-l b{color:#fff;font-weight:600}
-.need{margin-top:12px;font-size:13.5px;color:var(--mu)}
-.go{margin-top:20px;height:60px;font-size:18px;box-shadow:0 10px 30px rgba(255,255,255,.07)}
+
+.need{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 14px;font-size:13.5px;color:var(--mu)}
+.need span{margin-right:2px}
+.need em{font-style:normal;padding:4px 10px;border:1px solid var(--ln);border-radius:99px;background:rgba(255,255,255,.03);font-family:var(--lb);font-size:12.5px;font-weight:600;color:#e4e4e4}
+.go{margin-top:0;height:60px;font-size:18px}
 .resume{margin-top:8px;text-align:center;font-size:13.5px;color:var(--mu)}
 .alt1{margin-top:10px;height:50px;font-size:15px}
-.alt2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.hero-act.alt2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .alt2 .cta{height:48px;font-size:14px;padding:0 8px;gap:7px}
-.is-done .alt2{margin-top:18px}
 
-/* section headings */
-.sec{display:flex;align-items:baseline;justify-content:space-between;margin:26px 2px 12px}
-.sec small{font-family:var(--lb);font-size:13.5px;color:var(--mu)}
+/* this week, as cells like the Progress calendar */
+.wkrow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:16px}
+.wd{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0;cursor:default}
+.wd .dn{font-family:var(--lb);font-size:11.5px;font-weight:600;color:#808080}
+.wd .dc{width:100%;aspect-ratio:1/1.05;display:grid;place-items:center;background:#131313;border:1px solid #1f1f1f;border-radius:11px;color:#000;overflow:hidden}
+.wd .dl{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:var(--lb);font-size:11px;font-weight:600;color:#cfcfcf}
+.wd.done .dc{background:#fff;border-color:#fff}
+.wd.part .dc{border-color:#fff}.wd .hf{display:block;width:50%;height:100%;margin-right:auto;background:#fff}
+.wd.rest .dc{background:none;border:1px dashed #333}.wd.rest .dl{color:#6c6c6c}
+.wd.past .dc{background:none;border-color:#222}.wd.past .dl{color:#555}
+.wd.pre{opacity:.32}
+.wd.now .dn{color:#fff}.wd.now .dc{box-shadow:0 0 0 2px #0d0d0d,0 0 0 3.5px #fff}
 
-/* week strip */
-.wkrow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
-.wd{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 0 9px;border:1px solid var(--ln);border-radius:16px;background:var(--s1)}
-.wd:active{background:var(--s2)}
-.wd .dn{font-family:var(--lb);font-size:12px;font-weight:600;color:var(--mu)}
-.wd .dc{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;border:1.5px solid #3d3d3d;color:#000;overflow:hidden}
-.wd .dl{font-family:var(--lb);font-size:11.5px;font-weight:600;color:#cfcfcf;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.wd.done .dc{background:var(--ok);border-color:var(--ok)}
-.wd.part .dc{border-color:var(--ok)}.wd .hf{display:block;width:50%;height:100%;margin-right:auto;background:var(--ok)}
-.wd.rest .dc{border-color:#262626;background:#131313}.wd.rest .dl{color:#6c6c6c}
-.wd.now{border-color:#fff}.wd.now .dn{color:#fff}
-.wd.now .dc{border-color:#fff}
-
-/* today's session, grouped into phases */
-.blk{margin-top:10px;padding:0;border-radius:22px;overflow:hidden}
+/* today's session, grouped into phases inside one card */
+.ses{padding:20px 0 0;overflow:hidden}
+.ses .prg-ch{padding:0 20px 16px}
+.blk{margin:0;padding:0;border:0;border-top:1px solid var(--ln);border-radius:0;background:none}
 .blk.w{--c:var(--wu)}.blk.m{--c:#fff}.blk.c{--c:var(--cd)}
-.blk>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:0 16px;min-height:56px;cursor:pointer}
+.blk>summary{list-style:none;display:flex;align-items:center;gap:10px;padding:0 20px;min-height:54px;cursor:pointer}
 .blk>summary::-webkit-details-marker{display:none}
 .blk .dot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}.blk.w .dot{background:none;box-shadow:inset 0 0 0 2.5px var(--wu)}
 .blk summary b{font-weight:600;font-size:16px}
 .blk summary span{margin-left:auto;font-family:var(--lb);font-size:13px;color:var(--mu)}
 .blk summary svg{color:var(--mu);transition:transform .2s;flex:none}.blk[open] summary svg{transform:rotate(90deg)}
 .xr2{display:flex;align-items:center;border-top:1px solid var(--ln)}
-.xr2-m{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:10px 4px 10px 12px;text-align:left}
+.xr2-m{flex:1;min-width:0;display:flex;align-items:center;gap:12px;padding:10px 4px 10px 20px;text-align:left}
 .xr2 .th{width:54px;height:54px;border-radius:15px;flex:none}
 .xr2-t{flex:1;min-width:0}.xr2-t strong{display:block;font-weight:600;font-size:15.5px;line-height:1.2}.xr2-t .m{display:block;margin-top:2px;font-size:13px;color:var(--mu)}
-.xr2-s{width:52px;height:64px;flex:none;display:grid;place-items:center;color:var(--mu)}.xr2-s:active{color:#fff}
+.xr2-s{width:56px;height:64px;flex:none;display:grid;place-items:center;color:var(--mu)}.xr2-s:active{color:#fff}
 .xr2.dn .th{opacity:.55}.xr2.dn strong{color:var(--mu)}
 .th .tk{display:grid}
 
@@ -340,19 +340,43 @@ main{padding-bottom:120px}
 /* splash: returning launches show only the opening screen */
 #splash.quick .sp-act{display:none}
 
-.wd.pre{opacity:.32}
 
 .toast{bottom:auto;top:max(14px,env(safe-area-inset-top));animation:fade .2s}
 #splash.quick .sp-txt{bottom:calc(64px + env(safe-area-inset-bottom,0px));animation-duration:.45s;animation-delay:.05s}
 .alt2 .cta{white-space:nowrap}
 @media (max-width:380px){.alt2 .cta svg{display:none}}
-.wd.past .dc{border-color:#262626;background:#101010}.wd.past .dl{color:#555}
-.wd{cursor:default}
 .pk.lk{opacity:.45}
 
 /* strictly neutral: browser defaults that are blue or yellow */
 ::selection{background:#fff;color:#000}
 input,textarea,select{caret-color:#fff;accent-color:#fff}
+
+/* Explore: equipment card, section headers and card tiles in the Progress style */
+.xhero .prg-top{align-items:center}
+.eqp{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 0}
+.eqt{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border:1px solid var(--ln);border-radius:99px;background:rgba(255,255,255,.03);font-family:var(--lb);font-size:12.5px;font-weight:600;color:#e4e4e4}
+.eqt svg{color:var(--mu);flex:none}
+.eqt.ed{background:#fff;border-color:#fff;color:#000}
+.eqt.ed:active{transform:scale(.96)}
+.xs{margin-top:14px}
+.prg-ch.xsh{margin:26px 2px 12px}
+#exl>.xsh:first-child{margin-top:12px}
+.xg{gap:12px}
+.xc{background:var(--s1);border:1px solid var(--ln);border-radius:24px;overflow:hidden}
+.xc:active{border-color:#555}
+.xt{aspect-ratio:1/.92;background:none;border:0;border-radius:0;padding:22px 14px 2px}.xt.tg{padding-top:42px}
+.xn{margin:8px 14px 0}
+.xm{margin:3px 14px 14px}
+
+/* hero spacing and ring contents */
+.hero .prg-30,.xhero .prg-30{margin-top:20px}
+.ringw b svg{width:28px;height:28px}
+
+/* first launch only: three plain lines about what the app does */
+#splash .sp-pts{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:9px}
+#splash .sp-pts li{display:flex;align-items:center;gap:12px;font-size:15px;line-height:1.3;color:#d4d4d4;text-shadow:0 0 6px #000,0 0 3px #000,0 0 2px #000}
+#splash .sp-pts li:before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:#fff}
+#splash.quick .sp-pts{display:none}
 </style>
 </head>
 <body style="background:#000">
@@ -364,6 +388,7 @@ input,textarea,select{caret-color:#fff;accent-color:#fff}
 <div class="sp-txt">
 <h1 class="sp-name" aria-label="Fitforg"><b>FIT</b>FORG</h1>
 <p class="sp-tag">Fit from basics.<br>Forge with form.</p>
+<ul class="sp-pts"><li>Tell it what equipment you have</li><li>Get the right workout every day</li><li>See how each move is done</li></ul>
 </div>
 <div class="sp-act">
 <button class="cta" id="sp-go">Start training</button>
@@ -989,28 +1014,34 @@ v.src="/videos/exercises/"+d.dataset.id+".mp4"})}
 const row=(x,i,F)=>{const dn=F.done[key(x)];return`<div class="xr2${dn?" dn":""}"><button class="xr2-m" data-a="openx" data-v="${i}"><span class="th">${fig(x.e)}${dn?`<i class="tk">${ic(dn===2?"skip":"chk",11,3.5)}</i>`:""}</span><span class="xr2-t"><strong>${x.e.name}</strong><span class="m">${spec(x)}</span></span></button><button class="xr2-s" data-a="swap" data-v="${i}" aria-label="Swap ${x.e.name}">${ic("swap",18)}</button></div>`};
 function blocks(F){const L=F.L,k=F.k;return["w","m","c"].map(b=>{const g=L.map((x,i)=>[x,i]).filter(([x])=>x.b===b);if(!g.length)return"";const m=Math.max(1,Math.round(g.reduce((a,[x])=>a+sec(x),0)/60));
 return`<details class="blk ${b}"${b==="m"?" open":""}><summary><i class="dot"></i><b>${blname(b,k)}</b><span>${g.length} ${g.length===1?"move":"moves"} · ${m} min</span>${ic("chev",16,2.4)}</summary>${g.map(([x,i])=>row(x,i,F)).join("")}</details>`}).join("")}
-function weekStrip(){const n=new Date(),m0=mon0(n),A=weekAhead(),t0=parseIso(S.t0);return`<div class="sec"><h2>This week</h2><small>${wkCount(0)} of ${S.days} done</small></div><div class="wkrow">${[...Array(7)].map((_,i)=>{const d=addD(m0,i),c=mid(d)-mid(n),h=S.h[iso(d)];let st,lab;
+function weekStrip(){const n=new Date(),m0=mon0(n),A=weekAhead(),t0=parseIso(S.t0);return`<section class="prg-card"><div class="prg-ch"><h2>This week</h2><small>${wkCount(0)} of ${S.days} done</small></div><div class="wkrow">${[...Array(7)].map((_,i)=>{const d=addD(m0,i),c=mid(d)-mid(n),h=S.h[iso(d)];let st,lab;
 if(isFin(h)){st="done";lab=SH[h.w]||"Done"}
 else if(c<0){st=d<t0?"pre":h&&h.s>0?"part":"past";lab=h&&h.s>0?SH[h.w]||"":"–"}
 else if(c===0){const k=todayKey();st=k==="rest"?"rest":"plan";lab=k==="rest"?"Rest":SH[k]||""}
 else{const k=A[iso(d)];st=k==="rest"?"rest":"plan";lab=k==="rest"?"Rest":SH[k]||""}
 const say={done:"done",part:"started",past:"not done",pre:"before you started",rest:"rest day",plan:"planned"}[st];
-return`<div class="wd ${st}${i===dow(n)?" now":""}" role="img" aria-label="${DN[i]}, ${say}${lab&&lab!=="–"?": "+lab:""}"><span class="dn">${"MTWTFSS"[i]}</span><span class="dc">${st==="done"?ic("chk",14,3.4):st==="part"?'<i class="hf"></i>':""}</span><span class="dl">${lab}</span></div>`}).join("")}</div>`}
-function heroK(k,now){const late=lateDay(now);if(S.ov[iso(now)]&&S.ov[iso(now)]!==nextKey())return"Today · your pick";return late?"Today · moved from "+DN[dow(late)]:"Today"}
-function vToday(){const now=new Date(),t=iso(now),h=S.h[t],F=plan(),fin=isFin(h)&&S.more!==t;let hero,list="";
-if(!F){const nx=nextTrainDay();hero=`<section class="hero"><p class="hero-k">Today</p><h1 class="hero-name">Rest day</h1><p class="hero-desc">Muscles grow while you rest.${nx?" Next workout: "+nx.label+", "+pname(nextKey())+".":""}</p><button class="cta g alt1" data-a="anyway">Train anyway</button></section>`}
-else if(!F.L.some(x=>x.b==="m")){hero=`<section class="hero"><p class="hero-k">Today</p><h1 class="hero-name sm">${pname(F.k)}</h1><p class="hero-desc">Your equipment doesn’t cover this workout yet. Add what you have, or pick a different workout.</p><button class="cta go" data-a="settings">Edit equipment</button><button class="cta g alt1" data-a="pick">Change workout</button></section>`}
-else{const L=F.L,k=F.k,M=mins(L),n=L.filter(x=>x.b==="m").length,d=L.filter(x=>F.done[key(x)]).length,nk=needKeys(L);
-if(fin){hero=`<section class="hero is-done"><div class="okc">${ic("chk",26,3)}</div><h1 class="hero-name sm">Done for today</h1><p class="hero-desc">${pname((h&&h.w)||k)} is complete. Rest up and eat well.</p><div class="facts"><div><b>${(h&&h.m)||1}</b><span>${((h&&h.m)||1)===1?"minute":"minutes"}</span></div><div><b>${h.s}</b><span>sets</span></div><div><b>${fmt(h.r)}</b><span>reps</span></div></div><div class="alt2"><button class="cta g" data-a="tab" data-v="stats">See progress</button><button class="cta g" data-a="pick">Do another</button></div></section>`}
+return`<div class="wd ${st}${i===dow(n)?" now":""}" role="img" aria-label="${DN[i]}, ${say}${lab&&lab!=="–"?": "+lab:""}"><span class="dn">${"MTWTFSS"[i]}</span><span class="dc">${st==="done"?ic("chk",14,3.4):st==="part"?'<i class="hf"></i>':""}</span><span class="dl">${lab}</span></div>`}).join("")}</div></section>`}
+const ringH=(v,t,inner,lab)=>{const C=2*Math.PI*34;return`<div class="ringw" role="img" aria-label="${lab}"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="rg-b" cx="40" cy="40" r="34"/><circle class="rg-f" cx="40" cy="40" r="34" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-(t?Math.min(1,v/t):0))}" transform="rotate(-90 40 40)"/></svg><b>${inner}</b></div>`};
+const kpis=(a,cap,cl)=>`<div class="prg-30"><p class="prg-kh">${cap}</p><div class="prg-kpis${cl||""}">${a.map(([n,l])=>`<div><b>${n}</b><span>${l}</span></div>`).join("")}</div></div>`;
+function heroK(k,now){const late=lateDay(now);if(S.ov[iso(now)]&&S.ov[iso(now)]!==nextKey())return"Your pick";return late?"Moved from "+DN[dow(late)]:"Today’s workout"}
+function vToday(){const now=new Date(),t=iso(now),h=S.h[t],F=plan(),fin=isFin(h)&&S.more!==t,wk=wkCount(0),gl=S.days;let hero,list="";
+const head=`${topBar()}<div class="tdy-h"><h1 class="prg-h">Today</h1><span class="tdy-date">${now.toLocaleDateString("en",{weekday:"long",day:"numeric",month:"long"})}</span></div>`,
+top=(r,k,nm,ds)=>`<div class="prg-top">${r}<div class="prg-sk"><span class="hero-k">${k}</span><h2 class="hero-name">${nm}</h2><span class="hero-desc">${ds}</span></div></div>`;
+if(!F){const nx=nextTrainDay();
+hero=`<section class="hero prg-hero">${top(ringH(wk,gl,wk+"/"+gl,wk+" of "+gl+" workouts done this week"),"Recovery","Rest day","Muscles grow while you rest. "+wk+" of "+gl+" workouts done this week.")}${nx?kpis([[nx.label,"next session"],[pname(nextKey()),"workout"]],"Coming up"," two"):""}<div class="hero-act"><button class="cta g" data-a="anyway">Train anyway</button></div></section>`}
+else if(!F.L.some(x=>x.b==="m")){hero=`<section class="hero prg-hero">${top(ringH(0,1,ic("lock",22,2.4),"No exercises available yet"),"Today’s workout",pname(F.k),"Your equipment doesn’t cover this workout yet. Add what you have, or pick a different workout.")}<div class="hero-act"><button class="cta go" data-a="settings">Edit equipment</button><button class="cta g alt1" data-a="pick">Change workout</button></div></section>`}
+else{const L=F.L,k=F.k,M=mins(L),n=L.filter(x=>x.b==="m").length,d=L.filter(x=>F.done[key(x)]).length,nk=needKeys(L),ws=L.filter(x=>x.b==="m").reduce((a,x)=>a+x.s,0);
+if(fin){const mm=(h&&h.m)||1;hero=`<section class="hero prg-hero is-done">${top(ringH(1,1,ic("chk",26,3),"Workout complete"),"Today’s workout","Done for today",pname((h&&h.w)||k)+" is complete. Rest up and eat well.")}${kpis([[mm,mm===1?"minute":"minutes"],[h.s,"sets"],[fmt(h.r),"reps"]],"What you did")}<div class="hero-act alt2"><button class="cta g" data-a="tab" data-v="stats">See progress</button><button class="cta g" data-a="pick">Do another</button></div></section>`}
 else{const tl=["w","m","c"].map(b=>{const g=L.filter(x=>x.b===b);if(!g.length)return"";return`<div class="tl-p ${b}" style="flex:${g.reduce((a,x)=>a+sec(x),0)}">${g.map(x=>`<i class="${F.done[key(x)]?"on":""}" style="flex:${sec(x)}"></i>`).join("")}</div>`}).join(""),
 lg=["w","m","c"].filter(b=>L.some(x=>x.b===b)).map(b=>`<span class="${b}"><i></i>${blname(b,k)} <b>${M[b]} min</b></span>`).join("");
-hero=`<section class="hero"><p class="hero-k">${heroK(k,now)}</p><h1 class="hero-name">${pname(k)}</h1><p class="hero-desc">${pdesc(k)}</p>
-<div class="facts"><div><b>${M.tot}</b><span>${M.tot===1?"minute":"minutes"}</span></div><div><b>${n}</b><span>${n===1?"exercise":"exercises"}</span></div><div><b>${nk.length?nk.length===1?SHORT[nk[0]]:nk.length+" items":"None"}</b><span>needed</span></div></div>
-<div class="tl" role="img" aria-label="${L.length} moves, ${d} done">${tl}</div><div class="tl-l">${lg}</div>${nk.length?`<p class="need">You’ll need: ${nk.map(gname).join(", ")}</p>`:""}
+hero=`<section class="hero prg-hero">${top(ringH(d,L.length,d+"/"+L.length,d+" of "+L.length+" moves done"),heroK(k,now),pname(k),pdesc(k))}
+<div class="tl" role="img" aria-label="${L.length} moves, ${d} done">${tl}</div><div class="tl-l">${lg}</div>
+${kpis([[M.tot,M.tot===1?"minute":"minutes"],[n,n===1?"exercise":"exercises"],[ws,ws===1?"set":"sets"]],"This session")}
+<div class="hero-act"><p class="need">${nk.length?`<span>You’ll need</span>${nk.map(x=>`<em>${gname(x)}</em>`).join("")}`:`<span>No equipment needed</span>`}</p>
 <button class="cta go" data-a="go">${ic("play",18)} ${d?"Resume workout":"Start workout"}</button>${d?`<p class="resume">${d} of ${L.length} moves done</p>`:""}
-<button class="cta g alt1" data-a="pick">${ic("gear",17)} Change workout</button></section>`}
-list=`<div class="sec"><h2>Today’s session</h2></div>${blocks(F)}`}
-return`<div class="tdy">${topBar()}<p class="tdy-date">${now.toLocaleDateString("en",{weekday:"long",day:"numeric",month:"long"})}</p>${hero}${weekStrip()}${list}</div>`}
+<button class="cta g alt1" data-a="pick">${ic("gear",17)} Change workout</button></div></section>`}
+list=`<section class="prg-card ses"><div class="prg-ch"><h2>Today’s session</h2><small>${L.length} moves · ${M.tot} min</small></div>${blocks(F)}</section>`}
+return`<div class="tdy">${head}${hero}${weekStrip()}${list}</div>`}
 
 // ---------- Progress ----------
 function vStats(){let W=0,St=0,R=0;for(let i=0;i<30;i++){const h=hday(i);if(h.s){W++;St+=h.s;R+=h.r}}
@@ -1035,18 +1066,20 @@ return`<div class="prg">${topBar()}<h1 class="prg-h">Progress</h1>
 
 // ---------- Explore ----------
 function xcard(e){const ok=av(e),on=S.mine.includes(e.id),tag=e.eq!=="bw"?(ok?ic("eq_"+e.eq,13,2.2)+gname(e.eq):ic("lock",12,2.5)+"Needs "+gname(need(e))):!ok&&need(e)?ic("lock",12,2.5)+"Needs "+gname(need(e)):e.hh?(ok?ic("home",12,2.3)+HHS[e.hh]:ic("lock",12,2.5)+"Needs "+gname(need(e))):"";
-return`<div class="xc${ok?"":" lk"}"><button class="xo" data-a="open" data-v="${e.id}"><div class="xt">${fig(e)}${tag?`<span class="xtag">${tag}</span>`:""}</div><div class="xn">${e.name}</div><div class="xm">${e.m}</div></button><button class="xa${on?" on":""}" data-a="mine" data-v="${e.id}" aria-label="${on?"Remove "+e.name+" from":"Add "+e.name+" to"} my workout"><span>${ic(on?"chk":"plus",16,2.5)}</span></button></div>`}
-const eqLine=()=>BASE.filter(b=>S.gear[b[0]]).map(b=>b[2]).join(", ")||"Nothing selected";
-function exrows(){const q=S.q.toLowerCase(),L=Object.values(E).filter(e=>(S.mu==="All"||e.m===S.mu)&&(!q||(e.name+e.m).toLowerCase().includes(q))),A=L.filter(av),H=L.filter(e=>!av(e)),G=A.filter(e=>e.eq!=="bw"),B=A.filter(e=>e.eq==="bw"),grid=l=>`<div class="xg">${l.map(xcard).join("")}</div>`,sec_=(t,n)=>`<h2 class="sh2">${t}<span>${n}</span></h2>`;
+return`<div class="xc${ok?"":" lk"}"><button class="xo" data-a="open" data-v="${e.id}"><div class="xt${tag?" tg":""}">${fig(e)}${tag?`<span class="xtag">${tag}</span>`:""}</div><div class="xn">${e.name}</div><div class="xm">${e.m}</div></button><button class="xa${on?" on":""}" data-a="mine" data-v="${e.id}" aria-label="${on?"Remove "+e.name+" from":"Add "+e.name+" to"} my workout"><span>${ic(on?"chk":"plus",16,2.5)}</span></button></div>`}
+function exrows(){const q=S.q.toLowerCase(),L=Object.values(E).filter(e=>(S.mu==="All"||e.m===S.mu)&&(!q||(e.name+e.m).toLowerCase().includes(q))),A=L.filter(av),H=L.filter(e=>!av(e)),G=A.filter(e=>e.eq!=="bw"),B=A.filter(e=>e.eq==="bw"),grid=l=>`<div class="xg">${l.map(xcard).join("")}</div>`,sec_=(t,n)=>`<div class="prg-ch xsh"><h2>${t}</h2><small>${n} ${n===1?"exercise":"exercises"}</small></div>`;
 let h="";
-if(S.mine.length||(A.length&&!G.length))h+=`<div class="xr"><span>${A.length&&!G.length?A.length+(A.length===1?" exercise":" exercises"):""}</span>${S.mine.length?`<button class="chip" data-a="usemine">Use My workout · ${S.mine.length}</button>`:""}</div>`;
 if(G.length){h+=sec_("Using your equipment",G.length)+grid(G);if(B.length)h+=sec_("Bodyweight",B.length)+grid(B)}
-else if(B.length)h+=grid(B);
+else if(B.length)h+=sec_("Bodyweight",B.length)+grid(B);
 else h+=`<div class="em"><strong>${q&&H.length?"Nothing with your current equipment":"No exercises match"}</strong><p class="mu">${q&&H.length?"These need other equipment, shown below.":"Try another muscle group or clear your filters."}</p>${q&&H.length?"":'<button class="cta g s" data-a="clr">Clear filters</button>'}</div>`;
 if(H.length&&q)h+=sec_("Needs other equipment",H.length)+grid(H);
 return h}
-function vLibrary(){const base=Object.values(E).filter(av),chips=MU.map(m=>{const c=m==="All"?base.length:base.filter(e=>e.m===m).length;return`<button class="chip ${S.mu===m?"on":""}" data-a="mu" data-v="${m}" aria-pressed="${S.mu===m}">${m}<b>${c}</b></button>`}).join("");
-return`${topBar()}<h1 style="margin:20px 0 16px">Explore</h1><div class="eqline"><div><span>Showing exercises for</span><strong>${eqLine()}</strong></div><button class="cta g s" data-a="settings">Edit</button></div>
+function vLibrary(){const all=Object.values(E),base=all.filter(av),tot=all.length,n=base.length,nb=base.filter(e=>e.eq==="bw").length,chips=MU.map(m=>{const c=m==="All"?base.length:base.filter(e=>e.m===m).length;return`<button class="chip ${S.mu===m?"on":""}" data-a="mu" data-v="${m}" aria-pressed="${S.mu===m}">${m}<b>${c}</b></button>`}).join(""),
+gear=BASE.filter(b=>S.gear[b[0]]);
+return`${topBar()}<h1 class="prg-h">Explore</h1>
+<section class="prg-hero xhero"><div class="prg-top">${ringH(n,tot,Math.round(n/tot*100)+"%",n+" of "+tot+" exercises match your equipment")}<div class="prg-sk"><b>${n} of ${tot}</b><span>exercises match your equipment</span></div></div>
+<div class="eqp">${gear.length?gear.map(b=>`<span class="eqt">${ic(IC["eq_"+b[0]]?"eq_"+b[0]:"home",14,2.2)}${b[2]}</span>`).join(""):'<span class="eqt">No equipment selected</span>'}<button class="eqt ed" data-a="settings">Edit</button></div>
+<div class="prg-30"><p class="prg-kh">Your library</p><div class="prg-kpis"><div><b>${nb}</b><span>bodyweight</span></div><div><b>${n-nb}</b><span>with equipment</span></div><div><b>${S.mine.length}</b><span>in My workout</span></div></div></div></section>
 <div class="xs"><label class="srch">${ic("srch",18)}<input id="q" type="search" placeholder="Search exercises" value="${S.q.replace(/&/g,"&amp;").replace(/"/g,"&quot;")}" aria-label="Search exercises"></label><div class="chips">${chips}</div></div>
 <div id="exl">${exrows()}</div>
 <div class="xf"><svg class="mk" style="width:20px;opacity:.4;margin-top:12px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><p class="lbl" style="opacity:.5">Fitforg · Works offline</p></div>`}
@@ -1133,7 +1166,6 @@ else if(a==="th"){S.home[v]=S.home[v]===0?1:0;invalidate();save();refSet();rende
 else if(a==="sdays"){S.days=+v;S.n=0;S.ov={};S.fz&&!Object.keys(S.fz.done).length&&(S.fz=null);save();refSet();render()}
 else if(a==="slen"){S.len=+v;invalidate();save();refSet();render()}
 else if(a==="eqdone"){if(!BASE.some(g=>S.gear[g[0]])){toast("Pick at least one option");return}S.eqSet=1;save();document.querySelector(".sheet.set")?.remove();render()}
-else if(a==="usemine"){choose(new Date(),"mine");S.tab="today";render();$("#main").scrollTop=0;toast("Today is now My workout")}
 else if(a==="quit"){if(ss&&ss.fin)stop();else ask(`<h2>End workout?</h2><p class="mu">Finished sets are saved. You can resume from Today.</p><button class="cta" data-a="close2">Keep going</button><button class="cta g" data-a="stop2">End workout</button>`)}
 else if(a==="stop2"){closeMask();stop()}
 else if(a==="open"||a==="open2"){if(a==="open2")topSheet()?.remove();open_(v)}
