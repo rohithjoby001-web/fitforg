@@ -398,7 +398,7 @@ input,textarea,select{caret-color:#fff;accent-color:#fff}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ff-mark" viewBox="0 0 471 488"><path d="M467.8 4.2L467.0 4.2L466.2 5.0L448.8 31.8L437.5 47.2L427.2 59.8L415.8 71.8L406.5 79.8L397.5 86.2L391.2 90.0L382.8 94.2L373.8 98.0L362.0 101.8L339.2 106.8L337.5 106.8L327.2 109.0L318.5 110.2L316.2 111.0L306.5 112.5L302.8 113.5L298.0 114.0L291.5 115.5L287.2 116.0L285.0 116.8L283.2 116.8L268.2 119.8L263.8 120.2L257.5 121.8L232.0 126.0L229.8 126.8L221.0 128.0L213.2 129.8L208.8 130.2L206.5 131.0L199.2 132.0L194.2 133.2L187.8 134.0L181.5 135.5L179.5 135.5L162.2 139.0L156.0 139.8L151.2 141.0L145.2 141.8L139.0 143.2L137.0 143.2L129.2 145.0L122.0 146.0L118.5 147.0L113.8 147.5L109.0 148.8L106.0 149.0L96.2 151.0L93.0 151.2L92.0 151.8L90.2 151.8L88.0 152.5L82.2 153.2L76.2 154.8L71.8 155.2L64.0 157.0L59.5 157.5L56.2 158.5L49.2 159.5L44.5 160.8L29.2 163.2L27.2 164.0L19.5 165.2L12.0 167.0L10.5 167.0L9.5 167.5L5.0 168.2L4.5 168.8L5.0 169.8L14.5 170.5L29.5 170.5L77.2 169.0L113.8 169.2L117.0 169.8L138.0 170.5L140.2 171.0L155.5 172.2L157.2 172.8L166.5 173.8L168.0 174.2L175.8 175.0L178.0 175.8L184.0 176.5L205.8 180.8L217.2 183.8L222.8 184.8L234.0 188.0L240.2 190.2L248.2 194.0L257.0 200.0L264.0 207.0L268.8 213.5L272.2 220.0L275.0 227.8L276.2 235.2L276.2 239.8L274.8 248.8L271.8 257.2L256.0 294.2L249.2 312.0L241.2 335.8L240.0 341.2L239.2 342.8L237.8 349.2L236.2 353.8L230.2 380.0L229.8 384.2L228.0 391.5L226.8 400.2L225.0 408.5L224.8 411.8L224.0 414.2L223.0 422.5L221.2 431.8L220.8 437.2L219.2 445.0L217.8 458.0L217.2 459.2L216.8 465.5L215.8 471.0L215.8 473.5L215.0 477.0L214.5 482.5L214.8 484.5L215.8 484.2L216.8 481.8L223.8 459.0L224.5 457.5L226.0 451.5L229.8 440.2L230.0 438.5L231.5 434.8L232.0 432.2L247.0 388.0L255.8 365.0L261.8 350.5L268.8 335.0L274.8 323.0L281.8 310.2L289.8 297.2L299.8 282.5L309.5 270.0L320.5 257.8L335.8 242.5L368.5 211.8L384.8 195.0L391.8 186.5L398.5 177.5L407.8 163.2L418.5 144.0L426.8 127.0L435.2 107.2L441.8 90.5L448.5 71.8L452.8 59.0L456.0 47.8L457.0 45.5L458.0 41.2L458.8 39.8L466.0 14.5L468.0 6.2Z"/></symbol></svg>
 <script>
 const $=s=>document.querySelector(s);
-const IC={eq_bw:'<circle cx="12" cy="4.5" r="2"/><path d="M5.5 9.5l6.5 1.5 6.5-1.5M12 11v4.5M12 15.5l-3 5.5M12 15.5l3 5.5"/>',eq_db:'<rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/><path d="M7 12h10M2 10v4M22 10v4"/>',eq_bar:'<path d="M3 4.5v5M21 4.5v5M3 7h18"/><circle cx="12" cy="10.5" r="1.8"/><path d="M8 7l2.5 5.5M16 7l-2.5 5.5M12 12.5v4.5M12 17l-2 4M12 17l2 4"/>',eq_band:'<rect x="2" y="8.5" width="3.5" height="7" rx="1.3"/><rect x="18.5" y="8.5" width="3.5" height="7" rx="1.3"/><path d="M5.5 12c2-4.5 4-4.5 6.5 0s4.5 4.5 6.5 0"/>',eq_kb:'<path d="M8.5 10.5v-3a3.5 3.5 0 0 1 7 0v3"/><circle cx="12" cy="15.5" r="5.5"/>',today:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15.2l2.2 2.2 4.3-4.4"/>',stats:'<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>',library:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M9 7h7M9 11h7"/>',ex:'<path d="M3 12h2M19 12h2M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/>',wo:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',gear:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',chk:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',plus:'<path d="M12 5v14M5 12h14"/>',srch:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',play:'<path d="M7 4l13 8-13 8z" fill="currentColor"/>',home:'<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/>',swap:'<path d="M7 7h11l-3-3M17 17H6l3 3"/>',cog:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>',skip:'<path d="M5 5l9 7-9 7zM19 5v14"/>',cal:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/>',chev:'<path d="m9 18 6-6-6-6"/>',eq_pb:'<path d="M3 10h7M14 10h7M4.5 10v8M8.5 10v8M15.5 10v8M19.5 10v8M2 18.5h20"/>',eq_bag:'<path d="M8.5 6.5a3.5 3.5 0 0 1 7 0"/><rect x="5" y="6.5" width="14" height="14.5" rx="4"/><path d="M9 14h6M9 17.5h6"/>'};
+const IC={eq_bw:'<circle cx="12" cy="4.5" r="2"/><path d="M5.5 9.5l6.5 1.5 6.5-1.5M12 11v4.5M12 15.5l-3 5.5M12 15.5l3 5.5"/>',eq_db:'<rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/><path d="M7 12h10M2 10v4M22 10v4"/>',eq_bar:'<path d="M3 4.5v5M21 4.5v5M3 7h18"/><circle cx="12" cy="10.5" r="1.8"/><path d="M8 7l2.5 5.5M16 7l-2.5 5.5M12 12.5v4.5M12 17l-2 4M12 17l2 4"/>',eq_band:'<rect x="2" y="8.5" width="3.5" height="7" rx="1.3"/><rect x="18.5" y="8.5" width="3.5" height="7" rx="1.3"/><path d="M5.5 12c2-4.5 4-4.5 6.5 0s4.5 4.5 6.5 0"/>',eq_kb:'<path d="M8.5 10.5v-3a3.5 3.5 0 0 1 7 0v3"/><circle cx="12" cy="15.5" r="5.5"/>',today:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15.2l2.2 2.2 4.3-4.4"/>',stats:'<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>',library:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M9 7h7M9 11h7"/>',ex:'<path d="M3 12h2M19 12h2M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/>',wo:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',gear:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',chk:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',plus:'<path d="M12 5v14M5 12h14"/>',save:'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/>',saved:'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z" fill="currentColor"/>',srch:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',play:'<path d="M7 4l13 8-13 8z" fill="currentColor"/>',home:'<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/>',swap:'<path d="M7 7h11l-3-3M17 17H6l3 3"/>',cog:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>',skip:'<path d="M5 5l9 7-9 7zM19 5v14"/>',cal:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/>',chev:'<path d="m9 18 6-6-6-6"/>',eq_pb:'<path d="M3 10h7M14 10h7M4.5 10v8M8.5 10v8M15.5 10v8M19.5 10v8M2 18.5h20"/>',eq_bag:'<path d="M8.5 6.5a3.5 3.5 0 0 1 7 0"/><rect x="5" y="6.5" width="14" height="14.5" rx="4"/><path d="M9 14h6M9 17.5h6"/>'};
 const ic=(n,s=20,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
 // id|name|muscle|equipment|motion|sets|reps|rest|steps;|tip|swap
 const E={};`squat-goblet|Goblet Squat|Legs|db|squat|3|12|75|Hold one dumbbell upright at your chest, elbows pointing down.;Sit your hips back and down until your thighs are parallel to the floor.;Drive through your whole foot to stand tall.|Keep your chest up and knees over your toes.|squat
@@ -826,7 +826,7 @@ const still=()=>document.querySelectorAll(".fig:not([data-live])").forEach(s=>{c
 /* ================= Fitforg v2 · state, schedule and planner ================= */
 const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],DN=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 const mid=d=>new Date(d.getFullYear(),d.getMonth(),d.getDate()),addD=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n),dow=d=>(d.getDay()+6)%7,mon0=d=>addD(d,-dow(d));
-const iso=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),dy=n=>new Date(Date.now()-n*864e5),parseIso=s=>{const p=s.split("-").map(Number);return new Date(p[0],p[1]-1,p[2])};
+const iso=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),dy=n=>addD(new Date(),-n),parseIso=s=>{const p=s.split("-").map(Number);return new Date(p[0],p[1]-1,p[2])};
 const dlab=d=>DN[dow(d)].slice(0,3)+" "+d.getDate()+" "+MON[d.getMonth()];
 
 // session length (total minutes, warm-up and cool-down included) and how it is split
@@ -841,12 +841,16 @@ if(!S){let o=null;try{o=JSON.parse(localStorage.getItem("ff3"))}catch(e){}S={};i
 S.gear=S.gear||{};S.home=S.home||{};S.mine=(S.mine||[]).filter(i=>E[i]);S.h=S.h||{};S.ov=S.ov||{};S.n=S.n>0?Math.floor(S.n):0;S.vc=S.vc||{};
 S.days=[3,4,5,6].includes(S.days)?S.days:4;if(!(S.len>=20))S.len=30;if(!LENS.includes(S.len))S.len=LENS.reduce((a,b)=>Math.abs(b-S.len)<Math.abs(a-S.len)?b:a);
 if(!S.t0)S.t0=iso(new Date());   // first day of use: earlier days of this week are never counted as missed
+// schedule history: which training-day count applied from which date, so changing it never rewrites the past
+if(!Array.isArray(S.sch)||!S.sch.length||S.sch.some(x=>!x||!x.f||![3,4,5,6].includes(x.d)))S.sch=[{f:S.t0,d:S.days}];
+if(S.sch[S.sch.length-1].d!==S.days)S.sch.push({f:iso(new Date()),d:S.days});
 if(S.eqSet&&S.gear.bw==null)S.gear.bw=1;   // everyone who set up before had bodyweight on
+if(!S.eqSet&&!BASE.some(g=>S.gear[g[0]]))S.gear.bw=1;   // first setup starts with Bodyweight on (can be turned off)
 S.tab=S.tab||"today";S.q=S.q||"";S.mu=S.mu||"All";
 for(const k in S.ov){if(k!==iso(new Date())||S.ov[k]==="rec"||S.ov[k]==="rest")delete S.ov[k]}   // only today can be changed by hand
 if(S.fz&&(!S.fz.L||S.fz.L.some(x=>!E[x.id])))S.fz=null;
 const hydrate=x=>{Object.defineProperty(x,"e",{value:E[x.id],writable:true,enumerable:false});return x};
-if(S.fz)S.fz.L.forEach(hydrate);
+if(S.fz){S.fz.L.forEach(hydrate);S.fz.sd=S.fz.sd||{}}
 const save=()=>{try{localStorage.setItem("ff4",JSON.stringify(S))}catch(e){}};
 
 // ---------- availability ----------
@@ -864,7 +868,9 @@ const needKeys=L=>{const s=new Set();L.forEach(x=>{const e=x.e;if(e.eq!=="bw")s.
 const CYC={3:["full","full","full"],4:["upper","legs","upper","legs"],5:["push","pull","legs","upper","legs"],6:["push","pull","legs","push","pull","legs"]};
 const TRAIN={3:[1,0,1,0,1,0,0],4:[1,1,0,1,1,0,0],5:[1,1,1,0,1,1,0],6:[1,1,1,1,1,1,0]};   // Mon..Sun
 const SPLITD={3:"Full body on Mon, Wed and Fri. Every session trains your whole body.",4:"Upper body and legs, each twice a week: Mon, Tue, Thu and Fri.",5:"Push, pull, legs, then upper and legs: Mon, Tue, Wed, Fri and Sat.",6:"Push, pull and legs twice a week, Monday to Saturday."};
-const cyc=()=>CYC[S.days],isTrain=d=>!!TRAIN[S.days][dow(d)];
+// the training-day count in force on a given day (past days keep the schedule they had)
+const daysOn=d=>{const x=mid(d);let r=S.sch[0].d;for(const e of S.sch)if(parseIso(e.f)<=x)r=e.d;return r};
+const cyc=()=>CYC[S.days],isTrain=d=>!!TRAIN[daysOn(d)][dow(d)];
 // a workout you have no kit for is skipped in the queue instead of blocking it
 // core moves alone don't make a Legs or Pull day: a workout needs at least two of its own exercises
 const CORE=new Set(["core","cplank","cdead","crot","clow","cside","cdyn"]);
@@ -970,10 +976,13 @@ const mins=L=>{const g=b=>L.filter(x=>x.b===b).reduce((a,x)=>a+sec(x),0),w=Math.
 const key=x=>x.b+":"+x.id;
 
 // ---------- today's plan is frozen once built so it never changes under you ----------
+// done: finished (1) or skipped (2) moves · sd: sets already done per move, so a resumed session picks up at the right set
+const started=F=>!!F&&(Object.keys(F.done).length>0||Object.keys(F.sd||{}).length>0);
 function plan(){const now=new Date(),t=iso(now),k=todayKey();if(k==="rest")return null;
-if(!S.fz||S.fz.d!==t||S.fz.k!==k||S.fz.len!==S.len){S.fz={d:t,k,len:S.len,L:build(k,now,S.len).L,done:{}};save()}
+if(!S.fz||S.fz.d!==t||S.fz.k!==k||(S.fz.len!==S.len&&!started(S.fz))){S.fz={d:t,k,len:S.len,L:build(k,now,S.len).L,done:{},sd:{}};save()}
 return S.fz}
-const invalidate=()=>{if(S.fz&&!Object.keys(S.fz.done).length)S.fz=null};
+// drop today's plan so it rebuilds with new settings, unless you've already started it. Returns false when a started session was kept.
+const invalidate=()=>{if(S.fz&&S.fz.d===iso(new Date())&&started(S.fz))return false;S.fz=null;return true};
 
 // ---------- history helpers ----------
 const hday=n=>S.h[iso(dy(n))]||{s:0,r:0};
@@ -993,6 +1002,9 @@ function weekAhead(){const n=new Date(),o={};let p=S.n;const tk=todayKey();if(!d
 for(let j=1;j<=6-dow(n);j++){const d=addD(n,j);if(isTrain(d)){const j2=offFrom(p);o[iso(d)]=cyc()[(p+j2)%cyc().length];p+=j2+1}else o[iso(d)]="rest"}return o}
 function nextTrainDay(){const n=new Date();for(let j=1;j<=7;j++){const d=addD(n,j);if(isTrain(d))return{d,label:j===1?"Tomorrow":DN[dow(d)]}}return null}
 // give today a different workout. The one you skip stays up next, so it is waiting for you tomorrow.
+// where the queue continues after the training days change: after the last workout you finished that the new cycle has (or its closest match)
+function queueAfter(){const C=cyc(),EQ={upper:["pull","push"],push:["upper"],pull:["upper"],full:["legs"]},ds=Object.keys(S.h).filter(k=>isFin(S.h[k])&&S.h[k].w).sort((a,b)=>parseIso(b)-parseIso(a));
+for(const k of ds){const w=S.h[k].w;for(const c of[w,...(EQ[w]||[])]){const i=C.indexOf(c);if(i>=0)return i+1}}return 0}
 function choose(d,k){const i=iso(d);if(S.fz&&S.fz.d===i&&S.fz.k===k&&!doneOn(d))return;if(doneOn(d))S.more=i;S.ov={[i]:k};S.fz=null;save()}
 
 /* ================= Fitforg v2 · screens ================= */
@@ -1016,7 +1028,7 @@ function blocks(F){const L=F.L,k=F.k;return["w","m","c"].map(b=>{const g=L.map((
 return`<details class="blk ${b}"${b==="m"?" open":""}><summary><i class="dot"></i><b>${blname(b,k)}</b><span>${g.length} ${g.length===1?"move":"moves"} · ${m} min</span>${ic("chev",16,2.4)}</summary>${g.map(([x,i])=>row(x,i,F)).join("")}</details>`}).join("")}
 function weekStrip(){const n=new Date(),m0=mon0(n),A=weekAhead(),t0=parseIso(S.t0);return`<section class="prg-card"><div class="prg-ch"><h2>This week</h2><small>${wkCount(0)} of ${S.days} done</small></div><div class="wkrow">${[...Array(7)].map((_,i)=>{const d=addD(m0,i),c=mid(d)-mid(n),h=S.h[iso(d)];let st,lab;
 if(isFin(h)){st="done";lab=SH[h.w]||"Done"}
-else if(c<0){st=d<t0?"pre":h&&h.s>0?"part":"past";lab=h&&h.s>0?SH[h.w]||"":"–"}
+else if(c<0){st=d<t0?"pre":h&&h.s>0?"part":isTrain(d)?"past":"rest";lab=h&&h.s>0?SH[h.w]||"":st==="rest"?"Rest":"–"}
 else if(c===0){const k=todayKey();st=k==="rest"?"rest":"plan";lab=k==="rest"?"Rest":SH[k]||""}
 else{const k=A[iso(d)];st=k==="rest"?"rest":"plan";lab=k==="rest"?"Rest":SH[k]||""}
 const say={done:"done",part:"started",past:"not done",pre:"before you started",rest:"rest day",plan:"planned"}[st];
@@ -1030,21 +1042,22 @@ top=(r,k,nm,ds)=>`<div class="prg-top">${r}<div class="prg-sk"><span class="hero
 if(!F){const nx=nextTrainDay();
 hero=`<section class="hero prg-hero">${top(ringH(wk,gl,wk+"/"+gl,wk+" of "+gl+" workouts done this week"),"Recovery","Rest day","Muscles grow while you rest. "+wk+" of "+gl+" workouts done this week.")}${nx?kpis([[nx.label,"next session"],[pname(nextKey()),"workout"]],"Coming up"," two"):""}<div class="hero-act"><button class="cta g" data-a="anyway">Train anyway</button></div></section>`}
 else if(!F.L.some(x=>x.b==="m")){hero=`<section class="hero prg-hero">${top(ringH(0,1,ic("lock",22,2.4),"No exercises available yet"),"Today’s workout",pname(F.k),"Your equipment doesn’t cover this workout yet. Add what you have, or pick a different workout.")}<div class="hero-act"><button class="cta go" data-a="settings">Edit equipment</button><button class="cta g alt1" data-a="pick">Change workout</button></div></section>`}
-else{const L=F.L,k=F.k,M=mins(L),n=L.filter(x=>x.b==="m").length,d=L.filter(x=>F.done[key(x)]).length,nk=needKeys(L),ws=L.filter(x=>x.b==="m").reduce((a,x)=>a+x.s,0);
+else{const L=F.L,k=F.k,M=mins(L),n=L.filter(x=>x.b==="m").length,d=L.filter(x=>F.done[key(x)]).length,dc=L.filter(x=>F.done[key(x)]===1).length,nk=needKeys(L),ws=L.filter(x=>x.b==="m").reduce((a,x)=>a+x.s,0);
 if(fin){const mm=(h&&h.m)||1;hero=`<section class="hero prg-hero is-done">${top(ringH(1,1,ic("chk",26,3),"Workout complete"),"Today’s workout","Done for today",pname((h&&h.w)||k)+" is complete. Rest up and eat well.")}${kpis([[mm,mm===1?"minute":"minutes"],[h.s,"sets"],[fmt(h.r),"reps"]],"What you did")}<div class="hero-act alt2"><button class="cta g" data-a="tab" data-v="stats">See progress</button><button class="cta g" data-a="pick">Do another</button></div></section>`}
-else{const tl=["w","m","c"].map(b=>{const g=L.filter(x=>x.b===b);if(!g.length)return"";return`<div class="tl-p ${b}" style="flex:${g.reduce((a,x)=>a+sec(x),0)}">${g.map(x=>`<i class="${F.done[key(x)]?"on":""}" style="flex:${sec(x)}"></i>`).join("")}</div>`}).join(""),
+else{const tl=["w","m","c"].map(b=>{const g=L.filter(x=>x.b===b);if(!g.length)return"";return`<div class="tl-p ${b}" style="flex:${g.reduce((a,x)=>a+sec(x),0)}">${g.map(x=>`<i class="${F.done[key(x)]===1?"on":""}" style="flex:${sec(x)}"></i>`).join("")}</div>`}).join(""),
 lg=["w","m","c"].filter(b=>L.some(x=>x.b===b)).map(b=>`<span class="${b}"><i></i>${blname(b,k)} <b>${M[b]} min</b></span>`).join("");
-hero=`<section class="hero prg-hero">${top(ringH(d,L.length,d+"/"+L.length,d+" of "+L.length+" moves done"),heroK(k,now),pname(k),pdesc(k))}
-<div class="tl" role="img" aria-label="${L.length} moves, ${d} done">${tl}</div><div class="tl-l">${lg}</div>
+hero=`<section class="hero prg-hero">${top(ringH(dc,L.length,dc+"/"+L.length,dc+" of "+L.length+" moves done"),heroK(k,now),pname(k),pdesc(k))}
+<div class="tl" role="img" aria-label="${L.length} moves, ${dc} done">${tl}</div><div class="tl-l">${lg}</div>
 ${kpis([[M.tot,M.tot===1?"minute":"minutes"],[n,n===1?"exercise":"exercises"],[ws,ws===1?"set":"sets"]],"This session")}
 <div class="hero-act"><p class="need">${nk.length?`<span>You’ll need</span>${nk.map(x=>`<em>${gname(x)}</em>`).join("")}`:`<span>No equipment needed</span>`}</p>
-<button class="cta go" data-a="go">${ic("play",18)} ${d?"Resume workout":"Start workout"}</button>${d?`<p class="resume">${d} of ${L.length} moves done</p>`:""}
+<button class="cta go" data-a="go">${ic("play",18)} ${d===L.length?"Do skipped moves":d?"Resume workout":"Start workout"}</button>${d===L.length?`<p class="resume">${L.filter(x=>F.done[key(x)]===2).length} skipped. Finish them for this workout to count.</p>`:d?`<p class="resume">${dc} of ${L.length} moves done${d>dc?", "+(d-dc)+" skipped":""}</p>`:""}
 <button class="cta g alt1" data-a="pick">${ic("gear",17)} Change workout</button></div></section>`}
 list=`<section class="prg-card ses"><div class="prg-ch"><h2>Today’s session</h2><small>${L.length} moves · ${M.tot} min</small></div>${blocks(F)}</section>`}
 return`<div class="tdy">${head}${hero}${weekStrip()}${list}</div>`}
 
 // ---------- Progress ----------
-function vStats(){let W=0,St=0,R=0;for(let i=0;i<30;i++){const h=hday(i);if(h.s){W++;St+=h.s;R+=h.r}}
+// W: finished workouts (same rule as the weekly goal) · A: days with any sets done (the calendar)
+function vStats(){let W=0,A=0,St=0,R=0;for(let i=0;i<30;i++){const h=hday(i);if(isFin(h))W++;if(h.s){A++;St+=h.s;R+=h.r}}
 if(!Object.keys(S.h).length)return`<div class="prg">${topBar()}<h1 class="prg-h">Progress</h1><div class="prg-empty"><div class="prg-ghost" aria-hidden="true">${"<i></i>".repeat(28)}</div><strong>No workouts yet</strong><p>Finish your first workout and your weekly goal, sets and reps will show up here.</p><button class="cta s" data-a="tab" data-v="today">Go to today’s workout</button></div></div>`;
 let mxs=1;for(let i=0;i<30;i++)mxs=Math.max(mxs,hday(i).s);
 let pl="<i class=\"pl\"></i>".repeat((dy(29).getDay()+6)%7);
@@ -1058,15 +1071,15 @@ return`<div class="prg">${topBar()}<h1 class="prg-h">Progress</h1>
 <section class="prg-card"><div class="prg-ch"><h2>This week</h2><small>Daily reps</small></div>
 <div class="prg-wtot"><b>${tw}</b><span>reps</span>${lw?`<em class="prg-dl ${dl>=0?"up":"dn"}">${dl>=0?"▲":"▼"} ${Math.abs(dl)}% vs last week</em>`:""}</div>
 <div class="prg-wk" role="img" aria-label="Reps per day this week: ${wr.slice(0,TD+1).join(", ")}">${wr.map((r,j)=>`<div class="${j===TD?"t":j>TD?"f":""}"><span class="v">${r||""}</span><div class="bar"><i style="height:${r?Math.max(10,Math.round(r/mx*100)):0}%;animation-delay:${j*45}ms"></i></div><span class="d">${"MTWTFSS"[j]}</span></div>`).join("")}</div></section>
-<section class="prg-card"><div class="prg-ch"><h2>Last 30 days</h2><small>${W} active ${W===1?"day":"days"}</small></div>
+<section class="prg-card"><div class="prg-ch"><h2>Last 30 days</h2><small>${A} active ${A===1?"day":"days"}</small></div>
 <div class="prg-dow" aria-hidden="true">${[..."MTWTFSS"].map(c=>`<span>${c}</span>`).join("")}</div>
-<div class="prg-cal" role="img" aria-label="${W} active days in the last 30">${pl}</div>
+<div class="prg-cal" role="img" aria-label="${A} active days in the last 30">${pl}</div>
 <div class="prg-leg"><span><i class="r"></i>Rest day</span><span><i class="n"></i>Today</span><span class="sc">Fewer sets<i class="a"></i><i class="b"></i><i></i>More sets</span></div></section>
 </div>`}
 
 // ---------- Explore ----------
 function xcard(e){const ok=av(e),on=S.mine.includes(e.id),tag=e.eq!=="bw"?(ok?ic("eq_"+e.eq,13,2.2)+gname(e.eq):ic("lock",12,2.5)+"Needs "+gname(need(e))):!ok&&need(e)?ic("lock",12,2.5)+"Needs "+gname(need(e)):e.hh?(ok?ic("home",12,2.3)+HHS[e.hh]:ic("lock",12,2.5)+"Needs "+gname(need(e))):"";
-return`<div class="xc${ok?"":" lk"}"><button class="xo" data-a="open" data-v="${e.id}"><div class="xt${tag?" tg":""}">${fig(e)}${tag?`<span class="xtag">${tag}</span>`:""}</div><div class="xn">${e.name}</div><div class="xm">${e.m}</div></button><button class="xa${on?" on":""}" data-a="mine" data-v="${e.id}" aria-label="${on?"Remove "+e.name+" from":"Add "+e.name+" to"} my workout"><span>${ic(on?"chk":"plus",16,2.5)}</span></button></div>`}
+return`<div class="xc${ok?"":" lk"}"><button class="xo" data-a="open" data-v="${e.id}"><div class="xt${tag?" tg":""}">${fig(e)}${tag?`<span class="xtag">${tag}</span>`:""}</div><div class="xn">${e.name}</div><div class="xm">${e.m}</div></button><button class="xa${on?" on":""}" data-a="mine" data-v="${e.id}" aria-label="${on?"Remove "+e.name+" from":"Save "+e.name+" to"} My workout" aria-pressed="${on}"><span>${ic(on?"saved":"save",15,2.2)}</span></button></div>`}
 function exrows(){const q=S.q.toLowerCase(),L=Object.values(E).filter(e=>(S.mu==="All"||e.m===S.mu)&&(!q||(e.name+e.m).toLowerCase().includes(q))),A=L.filter(av),H=L.filter(e=>!av(e)),G=A.filter(e=>e.eq!=="bw"),B=A.filter(e=>e.eq==="bw"),grid=l=>`<div class="xg">${l.map(xcard).join("")}</div>`,sec_=(t,n)=>`<div class="prg-ch xsh"><h2>${t}</h2><small>${n} ${n===1?"exercise":"exercises"}</small></div>`;
 let h="";
 if(G.length){h+=sec_("Using your equipment",G.length)+grid(G);if(B.length)h+=sec_("Bodyweight",B.length)+grid(B)}
@@ -1074,12 +1087,18 @@ else if(B.length)h+=sec_("Bodyweight",B.length)+grid(B);
 else h+=`<div class="em"><strong>${q&&H.length?"Nothing with your current equipment":"No exercises match"}</strong><p class="mu">${q&&H.length?"These need other equipment, shown below.":"Try another muscle group or clear your filters."}</p>${q&&H.length?"":'<button class="cta g s" data-a="clr">Clear filters</button>'}</div>`;
 if(H.length&&q)h+=sec_("Needs other equipment",H.length)+grid(H);
 return h}
+// My workout: exercises saved from Explore, with a one-tap way to make it today's workout
+function myCard(){const n=S.mine.length;
+if(!n)return`<section class="prg-card"><div class="prg-ch"><h2>My workout</h2><small>Empty</small></div><p class="hint" style="margin:8px 0 0">Tap <span style="display:inline-block;vertical-align:-2px">${ic("save",15,2.2)}</span> on any exercise below to save it here, then do your own workout on any day.</p></section>`;
+const b=build("mine",new Date(),S.len),c=b.L.filter(x=>x.b==="m").length,m=mins(b.L).tot,on=todayKey()==="mine";
+return`<section class="prg-card"><div class="prg-ch"><h2>My workout</h2><small>${n} saved</small></div><div class="pv">${S.mine.map(id=>`<button class="th" data-a="open" data-v="${id}" aria-label="${E[id].name}">${fig(E[id])}</button>`).join("")}</div>${c?`<button class="cta s" data-a="domine" style="width:100%">${on?"Go to today’s workout":`${ic("play",16)} Do it today · about ${m} min`}</button>`:`<p class="hint" style="margin:0">These need equipment you haven’t turned on.</p>`}</section>`}
 function vLibrary(){const all=Object.values(E),base=all.filter(av),tot=all.length,n=base.length,nb=base.filter(e=>e.eq==="bw").length,chips=MU.map(m=>{const c=m==="All"?base.length:base.filter(e=>e.m===m).length;return`<button class="chip ${S.mu===m?"on":""}" data-a="mu" data-v="${m}" aria-pressed="${S.mu===m}">${m}<b>${c}</b></button>`}).join(""),
 gear=BASE.filter(b=>S.gear[b[0]]);
 return`${topBar()}<h1 class="prg-h">Explore</h1>
 <section class="prg-hero xhero"><div class="prg-top">${ringH(n,tot,Math.round(n/tot*100)+"%",n+" of "+tot+" exercises match your equipment")}<div class="prg-sk"><b>${n} of ${tot}</b><span>exercises match your equipment</span></div></div>
 <div class="eqp">${gear.length?gear.map(b=>`<span class="eqt">${ic(IC["eq_"+b[0]]?"eq_"+b[0]:"home",14,2.2)}${b[2]}</span>`).join(""):'<span class="eqt">No equipment selected</span>'}<button class="eqt ed" data-a="settings">Edit</button></div>
 <div class="prg-30"><p class="prg-kh">Your library</p><div class="prg-kpis"><div><b>${nb}</b><span>bodyweight</span></div><div><b>${n-nb}</b><span>with equipment</span></div><div><b>${S.mine.length}</b><span>in My workout</span></div></div></div></section>
+${myCard()}
 <div class="xs"><label class="srch">${ic("srch",18)}<input id="q" type="search" placeholder="Search exercises" value="${S.q.replace(/&/g,"&amp;").replace(/"/g,"&quot;")}" aria-label="Search exercises"></label><div class="chips">${chips}</div></div>
 <div id="exl">${exrows()}</div>
 <div class="xf"><svg class="mk" style="width:20px;opacity:.4;margin-top:12px" viewBox="0 0 471 488" aria-hidden="true"><use href="#ff-mark"/></svg><p class="lbl" style="opacity:.5">Fitforg · Works offline</p></div>`}
@@ -1096,7 +1115,7 @@ ${ok?"":`<div class="note"><b>Needs ${gname(nd)}.</b> ${al&&av(al)?"Your workout
 <h2>How to do it</h2><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>
 <div class="note"><b>Form tip.</b> ${e.tp}</div>${fc(e)}
 ${ez||hr||al?`<h2 style="margin:6px 0 12px">Other versions</h2>${ez?lrow(ez,"Easier"):""}${hr?lrow(hr,"Harder"):""}${al?lrow(al,e.eq==="bw"?"Alternative":"No-gear alternative"):""}`:""}`,
-ix!=null?`<button class="cta" data-a="swapx" data-v="${ix}">${ic("swap",18)} Swap this exercise</button>`:`<button class="cta" data-a="mine2" data-v="${id}">${mine?"Remove from my workout":"Add to my workout"}</button>`);s.dataset.id=id}
+ix!=null?`<button class="cta" data-a="swapx" data-v="${ix}">${ic("swap",18)} Swap this exercise</button>`:`<button class="cta" data-a="mine2" data-v="${id}">${mine?"Remove from My workout":"Save to My workout"}</button>`);s.dataset.id=id}
 function ask(html){const m=document.createElement("div");m.className="mask";m.innerHTML=`<div class="modal" role="dialog">${html}</div>`;$("#app").append(m);m.onclick=e=>{if(e.target===m)m.remove()};return m}
 const seg=(a,vals,cur,lab)=>`<div class="seg">${vals.map(v=>`<button class="${cur==v?"on":""}" data-a="${a}" data-v="${v}" aria-pressed="${cur==v}">${lab(v)}</button>`).join("")}</div>`;
 const lenNote=()=>{const P=PH[S.len];return`${P.w} min warm-up + ${S.len-P.w-P.c} min workout + ${P.c} min cool-down. More time adds more exercises${S.len>=45?", then an extra set":""}.`};
@@ -1104,9 +1123,9 @@ const lenNote=()=>{const P=PH[S.len];return`${P.w} min warm-up + ${S.len-P.w-P.c
 // ---------- settings (also the first-run setup) ----------
 function pill(a,k,on){return`<button class="eb ${on?"on":""}" data-a="${a}" data-v="${k}" role="switch" aria-checked="${on}">${ic(IC["eq_"+k]?"eq_"+k:"home",18,2)}${gname(k)}${on?ic("chk",14,3):""}</button>`}
 function setBody(setup){const tot=Object.keys(E).length,n=Object.values(E).filter(av).length;
-return`<h1 style="margin:4px 0 6px">${setup?"Set up your plan":"Settings"}</h1><p class="mu" style="margin-bottom:6px">${setup?"Tell Fitforg what you have in your room. Every plan is built around it. You can change anything later.":"Plans update the moment you change something here."}</p>
+return`<h1 style="margin:4px 0 6px">${setup?"Set up your plan":"Settings"}</h1><p class="mu" style="margin-bottom:6px">${setup?"Tell Fitforg what you have. Every plan is built around it. You can change anything later in Settings, including furniture in your room.":"Plans update the moment you change something here."}</p>
 <h2 class="sh2">Equipment you have<span>${n} of ${tot} exercises</span></h2><p class="mu" style="font-size:14px;margin:-4px 0 10px">Pick everything you can train with. Bodyweight means no kit at all. Plans only use what you pick.</p><div class="eq">${BASE.map(b=>pill("tg",b[0],!!S.gear[b[0]])).join("")}</div>
-<h2 class="sh2">Furniture in your room</h2><p class="mu" style="font-size:14px;margin:-4px 0 10px">Switch off anything you don’t have. Exercises that need it are dropped.</p><div class="eq">${HOME.map(h=>pill("th",h[0],S.home[h[0]]!==0)).join("")}</div>
+${setup?"":`<h2 class="sh2">Furniture in your room</h2><p class="mu" style="font-size:14px;margin:-4px 0 10px">Switch off anything you don’t have. Exercises that need it are dropped.</p><div class="eq">${HOME.map(h=>pill("th",h[0],S.home[h[0]]!==0)).join("")}</div>`}
 <h2 class="sh2">Training days<span>per week</span></h2>${seg("sdays",[3,4,5,6],S.days,v=>v+" days")}<p class="hint">${SPLITD[S.days]}</p>
 <h2 class="sh2">Session length</h2>${seg("slen",LENS,S.len,v=>v+" min")}<p class="hint">${lenNote()}</p>
 ${setup?"":`<h2 class="sh2">Data</h2><button class="cta g s" data-a="rs">Reset progress</button><p class="mu" style="font-size:13.5px;margin-top:8px">Clears your history. Equipment and schedule stay.</p>`}`}
@@ -1136,20 +1155,31 @@ const topSheet=()=>[...document.querySelectorAll(".sheet")].pop();
 function stop(){clearInterval(tm);clearInterval(th);ss=null;document.querySelectorAll(".sheet.run").forEach(s=>s.remove());render()}
 function sv(){document.querySelector(".sheet.run")?.remove();const L=ss.L,x=L[ss.i],F=S.fz,e=x.e;let b,f="";
 const hd=`<div class="segs">${L.map((y,j)=>`<i class="${y.b} ${F.done[key(y)]?"d":j===ss.i?"n":""}"></i>`).join("")}</div><span style="width:44px"></span>`;
-if(ss.fin){const h=S.h[iso(new Date())]||{};b=`<div style="text-align:center;padding:36px 0 8px"><div class="okc big">${ic("chk",34,3)}</div><div class="big" style="font-size:40px">Workout complete</div><p class="mu" style="margin-top:10px;font-size:17px">${pname(F.k)}</p></div><div class="stats" style="margin-top:26px"><div class="stat"><b>${Math.max(1,Math.round((Date.now()-ss.t0)/60000))}</b><span>min</span></div><div class="stat"><b>${ss.sets}</b><span>sets</span></div><div class="stat"><b>${ss.reps}</b><span>reps</span></div></div><p style="text-align:center;margin-top:18px"><span class="pill">${wkCount(0)} of ${S.days} this week</span></p>`,f=`<button class="cta g" data-a="toprog">See progress</button><button class="cta" data-a="stop">Back to Today</button>`}
+if(ss.fin===2){b=`<div style="text-align:center;padding:36px 0 8px"><div class="okc big" style="background:var(--s2);color:#fff">${ic("skip",30,2.6)}</div><div class="big" style="font-size:36px">Not counted</div><p class="mu" style="margin:12px auto 0;max-width:30ch;font-size:16px">Most of ${pname(F.k)} was skipped, so it doesn’t count toward your week. Do at least half of the exercises for a workout to count.</p></div>`,f=`<button class="cta" data-a="stop">Back to Today</button>`}
+else if(ss.fin){const h=S.h[iso(new Date())]||{};b=`<div style="text-align:center;padding:36px 0 8px"><div class="okc big">${ic("chk",34,3)}</div><div class="big" style="font-size:40px">Workout complete</div><p class="mu" style="margin-top:10px;font-size:17px">${pname(F.k)}</p></div><div class="stats" style="margin-top:26px"><div class="stat"><b>${Math.max(1,Math.round((Date.now()-ss.t0)/60000))}</b><span>min</span></div><div class="stat"><b>${ss.sets}</b><span>sets</span></div><div class="stat"><b>${ss.reps}</b><span>reps</span></div></div><p style="text-align:center;margin-top:18px"><span class="pill">${wkCount(0)} of ${S.days} this week</span></p>`,f=`<button class="cta g" data-a="toprog">See progress</button><button class="cta" data-a="stop">Back to Today</button>`}
 else if(ss.rest){const C2=2*Math.PI*80,lab=x.sd?(ss.set===1?"Left side":"Right side"):"Set "+ss.set+" of "+x.s;b=`<div style="text-align:center;padding-top:20px"><p class="lbl">${ss.max<=10?"Get ready":"Rest"}</p><div style="position:relative;width:180px;height:180px;margin:18px auto"><div class="rest-extra" id="restExtra"></div><svg width="180" height="180" style="transform:rotate(-90deg)"><circle cx="90" cy="90" r="80" fill="none" stroke="#1e1e1e" stroke-width="8"/><circle class="rt-c" cx="90" cy="90" r="80" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C2}" stroke-dashoffset="${C2*(1-ss.rest/ss.max)}"/></svg><div class="big rt-n" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb);font-size:48px">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center">${ss.max<=10?"":`<button class="cta g s" data-a="p15">+15s</button>`}<button class="cta g s skip-soft" data-a="skip">${ss.max<=10?"Start now":"Skip rest"}</button></div></div><div class="rest-card-glow" style="margin:20px 0 0;padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:20px"><p class="lbl" style="margin:0 0 10px">Up next · ${blname(x.b,F.k)}</p><div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:100px;flex:none;background:var(--s2);border-radius:14px;padding:6px;box-shadow:0 0 12px rgba(255,255,255,.08)">${fig(e)}</div><div><strong style="font-size:17px;display:block;margin-bottom:4px">${e.name}</strong><span class="m" style="font-size:14px">${lab} · ${rp(x.r)}${x.sd?" each":""}</span></div></div></div>`}
 else{const timed=/s$/.test(x.r),n=parseInt(x.r),first=ss.i===L.findIndex(y=>y.b==="m"),lab=x.sd?(ss.set===1?"Left side":"Right side"):"Set "+ss.set+" of "+x.s,pos=L.filter(y=>y.b===x.b),pi=pos.indexOf(x)+1,left=ss.hold?Math.max(0,Math.ceil((ss.hold.end-Date.now())/1000)):n;
 b=`${demo(e,' style="margin-top:0;aspect-ratio:auto;height:clamp(240px,38vh,340px);padding-bottom:62px!important"')}<div style="text-align:center"><p class="phl ${x.b}"><i></i>${blname(x.b,F.k)} · ${pi} of ${pos.length}</p><h1 style="font-size:30px">${e.name}</h1><div class="big" style="margin:14px 0 4px"><span class="hv">${left}</span><span class="mu" style="font-size:20px;letter-spacing:0"> ${timed?"sec":"reps"}${x.sd&&!timed?" each":""}</span></div><div class="dots" aria-label="${lab}">${[...Array(x.s)].map((_,j)=>`<i class="${j<ss.set-1?"d":j===ss.set-1?"c":""}"></i>`).join("")}</div><p class="mu">${lab}${x.sd&&timed?" · "+n+" sec each side":""}</p>${first&&ss.set===1&&x.b==="m"&&!ss.hold?'<p class="hintc">Take this first set a little easier to groove the movement.</p>':""}</div><div class="ssw"><button class="ghost" data-a="swapx" data-v="${ss.i}">${ic("swap",15)} Swap exercise</button><button class="ghost" data-a="skipx">${ic("skip",15)} Skip</button></div><details${ss.set===1?" open":""}><summary>How to do it</summary><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>${fc(e)}</details>`;
-f=timed?(ss.hold?`<button class="cta g" data-a="holdx">Cancel</button><button class="cta" data-a="cs">${ic("chk",22,3)} Done</button>`:`<button class="cta g" data-a="cs">Mark done</button><button class="cta" data-a="hold">${ic("clock",20)} Start ${n}s timer</button>`):`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`}
+f=timed?(ss.hold?`<button class="cta g" data-a="holdx">Cancel</button><button class="cta" data-a="cs">${ic("chk",22,3)} Done</button>`:`<button class="cta" data-a="hold">${ic("clock",20)} Start ${n}s timer</button>`):`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`}
 const sh=sheet(hd,b,f);sh.classList.add("run");sh.querySelector(".x").dataset.a="quit"}
-function rest(sec){if(!sec){sv();return}ss.rest=ss.max=sec;ss.end=Date.now()+sec*1000;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest=Math.max(0,Math.ceil((ss.end-Date.now())/1000));const el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;const circ=document.querySelector(".rt-c");if(circ){const C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;try{navigator.vibrate&&navigator.vibrate(200)}catch(e){}sv()}},500)}
+function rest(sec){ss.p15count=0;if(!sec){sv();return}ss.rest=ss.max=sec;ss.end=Date.now()+sec*1000;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest=Math.max(0,Math.ceil((ss.end-Date.now())/1000));const el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;const circ=document.querySelector(".rt-c");if(circ){const C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;try{navigator.vibrate&&navigator.vibrate(200)}catch(e){}sv()}},500)}
 function startHold(){const x=ss.L[ss.i];ss.hold={end:Date.now()+parseInt(x.r)*1000};clearInterval(th);th=setInterval(()=>{if(!ss||!ss.hold)return clearInterval(th);const r=Math.max(0,Math.ceil((ss.hold.end-Date.now())/1000)),el=document.querySelector(".hv");if(el)el.textContent=r;if(r<=0){clearInterval(th);try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}completeSet()}},250);sv()}
-function finishSession(){ss.fin=1;clearInterval(th);const t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0,fin:0};const fk=S.fz.k;h.fin=1;h.w=fk;if(fk===nextKey())S.n+=offFrom(S.n)+1;S.vc[fk]=(S.vc[fk]||0)+1;S.more=null;h.m=(h.m||0)+Math.max(1,Math.round((Date.now()-ss.t0)/60000));save();sv()}
+// minutes spent in this run go into today's history (also when a workout is ended early)
+function logMin(){if(!ss||!ss.act)return;const h=S.h[iso(new Date())];if(h)h.m=(h.m||0)+Math.max(1,Math.round((Date.now()-ss.t0)/60000));ss.act=0}
+// a workout only counts when at least half of its exercises were done, not skipped
+function finishSession(){clearInterval(th);ss.hold=null;const F=S.fz,fk=F.k,mm=ss.L.filter(y=>y.b==="m"),dn=mm.filter(y=>F.done[key(y)]===1).length;logMin();
+if(dn>0&&dn*2>=mm.length){const t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0,fin:0};ss.fin=1;h.fin=1;h.w=fk;if(fk===nextKey())S.n+=offFrom(S.n)+1;S.vc[fk]=(S.vc[fk]||0)+1;S.more=null}
+else ss.fin=2;
+save();sv()}
 function nextItem(){const F=S.fz,n=ss.L.findIndex(y=>!F.done[key(y)]);return n}
 function completeSet(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz,t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0,fin:0};
 if(x.b==="m"){const n_=/s$/.test(x.r)?0:(parseInt(x.r)||0)*(x.sd?2:1);h.s++;h.r+=n_;ss.sets++;ss.reps+=n_}
-if(ss.set<x.s){ss.set++;save();rest(x.rs)}else{F.done[key(x)]=1;const n=nextItem();if(n<0){finishSession()}else{ss.i=n;ss.set=1;save();rest(x.rs)}}}
-function skipEx(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz;F.done[key(x)]=2;const n=nextItem();if(n<0)finishSession();else{ss.i=n;ss.set=1;save();sv()}}
+ss.act=1;F.sd[key(x)]=ss.set;
+if(ss.set<x.s){ss.set++;save();rest(x.rs)}else{F.done[key(x)]=1;const n=nextItem();if(n<0){finishSession()}else{ss.i=n;ss.set=firstSet(n);save();rest(x.rs)}}}
+// the set to start a move on: the one after the last set already done
+const firstSet=i=>{const x=ss.L[i];return Math.min(x.s,(S.fz.sd[key(x)]||0)+1)};
+function skipEx(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz;F.done[key(x)]=2;const n=nextItem();if(n<0)finishSession();else{ss.i=n;ss.set=firstSet(n);save();sv()}}
+const EQLATER="Today’s session is already started. This change applies from your next workout";
 const closeMask=()=>document.querySelector(".mask")?.remove();
 const dayWord=d=>iso(d)===iso(new Date())?"today":DN[dow(d)];
 
@@ -1157,31 +1187,40 @@ document.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;$
 $("#app").onclick=ev=>{const b=ev.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,v=b.dataset.v;
 if(a==="tab"){S.tab=v;save();document.querySelectorAll(".sheet:not(.run)").forEach(s=>s.remove());render();$("#main").scrollTop=0}
 else if(a==="mu"){S.mu=v;render()}else if(a==="clr"){S.q="";S.mu="All";render()}
-else if(a==="own"){const id=document.querySelector(".sheet")?.dataset.id;if(BASE.some(g=>g[0]===v))S.gear[v]=1;else S.home[v]=1;invalidate();save();document.querySelector(".sheet")?.remove();render();if(id)open_(id);toast(gname(v)+" turned on")}
+else if(a==="own"){const id=document.querySelector(".sheet")?.dataset.id;if(BASE.some(g=>g[0]===v))S.gear[v]=1;else S.home[v]=1;const ok=invalidate();save();document.querySelector(".sheet")?.remove();render();if(id)open_(id);toast(gname(v)+" turned on"+(ok?"":". Today’s started session stays as it is"))}
 else if(a==="toprog"){stop();S.tab="stats";render();$("#main").scrollTop=0}
 else if(a==="goexp"){closeMask();S.tab="library";render();$("#main").scrollTop=0}
 else if(a==="settings"){setupSheet(false)}
-else if(a==="tg"){if(S.gear[v]&&BASE.filter(g=>S.gear[g[0]]).length<2){toast("Keep at least one on");return}S.gear[v]=S.gear[v]?0:1;invalidate();save();refSet();render()}
-else if(a==="th"){S.home[v]=S.home[v]===0?1:0;invalidate();save();refSet();render()}
-else if(a==="sdays"){S.days=+v;S.n=0;S.ov={};S.fz&&!Object.keys(S.fz.done).length&&(S.fz=null);save();refSet();render()}
-else if(a==="slen"){S.len=+v;invalidate();save();refSet();render()}
+else if(a==="tg"){if(S.gear[v]&&BASE.filter(g=>S.gear[g[0]]).length<2){toast("Keep at least one on");return}S.gear[v]=S.gear[v]?0:1;const ok=invalidate();save();refSet();render();if(!ok)toast(EQLATER)}
+else if(a==="th"){S.home[v]=S.home[v]===0?1:0;const ok=invalidate();save();refSet();render();if(!ok)toast(EQLATER)}
+else if(a==="sdays"){const nv=+v;if(nv===S.days)return;const t=iso(new Date()),F=S.fz,go_=F&&F.d===t&&started(F)&&!doneOn(new Date());
+S.days=nv;S.sch=S.sch.filter(x=>x.f!==t);S.sch.push({f:t,d:nv});S.n=queueAfter();
+// a session you've already started stays as today's workout
+if(go_){S.ov={[t]:F.k};const i=cyc().indexOf(F.k);if(i>=0)S.n=i}else invalidate();
+save();refSet();render();toast(go_?"Schedule changed. Today’s started workout stays":"Schedule changed. "+pname(nextKey())+" is up next")}
+else if(a==="slen"){S.len=+v;const ok=invalidate();save();refSet();render();if(!ok)toast("Today’s session is already started. The new length starts next workout")}
 else if(a==="eqdone"){if(!BASE.some(g=>S.gear[g[0]])){toast("Pick at least one option");return}S.eqSet=1;save();document.querySelector(".sheet.set")?.remove();render()}
 else if(a==="quit"){if(ss&&ss.fin)stop();else ask(`<h2>End workout?</h2><p class="mu">Finished sets are saved. You can resume from Today.</p><button class="cta" data-a="close2">Keep going</button><button class="cta g" data-a="stop2">End workout</button>`)}
-else if(a==="stop2"){closeMask();stop()}
+else if(a==="stop2"){closeMask();logMin();save();stop()}
 else if(a==="open"||a==="open2"){if(a==="open2")topSheet()?.remove();open_(v)}
 else if(a==="openx"){open_(S.fz.L[+v].id,+v)}
 else if(a==="close"){const s=topSheet();s&&!s.classList.contains("run")&&s.remove();render()}
-else if(a==="mine"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();render();toast(i<0?"Added to My workout":"Removed from My workout")}
-else if(a==="mine2"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();b.textContent=i<0?"Remove from my workout":"Add to my workout";toast(i<0?"Added to My workout":"Removed")}
+else if(a==="mine"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();render();toast(i<0?"Saved to My workout":"Removed from My workout")}
+else if(a==="mine2"){const i=S.mine.indexOf(v);i<0?S.mine.push(v):S.mine.splice(i,1);save();b.textContent=i<0?"Remove from My workout":"Save to My workout";toast(i<0?"Saved to My workout":"Removed from My workout")}
+else if(a==="domine"){if(todayKey()!=="mine"){choose(new Date(),"mine");toast("My workout is today’s workout. "+pname(nextKey())+" stays up next")}S.tab="today";save();document.querySelectorAll(".sheet:not(.run)").forEach(s=>s.remove());render();$("#main").scrollTop=0}
 else if(a==="pick"){closeMask();pickSheet()}
-else if(a==="plen"){S.len=+v;invalidate();save();repick()}
+else if(a==="plen"){S.len=+v;const ok=invalidate();save();repick();if(!ok)toast("Today’s session is already started. The new length starts next workout")}
 else if(a==="choose"){choose(new Date(),v);closeMask();render();$("#main").scrollTop=0;toast(pname(v)+" is today’s workout"+(v!==nextKey()?". "+pname(nextKey())+" stays up next":""))}
 else if(a==="anyway"){choose(new Date(),nextKey());render();$("#main").scrollTop=0}
 else if(a==="swap"){swapAsk(+v)}
 else if(a==="swapx"){const s=b.closest(".sheet");if(s&&!s.classList.contains("run"))s.remove();swapAsk(+v)}
 else if(a==="dosw"){const[i,id,val]=v.split("|"),F=S.fz,old=F.L[+i],nx=mk(id,old.b,{sl:old.sl,val:val||undefined});F.L[+i]=nx;save();closeMask();if(ss){clearInterval(th);ss.hold=null;ss.set=1;sv()}else render();toast("Swapped to "+E[id].name)}
 else if(a==="skipx"){skipEx()}
-else if(a==="go"){const F=plan();if(!F)return;if(F.L.every(x=>F.done[key(x)]))F.done={};ss={L:F.L,i:F.L.findIndex(x=>!F.done[key(x)]),set:1,rest:0,fin:0,p15count:0,t0:Date.now(),sets:0,reps:0,hold:null};sv()}
+else if(a==="go"){const F=plan();if(!F)return;
+// everything marked but the workout didn't count: reopen only the skipped moves
+if(F.L.every(x=>F.done[key(x)]))F.L.forEach(x=>{if(F.done[key(x)]===2)delete F.done[key(x)]});
+if(F.L.every(x=>F.done[key(x)])){F.done={};F.sd={}}
+ss={L:F.L,i:F.L.findIndex(x=>!F.done[key(x)]),set:1,rest:0,fin:0,p15count:0,t0:Date.now(),sets:0,reps:0,hold:null,act:0};ss.set=firstSet(ss.i);save();sv()}
 else if(a==="cs"){completeSet()}
 else if(a==="hold"){startHold()}
 else if(a==="holdx"){clearInterval(th);ss.hold=null;sv()}
