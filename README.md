@@ -1,85 +1,105 @@
-# fitforg — the grind, systematized
+# Fitforg — React + Vite
 
-A free, mobile-first workout planner with a strict editorial brutalist design.
+A free workout planner that adapts to the gear you have. PWA, installable, works offline.
 
-**Pick what equipment you have → get a different workout for every day of the week.**
+This is the React/Vite version of the Fitforg app. The vanilla-JS app logic is preserved verbatim in `src/app.js` (it owns `#app`, `#nav`, `#splash` directly). React provides the build system and entry point.
 
-## Quick start
+## Develop
 
 ```bash
-# 1. Install dependencies
-npm install   # or: bun install / pnpm install
-
-# 2. Run dev server
-npm run dev   # opens at http://localhost:3000
-
-# 3. Build for production
-npm run build && npm start
+npm install
+npm run dev
 ```
 
-## Tech stack
+App boots on http://localhost:5173
 
-- **Framework**: Next.js 16 (App Router) + TypeScript
-- **Styling**: Tailwind CSS 4 + shadcn/ui
-- **Fonts**: Space Grotesk (display), Inter (sans), IBM Plex Mono (data)
-- **State**: localStorage (no backend, no database)
-- **PWA**: Web manifest + service worker (installable on Android/iOS)
+## Build
 
-## What's inside
+```bash
+npm run build      # outputs to dist/
+npm run preview    # preview the production build locally
+```
 
-- 60+ exercises hard-coded with equipment tags, muscle groups, sets/reps/rest
-- 7-day rotating workout plan generator (Push / Pull / Legs / Upper / Core / Full Body / Mobility)
-- Streak tracking (consecutive-day counter)
-- Week rotation (regenerate plan with new exercises)
-- Offline-first (works without internet after first load)
-- 100% client-side — no signup, no tracking, no API keys
+## Deploy to Cloudflare Pages
 
-## Install as Android app
+1. Push this folder to a GitHub repo
+2. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → pick the repo
+3. Build settings:
+   - **Framework preset:** None (or Vite)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Node version:** 18 or 20
+4. Deploy — you get a `*.pages.dev` URL
 
-See [`PWA-INSTALL.md`](./PWA-INSTALL.md) for step-by-step instructions.
+## Add exercise videos later
 
-TL;DR:
-1. Deploy to Vercel (free) → get a public URL
-2. Visit [pwabuilder.com](https://www.pwabuilder.com) → paste URL → download .apk
-3. Sideload the .apk on your Android phone
+Drop MP4 files in `public/videos/exercises/` named after the exercise ID, e.g.:
 
-## Deploy to Vercel
+```
+public/videos/exercises/
+├── squat.mp4
+├── squat-goblet.mp4
+├── db-lunge.mp4
+├── pushup.mp4
+└── ...
+```
 
-1. Push this repo to GitHub
-2. Go to [vercel.com](https://vercel.com) → "Add New Project" → import the repo
-3. Vercel auto-detects Next.js → click "Deploy"
-4. Done — you get a free `https://your-app.vercel.app` URL
+The app auto-detects each video on first load. If found, the SVG figure is hidden and the video plays (looped, muted, autoplay). If not found, the SVG stick-figure animation runs as fallback.
+
+Recommended specs: 480×480, MP4/H.264, no audio, ~600 kbps, 6–10 sec loop. Convert with ffmpeg:
+
+```bash
+ffmpeg -i input.mov -vf "scale=480:480:force_original_aspect_ratio=increase,crop=480,480" -an -b:v 600k -movflags +faststart squat.mp4
+```
+
+## Add PWA icons
+
+The manifest references `icon-192.png` and `icon-512.png` in `public/`. Generate them from your logo:
+
+```bash
+magick logo.svg -resize 192x192 public/icon-192.png
+magick logo.svg -resize 512x512 public/icon-512.png
+```
+
+If you skip this, the install prompt uses a generic icon — the app still works.
+
+## Build an Android APK with Bubblewrap
+
+After deploying to Cloudflare (so you have a public HTTPS URL):
+
+```bash
+npm install -g @bubblewrap/cli
+bubblewrap init --manifest https://YOUR-PAGES-URL.pages.dev/manifest.webmanifest
+bubblewrap build
+```
+
+Bubblewrap prints your APK's SHA-256 signing fingerprint. Paste it into `public/.well-known/assetlinks.json` (replacing the placeholder), then `git push` to redeploy. This removes the URL bar from your APK.
+
+Output: `app-release-signed.apk` — sideload to Android, or upload to Play Store.
 
 ## Project structure
 
 ```
-src/
-├── app/
-│   ├── globals.css         # Grayscale theme + editorial utilities
-│   ├── layout.tsx          # Fonts + PWA metadata
-│   └── page.tsx            # Main UI (Today / Week / Gear tabs)
-├── components/
-│   ├── fitforg-logo.tsx    # Your F logo
-│   ├── pwa-install-banner.tsx
-│   └── ui/                 # shadcn/ui components
-├── hooks/
-│   ├── useLocalStorage.ts  # Offline persistence
-│   └── usePWAInstall.ts    # PWA install + service worker
-└── lib/
-    ├── exercises.ts        # 60+ exercise database
-    └── workout-generator.ts # 7-day plan generator
-
-public/
-├── fitforg-logo.png        # Your high-res F logo
-├── manifest.webmanifest    # PWA manifest
-├── sw.js                   # Service worker (offline cache)
-└── icon-*.png              # 9 generated PWA icons
+fitforg-react-v2/
+├── index.html               # Vite entry — head + #app + #splash + SVG symbol
+├── package.json             # React 18 + Vite 5
+├── vite.config.js           # base: './'
+├── .gitignore
+├── README.md                # this file
+├── public/
+│   ├── manifest.webmanifest # PWA manifest
+│   ├── sw.js                # service worker (offline cache)
+│   └── .well-known/
+│       └── assetlinks.json  # TWA fingerprint (fill in after bubblewrap init)
+└── src/
+    ├── main.jsx             # React root — imports styles + app.js
+    ├── app.js               # vanilla-JS app logic (ported from HTML)
+    └── styles.css           # all CSS (ported from HTML <style>)
 ```
 
-## Cost
+## Notes
 
-**$0 forever.** No backend, no database, no paid fonts, no API keys, no app store fees.
-
-## License
-
-MIT — do whatever you want with it.
+- **The vanilla JS module owns the DOM.** React is just the build system here. To refactor pieces into proper React components later, you'd extract sections of `app.js` into JSX components one at a time — start with the simplest ones (Toast, Nav) and work up.
+- **`localStorage` keys:** `ff4` (app state), `ff_welcome` (splash seen), `ff3` (legacy migration).
+- **No router.** Three tabs swap in-place via `data-a="tab"` click handler.
+- **Animation engine** runs at 60fps via `requestAnimationFrame` — do NOT try to convert to React state, performance will tank.
