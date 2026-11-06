@@ -737,7 +737,8 @@ return`<h1 style="margin:4px 0 6px">${setup?"Set up your plan":"Settings"}</h1><
 ${setup?"":`<h2 class="sh2">Furniture in your room</h2><p class="mu" style="font-size:14px;margin:-4px 0 10px">Switch off anything you don’t have. Exercises that need it are dropped.</p><div class="eq">${HOME.map(h=>pill("th",h[0],S.home[h[0]]!==0)).join("")}</div>`}
 <h2 class="sh2">Training days<span>per week</span></h2>${seg("sdays",[3,4,5,6],S.days,v=>v+" days")}<p class="hint">${SPLITD[S.days]}</p>
 <h2 class="sh2">Session length</h2>${seg("slen",LENS,S.len,v=>v+" min")}<p class="hint">${lenNote()}</p>
-${setup?"":`<h2 class="sh2">Data</h2><button class="cta g s" data-a="rs">Reset progress</button><p class="mu" style="font-size:13.5px;margin-top:8px">Clears your history. Equipment and schedule stay.</p>`}`}
+${setup?"":`<h2 class="sh2">App</h2>${window.__deferredPrompt?`<button class="cta" data-a="install">${ic("save",18,2.4)} Install Fitforg app</button><p class="mu" style="font-size:13.5px;margin-top:8px">Add Fitforg to your home screen for a full-screen, offline app experience.</p>`:`<p class="mu" style="font-size:13.5px">Open this page in Chrome on Android and tap the menu → “Install app” to add Fitforg to your home screen.</p>`}
+<h2 class="sh2">Data</h2><button class="cta g s" data-a="rs">Reset progress</button><p class="mu" style="font-size:13.5px;margin-top:8px">Clears your history. Equipment and schedule stay.</p>`}`}
 function setupSheet(setup){const s=sheet("",setBody(setup),setup?`<button class="cta" data-a="eqdone">Build my plan</button>`:"");s.classList.add("set");if(setup)s.querySelector(".x").dataset.a="eqdone"}
 function refSet(){const b=document.querySelector(".sheet.set .sb");if(b){const y=b.scrollTop;b.innerHTML=setBody(!!document.querySelector(".sheet.set .foot"));b.scrollTop=y}}
 
@@ -800,6 +801,7 @@ else if(a==="own"){const id=document.querySelector(".sheet")?.dataset.id;if(BASE
 else if(a==="toprog"){stop();S.tab="stats";render();$("#main").scrollTop=0}
 else if(a==="goexp"){closeMask();S.tab="library";render();$("#main").scrollTop=0}
 else if(a==="settings"){setupSheet(false)}
+else if(a==="install"){if(window.__deferredPrompt){window.__deferredPrompt.prompt();window.__deferredPrompt.userChoice.then(r=>{if(r.outcome==="accepted")toast("Installing Fitforg…");window.__deferredPrompt=null;refSet()})}else toast("Use Chrome → menu → Install app")}
 else if(a==="tg"){if(S.gear[v]&&BASE.filter(g=>S.gear[g[0]]).length<2){toast("Keep at least one on");return}S.gear[v]=S.gear[v]?0:1;const ok=invalidate();save();refSet();render();if(!ok)toast(EQLATER)}
 else if(a==="th"){S.home[v]=S.home[v]===0?1:0;const ok=invalidate();save();refSet();render();if(!ok)toast(EQLATER)}
 else if(a==="sdays"){const nv=+v;if(nv===S.days)return;const t=iso(new Date()),F=S.fz,go_=F&&F.d===t&&started(F)&&!doneOn(new Date());
@@ -856,6 +858,20 @@ function leave(){if(done)return;done=1;sp.classList.add("out");lock.forEach(n=>n
 if(seen){sp.classList.add("quick");sp.onclick=leave;setTimeout(leave,1200)}
 else{wr();go.onclick=leave}
 })();
+
+// ----- PWA install prompt (WebAPK via beforeinstallprompt) -----
+// Chrome Android fires this when the PWA meets installability criteria.
+// We capture it so we can show our own "Install app" button in Settings,
+// instead of relying on Chrome's auto mini-infobar.
+window.__deferredPrompt=null;
+window.addEventListener("beforeinstallprompt",(e)=>{
+  e.preventDefault();                 // stop Chrome's mini-infobar
+  window.__deferredPrompt=e;          // save for our Settings button
+});
+window.addEventListener("appinstalled",()=>{
+  window.__deferredPrompt=null;
+  toast("Fitforg installed — find it in your apps");
+});
 
 // ----- Service worker (production only) -----
 if("serviceWorker" in navigator && import.meta.env.PROD){navigator.serviceWorker.register("./sw.js").catch(function(){})}
