@@ -446,8 +446,13 @@ const LENS=[20,30,45,60],PH={20:{w:5,c:3},30:{w:5,c:4},45:{w:6,c:5},60:{w:7,c:6}
 // break between the last warm-up move and the first work set: time to catch your breath and set up your gear,
 // short enough that the warm-up doesn't wear off (muscle temperature starts dropping within 15-30 min of stopping)
 const TRANS=60;
+// break between two warm-up moves: not a rest (the point of a warm-up is to keep moving so you stay warm), just time
+// to see what's next and get into position, e.g. from standing down to the floor. 10 s, like the transitions in the
+// classic bodyweight circuit (Klika & Jordan, ACSM 2013) and inside the 10-20 s usually given between warm-up drills.
+// Switching sides on a one-sided move is only a quick turn, so 5 s.
+const WGAP=10,WSIDE=5;
 // bump when the way plans are built changes, so today's plan rebuilds if it hasn't been started yet
-const PV=2;
+const PV=3;
 // furniture / household things a hostel room may or may not have
 const HOME=[["chair","Sturdy chair"],["table","Table or desk"],["wall","Free wall"],["step","Step or stairs"],["towel","Towel"],["door","Solid door"]];
 const SHORT={db:"Dumbbells",pb:"Push-up bars",bar:"Bar",band:"Band",kb:"Kettlebell",bag:"Backpack",chair:"Chair",table:"Table",wall:"Wall",step:"Step",towel:"Towel",door:"Door"};
@@ -571,14 +576,14 @@ return o}
 
 // ---------- building a session ----------
 const wk=x=>/s$/.test(x.r)?parseInt(x.r):(parseInt(x.r)||10)*3;
-const sec=x=>x.s*wk(x)+(x.s-1)*x.rs+(x.b==="m"?20:6);
+const sec=x=>x.s*wk(x)+(x.s-1)*x.rs+(x.b==="m"?20:x.b==="w"?WGAP:6);
 function mk(id,b,o){o=o||{};const e=E[id],sd=SD.has(id),v=o.val||e.r;
-const x={id,b,s:o.s!=null?o.s:sd?2:b==="m"?e.s:1,r:v,rs:sd?3:b==="m"?e.rs:6,sl:o.sl||"",sd:sd?1:0,from:o.from||""};return hydrate(x)}
+const x={id,b,s:o.s!=null?o.s:sd?2:b==="m"?e.s:1,r:v,rs:b==="w"?(sd?WSIDE:WGAP):sd?3:b==="m"?e.rs:6,sl:o.sl||"",sd:sd?1:0,from:o.from||""};return hydrate(x)}
 function pick(key,used,v,i){const c=(SL[key]||[]).filter(id=>E[id]&&av(E[id])&&!used[id]);if(!c.length)return null;return c[(v+i)%Math.min(3,c.length)]}
 // each time you finish a workout the next one of that kind swaps in different exercises
 const variantFor=(d,k)=>S.vc[k]||0;
 function build(k,d,len){const P=PH[len]||PH[30],v=variantFor(d,k);let warm=[],main=[],cool=[];
-{const prog=k==="mine"?{ty:"f",sl:[]}:WO[k],budget=(len-P.w-P.c)*60-(TRANS-6),used={};let t=0;
+{const prog=k==="mine"?{ty:"f",sl:[]}:WO[k],budget=(len-P.w-P.c)*60-(TRANS-WGAP),used={};let t=0;
 if(k==="mine"){S.mine.forEach(id=>{const e=E[id],r=av(e)?e:(E[e.alt]&&av(E[e.alt])?E[e.alt]:null);if(!r||used[r.id])return;used[r.id]=1;main.push(mk(r.id,"m",{from:r===e?"":e.id}))})}
 else{const n=prog.sl.length,tol=25;
 for(let i=0;i<n;i++){const id=pick(prog.sl[i],used,v,i);if(!id)continue;const x=mk(id,"m",{sl:prog.sl[i]});if(main.length>=3&&t+sec(x)>budget+tol)break;used[id]=1;main.push(x);t+=sec(x)}
@@ -602,7 +607,7 @@ const pool=COOL.filter(c=>avw(E[c[0]])).map(c=>({c,sc:0})),ch=[];let tc=0;
 while(pool.length&&(ch.length<2||tc<P.c*60-20)){pool.forEach(p=>p.sc=p.c[2].reduce((a,q)=>a+(wt[q]||0),0)-p.c[3]*.001);pool.sort((a,b)=>b.sc-a.sc);const p=pool.shift();if(p.sc<=0&&ch.length>=2)break;ch.push(p.c);p.c[2].forEach(q=>wt[q]=(wt[q]||0)*.35);tc+=sec(mk(p.c[0],"c",{val:p.c[1]}))}
 ch.sort((a,b)=>a[3]-b[3]);cool=ch.map(c=>mk(c[0],"c",{val:c[1]}))}
 return{k,L:[...warm,...main,...cool]}}
-const mins=L=>{const g=b=>L.filter(x=>x.b===b).reduce((a,x)=>a+sec(x),0),tr=L.some(x=>x.b==="w")&&L.some(x=>x.b==="m")?TRANS-6:0,w=Math.round(g("w")/60),c=Math.round(g("c")/60),m=Math.max(1,Math.round((g("m")+tr)/60));return{w,m,c,tot:w+m+c}};
+const mins=L=>{const g=b=>L.filter(x=>x.b===b).reduce((a,x)=>a+sec(x),0),tr=L.some(x=>x.b==="w")&&L.some(x=>x.b==="m")?TRANS-WGAP:0,w=Math.round(g("w")/60),c=Math.round(g("c")/60),m=Math.max(1,Math.round((g("m")+tr)/60));return{w,m,c,tot:w+m+c}};
 const key=x=>x.b+":"+x.id;
 
 // ---------- today's plan is frozen once built so it never changes under you ----------
@@ -827,7 +832,7 @@ function nextItem(){const F=S.fz,n=ss.L.findIndex(y=>!F.done[key(y)]);return n}
 function completeSet(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz,t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0,fin:0};
 if(x.b==="m"){const n_=/s$/.test(x.r)?0:(parseInt(x.r)||0)*(x.sd?2:1);h.s++;h.r+=n_;ss.sets++;ss.reps+=n_}
 ss.act=1;F.sd[key(x)]=ss.set;
-if(ss.set<x.s){ss.set++;save();rest(x.rs)}else{F.done[key(x)]=1;const n=nextItem();if(n<0){finishSession()}else{const tr=x.b==="w"&&ss.L[n].b==="m";ss.i=n;ss.set=firstSet(n);save();rest(tr?TRANS:x.rs,tr)}}}
+if(ss.set<x.s){ss.set++;save();rest(x.rs)}else{F.done[key(x)]=1;const n=nextItem();if(n<0){finishSession()}else{const tr=x.b==="w"&&ss.L[n].b==="m";ss.i=n;ss.set=firstSet(n);save();rest(tr?TRANS:x.b==="w"?WGAP:x.rs,tr)}}}
 // the set to start a move on: the one after the last set already done
 const firstSet=i=>{const x=ss.L[i];return Math.min(x.s,(S.fz.sd[key(x)]||0)+1)};
 function skipEx(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz;F.done[key(x)]=2;const n=nextItem();if(n<0)finishSession();else{ss.i=n;ss.set=firstSet(n);save();sv()}}
