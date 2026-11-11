@@ -6,6 +6,8 @@
 // (they're in index.html directly).
 // ============================================================
 
+import{notifySupported,notifyPermission,notifyAsk,notifyEnabled,notifyOn,notifyState}from'./notify.js';
+
 const $=s=>document.querySelector(s);
 const IC={eq_bw:'<circle cx="12" cy="4.5" r="2"/><path d="M5.5 9.5l6.5 1.5 6.5-1.5M12 11v4.5M12 15.5l-3 5.5M12 15.5l3 5.5"/>',eq_db:'<rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/><path d="M7 12h10M2 10v4M22 10v4"/>',eq_bar:'<path d="M3 4.5v5M21 4.5v5M3 7h18"/><circle cx="12" cy="10.5" r="1.8"/><path d="M8 7l2.5 5.5M16 7l-2.5 5.5M12 12.5v4.5M12 17l-2 4M12 17l2 4"/>',eq_band:'<rect x="2" y="8.5" width="3.5" height="7" rx="1.3"/><rect x="18.5" y="8.5" width="3.5" height="7" rx="1.3"/><path d="M5.5 12c2-4.5 4-4.5 6.5 0s4.5 4.5 6.5 0"/>',eq_kb:'<path d="M8.5 10.5v-3a3.5 3.5 0 0 1 7 0v3"/><circle cx="12" cy="15.5" r="5.5"/>',today:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15.2l2.2 2.2 4.3-4.4"/>',stats:'<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>',library:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M9 7h7M9 11h7"/>',ex:'<path d="M3 12h2M19 12h2M5 8v8M19 8v8M8 6v12M16 6v12M8 12h8"/>',wo:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 9h8M8 13h8M8 17h4"/>',gear:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',chk:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>',plus:'<path d="M12 5v14M5 12h14"/>',save:'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z"/>',saved:'<path d="M6.5 3.5h11v17l-5.5-4-5.5 4z" fill="currentColor"/>',srch:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',play:'<path d="M7 4l13 8-13 8z" fill="currentColor"/>',home:'<path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/>',swap:'<path d="M7 7h11l-3-3M17 17H6l3 3"/>',cog:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>',skip:'<path d="M5 5l9 7-9 7zM19 5v14"/>',cal:'<rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/>',chev:'<path d="m9 18 6-6-6-6"/>',eq_pb:'<path d="M3 10h7M14 10h7M4.5 10v8M8.5 10v8M15.5 10v8M19.5 10v8M2 18.5h20"/>',eq_bag:'<path d="M8.5 6.5a3.5 3.5 0 0 1 7 0"/><rect x="5" y="6.5" width="14" height="14.5" rx="4"/><path d="M9 14h6M9 17.5h6"/>'};
 const ic=(n,s=20,w=2)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
@@ -439,7 +441,13 @@ const iso=d=>d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(),dy=n=>addD(new
 const dlab=d=>DN[dow(d)].slice(0,3)+" "+d.getDate()+" "+MON[d.getMonth()];
 
 // session length (total minutes, warm-up and cool-down included) and how it is split
-const LENS=[20,30,45,60],PH={20:{w:3,c:3},30:{w:4,c:4},45:{w:5,c:5},60:{w:6,c:6}};
+// warm-up: ACSM asks for at least 5-10 min of light-to-moderate movement, so no session gets less than 5
+const LENS=[20,30,45,60],PH={20:{w:5,c:3},30:{w:5,c:4},45:{w:6,c:5},60:{w:7,c:6}};
+// break between the last warm-up move and the first work set: time to catch your breath and set up your gear,
+// short enough that the warm-up doesn't wear off (muscle temperature starts dropping within 15-30 min of stopping)
+const TRANS=60;
+// bump when the way plans are built changes, so today's plan rebuilds if it hasn't been started yet
+const PV=2;
 // furniture / household things a hostel room may or may not have
 const HOME=[["chair","Sturdy chair"],["table","Table or desk"],["wall","Free wall"],["step","Step or stairs"],["towel","Towel"],["door","Solid door"]];
 const SHORT={db:"Dumbbells",pb:"Push-up bars",bar:"Bar",band:"Band",kb:"Kettlebell",bag:"Backpack",chair:"Chair",table:"Table",wall:"Wall",step:"Step",towel:"Towel",door:"Door"};
@@ -456,6 +464,9 @@ if(S.sch[S.sch.length-1].d!==S.days)S.sch.push({f:iso(new Date()),d:S.days});
 if(S.eqSet&&S.gear.bw==null)S.gear.bw=1;   // everyone who set up before had bodyweight on
 if(!S.eqSet&&!BASE.some(g=>S.gear[g[0]]))S.gear.bw=1;   // first setup starts with Bodyweight on (can be turned off)
 S.tab=S.tab||"today";S.q=S.q||"";S.mu=S.mu||"All";
+// rest-timer notifications: S.nt is 1 (on), 0 (off) or unset (never asked)
+if(S.nt==null&&notifyPermission()==="granted")S.nt=1;
+const ntOn=()=>S.nt===1&&notifyPermission()==="granted";notifyEnabled(ntOn);
 for(const k in S.ov){if(k!==iso(new Date())||S.ov[k]==="rec"||S.ov[k]==="rest")delete S.ov[k]}   // only today can be changed by hand
 if(S.fz&&(!S.fz.L||S.fz.L.some(x=>!E[x.id])))S.fz=null;
 const hydrate=x=>{Object.defineProperty(x,"e",{value:E[x.id],writable:true,enumerable:false});return x};
@@ -526,14 +537,18 @@ shoulders:{n:"Shoulders",d:"Shoulders and upper back",ty:"p",sl:["ohp","delt","r
 const PORDER=["full","upper","legs","push","pull","core","cardio","chest","arms","shoulders"];
 const pname=k=>k==="mine"?"My workout":k==="rest"?"Rest day":WO[k]?WO[k].n:"Workout",pdesc=k=>k==="mine"?"Your own list of exercises":k==="rest"?"Recovery day":WO[k]?WO[k].d:"";
 if(S.fz&&!(S.fz.k==="mine"||WO[S.fz.k]))S.fz=null;
-// warm-up: one "raise" move to get warm, then joint mobility and activation chosen for the day's muscles (RAMP style)
+// warm-up (RAMP style): "raise" = 2-3 min of easy cardio that builds from easy (e) to brisk (r), because muscle
+// temperature climbs over the first 3-5 min of movement; then joint mobility and activation (m) for the day's muscles.
+// The light first work set ("take this first set a little easier") is the exercise-specific part.
 const WARM={
-p:{r:["jumping-jack:45s","shadow-box:45s"],m:["arm-circles:20","wrist-circle:10","scap-pushup:10","catcow:8","wall-slide:10","t-spine:6","band-apart:15","inchworm:5"]},
-u:{r:["jumping-jack:45s","high-knees:30s"],m:["arm-circles:20","catcow:8","t-spine:6","wall-slide:10","band-apart:15","scap-pull:6","scap-pushup:10","wrist-circle:10"]},
-l:{r:["high-knees:30s","butt-kick:30s","march:45s"],m:["leg-swing:10","squat:10","lat-lunge:6","wgs:4","bridge:12","hip90:6","goodmorning:10","catcow:8","inchworm:5","bird-dog:6"]},
-f:{r:["jumping-jack:45s","high-knees:30s"],m:["arm-circles:20","squat:10","wgs:4","inchworm:5","bridge:10","leg-swing:10","scap-pushup:10","catcow:8","t-spine:6","wall-slide:10"]},
-c:{r:["march:45s","jumping-jack:30s"],m:["catcow:8","bird-dog:6","bridge:10","t-spine:6","wgs:4","hip90:6","inchworm:5","scap-pushup:10"]},
-v:{r:["march:45s","jumping-jack:30s"],m:["arm-circles:20","leg-swing:10","squat:10","wgs:4","inchworm:5","lat-lunge:6","hip90:6"]}};
+p:{e:["march"],r:["jumping-jack","shadow-box"],m:["arm-circles:20","wrist-circle:10","scap-pushup:10","catcow:8","wall-slide:10","t-spine:6","arm-swing:20","band-apart:15","inchworm:5"]},
+u:{e:["march"],r:["jumping-jack","high-knees"],m:["arm-circles:20","catcow:8","t-spine:6","wall-slide:10","band-apart:15","scap-pull:6","scap-pushup:10","wrist-circle:10","arm-swing:20","inchworm:5"]},
+l:{e:["march"],r:["high-knees","butt-kick"],m:["leg-swing:10","squat:10","lat-lunge:6","wgs:4","bridge:12","hip90:6","goodmorning:10","catcow:8","inchworm:5","bird-dog:6"]},
+f:{e:["march"],r:["jumping-jack","high-knees"],m:["arm-circles:20","squat:10","wgs:4","inchworm:5","bridge:10","leg-swing:10","scap-pushup:10","catcow:8","t-spine:6","wall-slide:10","lat-lunge:6","arm-swing:20"]},
+c:{e:["march"],r:["jumping-jack","shadow-box"],m:["catcow:8","bird-dog:6","bridge:10","t-spine:6","wgs:4","hip90:6","inchworm:5","scap-pushup:10","arm-swing:20"]},
+v:{e:["march"],r:["jumping-jack","high-knees"],m:["arm-circles:20","leg-swing:10","squat:10","wgs:4","inchworm:5","lat-lunge:6","hip90:6","arm-swing:20"]}};
+// raise time in seconds for a warm-up of w minutes: 2 min at 5, 2.5 at 6, 3 at 7
+const raiseSec=w=>Math.max(90,(w-1)*30);
 // cool-down: static holds (10-30 s each, ACSM) chosen by which muscles the session worked. [id, hold, muscles, order]
 const COOL=[
 ["xbody-stretch","30s",["shoulders","upperback"],1],["tri-stretch","30s",["triceps","shoulders","lats"],2],["chest-stretch","30s",["chest","biceps","shoulders"],3],["side-bend","20s",["lats","core"],4],
@@ -563,7 +578,7 @@ function pick(key,used,v,i){const c=(SL[key]||[]).filter(id=>E[id]&&av(E[id])&&!
 // each time you finish a workout the next one of that kind swaps in different exercises
 const variantFor=(d,k)=>S.vc[k]||0;
 function build(k,d,len){const P=PH[len]||PH[30],v=variantFor(d,k);let warm=[],main=[],cool=[];
-{const prog=k==="mine"?{ty:"f",sl:[]}:WO[k],budget=(len-P.w-P.c)*60,used={};let t=0;
+{const prog=k==="mine"?{ty:"f",sl:[]}:WO[k],budget=(len-P.w-P.c)*60-(TRANS-6),used={};let t=0;
 if(k==="mine"){S.mine.forEach(id=>{const e=E[id],r=av(e)?e:(E[e.alt]&&av(E[e.alt])?E[e.alt]:null);if(!r||used[r.id])return;used[r.id]=1;main.push(mk(r.id,"m",{from:r===e?"":e.id}))})}
 else{const n=prog.sl.length,tol=25;
 for(let i=0;i<n;i++){const id=pick(prog.sl[i],used,v,i);if(!id)continue;const x=mk(id,"m",{sl:prog.sl[i]});if(main.length>=3&&t+sec(x)>budget+tol)break;used[id]=1;main.push(x);t+=sec(x)}
@@ -572,23 +587,29 @@ for(let r=1;r<=2&&t<budget-80&&len>=30;r++)for(let i=0;i<n;i++){const key=prog.s
 main.sort((a,b)=>(CORE.has(a.sl)&&prog.ty!=="c"?1:0)-(CORE.has(b.sl)&&prog.ty!=="c"?1:0));
 if(len>=45){let left=budget-t;for(let pass=0;pass<2;pass++)for(const x of main){if(x.s>=4)continue;const add=wk(x)+x.rs;if(left>=add+60){x.s++;left-=add}}}}
 // warm-up
-const W=WARM[prog.ty],inMain=new Set(main.map(x=>x.id)),ok=s=>{const id=s.split(":")[0];return E[id]&&avw(E[id])&&!inMain.has(id)},rz=W.r.filter(ok);let tw=0;
-if(rz.length){const[id,val]=rz[v%rz.length].split(":"),x=mk(id,"w",{val});warm.push(x);tw+=sec(x)}
-for(const s of W.m.filter(ok)){if(warm.length>=2&&tw>=P.w*60-20)break;const[id,val]=s.split(":"),x=mk(id,"w",{val});warm.push(x);tw+=sec(x)}
+const W=WARM[prog.ty],inMain=new Set(main.map(x=>x.id)),ok=s=>{const id=s.split(":")[0];return E[id]&&avw(E[id])&&!inMain.has(id)},goal=P.w*60;let tw=0;
+// raise: an easy move, then a brisker one (or one of them for the whole time if the other isn't available)
+const ez=W.e.filter(ok),bz=W.r.filter(ok),R=raiseSec(P.w),rs5=n=>Math.round(n/5)*5+"s",raise=[];
+if(ez.length)raise.push(ez[v%ez.length]);if(bz.length)raise.push(bz[v%bz.length]);
+raise.forEach(id=>{const x=mk(id,"w",{val:rs5(R/raise.length)});warm.push(x);tw+=sec(x)});
+// mobility and activation for the day's muscles
+for(const s of W.m.filter(ok)){if(tw>=goal-20)break;const[id,val]=s.split(":"),x=mk(id,"w",{val});warm.push(x);tw+=sec(x)}
+// not enough mobility moves for your gear and room: stretch the raise moves so the warm-up still reaches its minimum
+if(tw<goal-20&&raise.length){const per=(goal-tw)/raise.length;warm.slice(0,raise.length).forEach(x=>{const nv=Math.min(150,parseInt(x.r)+per);tw+=nv-parseInt(x.r);x.r=rs5(nv)})}
 // cool-down
 const wt={};main.forEach(x=>{const tg=mtags(E[x.id]);for(const q in tg)wt[q]=(wt[q]||0)+tg[q]*x.s});
 const pool=COOL.filter(c=>avw(E[c[0]])).map(c=>({c,sc:0})),ch=[];let tc=0;
 while(pool.length&&(ch.length<2||tc<P.c*60-20)){pool.forEach(p=>p.sc=p.c[2].reduce((a,q)=>a+(wt[q]||0),0)-p.c[3]*.001);pool.sort((a,b)=>b.sc-a.sc);const p=pool.shift();if(p.sc<=0&&ch.length>=2)break;ch.push(p.c);p.c[2].forEach(q=>wt[q]=(wt[q]||0)*.35);tc+=sec(mk(p.c[0],"c",{val:p.c[1]}))}
 ch.sort((a,b)=>a[3]-b[3]);cool=ch.map(c=>mk(c[0],"c",{val:c[1]}))}
 return{k,L:[...warm,...main,...cool]}}
-const mins=L=>{const g=b=>L.filter(x=>x.b===b).reduce((a,x)=>a+sec(x),0),w=Math.round(g("w")/60),c=Math.round(g("c")/60),m=Math.max(1,Math.round(g("m")/60));return{w,m,c,tot:w+m+c}};
+const mins=L=>{const g=b=>L.filter(x=>x.b===b).reduce((a,x)=>a+sec(x),0),tr=L.some(x=>x.b==="w")&&L.some(x=>x.b==="m")?TRANS-6:0,w=Math.round(g("w")/60),c=Math.round(g("c")/60),m=Math.max(1,Math.round((g("m")+tr)/60));return{w,m,c,tot:w+m+c}};
 const key=x=>x.b+":"+x.id;
 
 // ---------- today's plan is frozen once built so it never changes under you ----------
 // done: finished (1) or skipped (2) moves · sd: sets already done per move, so a resumed session picks up at the right set
 const started=F=>!!F&&(Object.keys(F.done).length>0||Object.keys(F.sd||{}).length>0);
 function plan(){const now=new Date(),t=iso(now),k=todayKey();if(k==="rest")return null;
-if(!S.fz||S.fz.d!==t||S.fz.k!==k||(S.fz.len!==S.len&&!started(S.fz))){S.fz={d:t,k,len:S.len,L:build(k,now,S.len).L,done:{},sd:{}};save()}
+if(!S.fz||S.fz.d!==t||S.fz.k!==k||((S.fz.len!==S.len||S.fz.pv!==PV)&&!started(S.fz))){S.fz={d:t,k,len:S.len,pv:PV,L:build(k,now,S.len).L,done:{},sd:{}};save()}
 return S.fz}
 // drop today's plan so it rebuilds with new settings, unless you've already started it. Returns false when a started session was kept.
 const invalidate=()=>{if(S.fz&&S.fz.d===iso(new Date())&&started(S.fz))return false;S.fz=null;return true};
@@ -737,8 +758,10 @@ return`<h1 style="margin:4px 0 6px">${setup?"Set up your plan":"Settings"}</h1><
 ${setup?"":`<h2 class="sh2">Furniture in your room</h2><p class="mu" style="font-size:14px;margin:-4px 0 10px">Switch off anything you don’t have. Exercises that need it are dropped.</p><div class="eq">${HOME.map(h=>pill("th",h[0],S.home[h[0]]!==0)).join("")}</div>`}
 <h2 class="sh2">Training days<span>per week</span></h2>${seg("sdays",[3,4,5,6],S.days,v=>v+" days")}<p class="hint">${SPLITD[S.days]}</p>
 <h2 class="sh2">Session length</h2>${seg("slen",LENS,S.len,v=>v+" min")}<p class="hint">${lenNote()}</p>
+${setup?"":`<h2 class="sh2">Notifications</h2>${notifySupported()?seg("ntg",["on","off"],ntOn()?"on":"off",v=>v==="on"?"On":"Off")+`<p class="hint">${ntHint()}</p>`:`<p class="mu" style="font-size:13.5px">This browser can’t show notifications.</p>`}`}
 ${setup?"":`<h2 class="sh2">App</h2>${window.__deferredPrompt?`<button class="cta" data-a="install">${ic("save",18,2.4)} Install Fitforg app</button><p class="mu" style="font-size:13.5px;margin-top:8px">Add Fitforg to your home screen for a full-screen, offline app experience.</p>`:`<p class="mu" style="font-size:13.5px">Open this page in Chrome on Android and tap the menu → “Install app” to add Fitforg to your home screen.</p>`}
 <h2 class="sh2">Data</h2><button class="cta g s" data-a="rs">Reset progress</button><p class="mu" style="font-size:13.5px;margin-top:8px">Clears your history. Equipment and schedule stay.</p>`}`}
+const ntHint=()=>notifyPermission()==="denied"?"Blocked on this phone. Allow notifications for Fitforg in your phone’s settings, then switch this on.":ntOn()?"When you switch apps during a rest, the countdown shows in your notifications and your phone buzzes when it’s time for the next set.":"Turn on to see the rest timer in your notifications when you switch to another app.";
 function setupSheet(setup){const s=sheet("",setBody(setup),setup?`<button class="cta" data-a="eqdone">Build my plan</button>`:"");s.classList.add("set");if(setup)s.querySelector(".x").dataset.a="eqdone"}
 function refSet(){const b=document.querySelector(".sheet.set .sb");if(b){const y=b.scrollTop;b.innerHTML=setBody(!!document.querySelector(".sheet.set .foot"));b.scrollTop=y}}
 
@@ -754,7 +777,7 @@ function alts(x){const e=x.e,out=[],seen={[x.id]:1},F=S.fz,inP=id=>F&&F.L.some(y
 if(x.b==="m"){const ch=CHAINS.find(c=>c.includes(x.id));if(ch){const i=ch.indexOf(x.id);if(i>0)add(ch[i-1],"Easier");if(i<ch.length-1)add(ch[i+1],"Harder")}
 (SL[x.sl]||[]).forEach(id=>add(id,"Same muscles"));if(e.alt)add(e.alt,"Alternative");
 if(out.length<3)Object.values(E).filter(a=>a.m===e.m&&a.m!=="Mobility"&&a.s>1).forEach(a=>{if(out.length<6)add(a.id,"Same muscle group")})}
-else if(x.b==="w"){Object.values(WARM).forEach(W=>[...W.r,...W.m].forEach(s=>{const[id,val]=s.split(":");add(id,"Warm-up option",val)}))}
+else if(x.b==="w"){const tv=/s$/.test(x.r)?x.r:"60s";Object.values(WARM).forEach(W=>[...W.e.map(i=>i+":"+tv),...W.r.map(i=>i+":"+tv),...W.m].forEach(s=>{const[id,val]=s.split(":");add(id,"Warm-up option",val)}))}
 else COOL.forEach(c=>add(c[0],"Stretch option",c[1]));
 return out}
 function swapAsk(i){const x=S.fz.L[i],A=alts(x);ask(`<h2>Swap ${x.e.name}</h2><p class="mu">Can’t do it, or the equipment is busy? Pick another way to train the same area.</p><div class="lst">${A.length?A.map(a=>`<button class="row" data-a="dosw" data-v="${i}|${a.e.id}|${a.val}"><div class="th">${fig(a.e)}</div><div class="t"><strong>${a.e.name}</strong><span class="m">${a.l}${a.e.eq!=="bw"?" · "+gname(a.e.eq):""}</span></div></button>`).join(""):'<p class="mu" style="padding:18px 0">No other options with your current equipment.</p>'}</div><button class="cta g" data-a="close2">Cancel</button>`);still()}
@@ -762,18 +785,37 @@ function swapAsk(i){const x=S.fz.L[i],A=alts(x);ask(`<h2>Swap ${x.e.name}</h2><p
 /* ================= Fitforg v2 · workout session and events ================= */
 let ss=null,tm=null,th=null;
 const topSheet=()=>[...document.querySelectorAll(".sheet")].pop();
-function stop(){clearInterval(tm);clearInterval(th);ss=null;document.querySelectorAll(".sheet.run").forEach(s=>s.remove());render()}
+function stop(){clearInterval(tm);clearInterval(th);ss=null;nsync();document.querySelectorAll(".sheet.run").forEach(s=>s.remove());render()}
 function sv(){document.querySelector(".sheet.run")?.remove();const L=ss.L,x=L[ss.i],F=S.fz,e=x.e;let b,f="";
 const hd=`<div class="segs">${L.map((y,j)=>`<i class="${y.b} ${F.done[key(y)]?"d":j===ss.i?"n":""}"></i>`).join("")}</div><span style="width:44px"></span>`;
 if(ss.fin===2){b=`<div style="text-align:center;padding:36px 0 8px"><div class="okc big" style="background:var(--s2);color:#fff">${ic("skip",30,2.6)}</div><div class="big" style="font-size:36px">Not counted</div><p class="mu" style="margin:12px auto 0;max-width:30ch;font-size:16px">Most of ${pname(F.k)} was skipped, so it doesn’t count toward your week. Do at least half of the exercises for a workout to count.</p></div>`,f=`<button class="cta" data-a="stop">Back to Today</button>`}
 else if(ss.fin){const h=S.h[iso(new Date())]||{};b=`<div style="text-align:center;padding:36px 0 8px"><div class="okc big">${ic("chk",34,3)}</div><div class="big" style="font-size:40px">Workout complete</div><p class="mu" style="margin-top:10px;font-size:17px">${pname(F.k)}</p></div><div class="stats" style="margin-top:26px"><div class="stat"><b>${Math.max(1,Math.round((Date.now()-ss.t0)/60000))}</b><span>min</span></div><div class="stat"><b>${ss.sets}</b><span>sets</span></div><div class="stat"><b>${ss.reps}</b><span>reps</span></div></div><p style="text-align:center;margin-top:18px"><span class="pill">${wkCount(0)} of ${S.days} this week</span></p>`,f=`<button class="cta g" data-a="toprog">See progress</button><button class="cta" data-a="stop">Back to Today</button>`}
-else if(ss.rest){const C2=2*Math.PI*80,lab=x.sd?(ss.set===1?"Left side":"Right side"):"Set "+ss.set+" of "+x.s;b=`<div style="text-align:center;padding-top:20px"><p class="lbl">${ss.max<=10?"Get ready":"Rest"}</p><div style="position:relative;width:180px;height:180px;margin:18px auto"><div class="rest-extra" id="restExtra"></div><svg width="180" height="180" style="transform:rotate(-90deg)"><circle cx="90" cy="90" r="80" fill="none" stroke="#1e1e1e" stroke-width="8"/><circle class="rt-c" cx="90" cy="90" r="80" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C2}" stroke-dashoffset="${C2*(1-ss.rest/ss.max)}"/></svg><div class="big rt-n" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb);font-size:48px">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center">${ss.max<=10?"":`<button class="cta g s" data-a="p15">+15s</button>`}<button class="cta g s skip-soft" data-a="skip">${ss.max<=10?"Start now":"Skip rest"}</button></div></div><div class="rest-card-glow" style="margin:20px 0 0;padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:20px"><p class="lbl" style="margin:0 0 10px">Up next · ${blname(x.b,F.k)}</p><div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:100px;flex:none;background:var(--s2);border-radius:14px;padding:6px;box-shadow:0 0 12px rgba(255,255,255,.08)">${fig(e)}</div><div><strong style="font-size:17px;display:block;margin-bottom:4px">${e.name}</strong><span class="m" style="font-size:14px">${lab} · ${rp(x.r)}${x.sd?" each":""}</span></div></div></div>`}
+else if(ss.rest){const C2=2*Math.PI*80,lab=x.sd?(ss.set===1?"Left side":"Right side"):"Set "+ss.set+" of "+x.s;b=`<div style="text-align:center;padding-top:20px"><p class="lbl">${ss.tr?"Warm-up done":ss.max<=10?"Get ready":"Rest"}</p><div style="position:relative;width:180px;height:180px;margin:18px auto"><div class="rest-extra" id="restExtra"></div><svg width="180" height="180" style="transform:rotate(-90deg)"><circle cx="90" cy="90" r="80" fill="none" stroke="#1e1e1e" stroke-width="8"/><circle class="rt-c" cx="90" cy="90" r="80" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="${C2}" stroke-dashoffset="${C2*(1-ss.rest/ss.max)}"/></svg><div class="big rt-n" style="position:absolute;inset:0;display:grid;place-items:center;font-family:var(--lb);font-size:48px">${ss.rest}</div></div><div style="display:flex;gap:10px;justify-content:center">${ss.max<=10?"":`<button class="cta g s" data-a="p15">+15s</button>`}<button class="cta g s skip-soft" data-a="skip">${ss.max<=10||ss.tr?"Start now":"Skip rest"}</button></div>${ss.tr?`<p class="hintc">${trHint(e)}</p>`:""}</div><div class="rest-card-glow" style="margin:20px 0 0;padding:16px;background:var(--s1);border:1px solid var(--ln);border-radius:20px"><p class="lbl" style="margin:0 0 10px">Up next · ${blname(x.b,F.k)}</p><div style="display:flex;align-items:center;gap:14px"><div style="width:100px;height:100px;flex:none;background:var(--s2);border-radius:14px;padding:6px;box-shadow:0 0 12px rgba(255,255,255,.08)">${fig(e)}</div><div><strong style="font-size:17px;display:block;margin-bottom:4px">${e.name}</strong><span class="m" style="font-size:14px">${lab} · ${rp(x.r)}${x.sd?" each":""}</span></div></div></div>`}
 else{const timed=/s$/.test(x.r),n=parseInt(x.r),first=ss.i===L.findIndex(y=>y.b==="m"),lab=x.sd?(ss.set===1?"Left side":"Right side"):"Set "+ss.set+" of "+x.s,pos=L.filter(y=>y.b===x.b),pi=pos.indexOf(x)+1,left=ss.hold?Math.max(0,Math.ceil((ss.hold.end-Date.now())/1000)):n;
 b=`${demo(e,' style="margin-top:0;aspect-ratio:auto;height:clamp(240px,38vh,340px);padding-bottom:62px!important"')}<div style="text-align:center"><p class="phl ${x.b}"><i></i>${blname(x.b,F.k)} · ${pi} of ${pos.length}</p><h1 style="font-size:30px">${e.name}</h1><div class="big" style="margin:14px 0 4px"><span class="hv">${left}</span><span class="mu" style="font-size:20px;letter-spacing:0"> ${timed?"sec":"reps"}${x.sd&&!timed?" each":""}</span></div><div class="dots" aria-label="${lab}">${[...Array(x.s)].map((_,j)=>`<i class="${j<ss.set-1?"d":j===ss.set-1?"c":""}"></i>`).join("")}</div><p class="mu">${lab}${x.sd&&timed?" · "+n+" sec each side":""}</p>${first&&ss.set===1&&x.b==="m"&&!ss.hold?'<p class="hintc">Take this first set a little easier to groove the movement.</p>':""}</div><div class="ssw"><button class="ghost" data-a="swapx" data-v="${ss.i}">${ic("swap",15)} Swap exercise</button><button class="ghost" data-a="skipx">${ic("skip",15)} Skip</button></div><details${ss.set===1?" open":""}><summary>How to do it</summary><ol class="st">${e.st.map((t,i)=>`<li><span class="n">${i+1}</span><span>${t}</span></li>`).join("")}</ol>${fc(e)}</details>`;
 f=timed?(ss.hold?`<button class="cta g" data-a="holdx">Cancel</button><button class="cta" data-a="cs">${ic("chk",22,3)} Done</button>`:`<button class="cta" data-a="hold">${ic("clock",20)} Start ${n}s timer</button>`):`<button class="cta" data-a="cs">${ic("chk",22,3)} Complete set</button>`}
-const sh=sheet(hd,b,f);sh.classList.add("run");sh.querySelector(".x").dataset.a="quit"}
-function rest(sec){ss.p15count=0;if(!sec){sv();return}ss.rest=ss.max=sec;ss.end=Date.now()+sec*1000;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest=Math.max(0,Math.ceil((ss.end-Date.now())/1000));const el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;const circ=document.querySelector(".rt-c");if(circ){const C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;try{navigator.vibrate&&navigator.vibrate(200)}catch(e){}sv()}},500)}
+const sh=sheet(hd,b,f);sh.classList.add("run");sh.querySelector(".x").dataset.a="quit";nsync()}
+// what to do in the break between the warm-up and the first work set
+const trHint=e=>{const nd=e.eq!=="bw"?"your "+gname(e.eq).toLowerCase():e.hh?HHL[e.hh]:"";return"Catch your breath"+(nd?", then set up "+nd+".":" and have a sip of water.")};
+function rest(sec,tr){ss.p15count=0;ss.tr=tr?1:0;if(!sec){sv();return}ss.rest=ss.max=sec;ss.end=Date.now()+sec*1000;sv();clearInterval(tm);tm=setInterval(()=>{if(!ss)return clearInterval(tm);ss.rest=Math.max(0,Math.ceil((ss.end-Date.now())/1000));const el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;const circ=document.querySelector(".rt-c");if(circ){const C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}if(ss.rest<=0){clearInterval(tm);ss.rest=0;try{navigator.vibrate&&navigator.vibrate(200)}catch(e){}sv()}},500)}
 function startHold(){const x=ss.L[ss.i];ss.hold={end:Date.now()+parseInt(x.r)*1000};clearInterval(th);th=setInterval(()=>{if(!ss||!ss.hold)return clearInterval(th);const r=Math.max(0,Math.ceil((ss.hold.end-Date.now())/1000)),el=document.querySelector(".hv");if(el)el.textContent=r;if(r<=0){clearInterval(th);try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch(e){}completeSet()}},250);sv()}
+// keep the notification panel in step with the workout (it only shows while you're in another app)
+const setLab=x=>x.sd?(ss.set===1?"Left side":"Right side"):"Set "+ss.set+" of "+x.s;
+function nsync(){if(!ss||ss.fin){notifyState(null);return}const x=ss.L[ss.i],e=x.e,lab=setLab(x)+" · "+rp(x.r)+(x.sd?" each":"");
+if(ss.rest>0&&ss.max>10)notifyState({kind:ss.tr?"trans":"rest",end:ss.end,name:e.name,label:lab,p15:Math.max(0,3-ss.p15count)});
+else if(ss.hold)notifyState({kind:"hold",end:ss.hold.end,name:e.name,label:setLab(x)});
+else notifyState({kind:"idle",name:e.name,label:lab})}
+function skipRest(){if(!ss||!ss.rest)return;clearInterval(tm);ss.rest=0;sv()}
+function addRest(){if(!ss||!ss.rest)return;if(ss.p15count>=3){toast("Stop resting, start grinding. You got this.");return}ss.p15count++;ss.rest+=15;ss.max+=15;ss.end+=15000;const el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;const circ=document.querySelector(".rt-c");if(circ){const C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}const eb=document.getElementById("restExtra");if(eb){eb.textContent="+"+(ss.p15count*15)+"s";eb.classList.add("show")}toast(["Good to go.","One last breather.","That’s all the rest you need."][ss.p15count-1]||"");nsync()}
+// the buttons on the notification do the same as the ones on screen
+notifyOn("skip",skipRest);notifyOn("add15",addRest);
+// the first time you start a workout, offer the rest timer in the notification panel
+function askNotify(){if(S.nt!=null||notifyPermission()!=="default")return;
+ask(`<h2>Keep the rest timer with you</h2><p class="mu">Switch to another app while you rest and Fitforg shows the countdown in your notifications, then tells you when it’s time for the next set.</p><button class="cta" data-a="nton">Turn on notifications</button><button class="cta g" data-a="ntno">Not now</button>`)}
+async function ntTurnOn(){const p=notifyPermission();
+if(p==="unsupported"){toast("This browser can’t show notifications");return}
+if(p==="denied"){S.nt=0;save();refSet();toast("Notifications are blocked. Allow them for Fitforg in your phone’s settings");return}
+const r=p==="granted"?p:await notifyAsk();S.nt=r==="granted"?1:0;save();refSet();toast(r==="granted"?"Rest timer notifications are on":"Notifications stay off. You can change this in Settings")}
 // minutes spent in this run go into today's history (also when a workout is ended early)
 function logMin(){if(!ss||!ss.act)return;const h=S.h[iso(new Date())];if(h)h.m=(h.m||0)+Math.max(1,Math.round((Date.now()-ss.t0)/60000));ss.act=0}
 // a workout only counts when at least half of its exercises were done, not skipped
@@ -785,7 +827,7 @@ function nextItem(){const F=S.fz,n=ss.L.findIndex(y=>!F.done[key(y)]);return n}
 function completeSet(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz,t=iso(new Date()),h=S.h[t]=S.h[t]||{s:0,r:0,fin:0};
 if(x.b==="m"){const n_=/s$/.test(x.r)?0:(parseInt(x.r)||0)*(x.sd?2:1);h.s++;h.r+=n_;ss.sets++;ss.reps+=n_}
 ss.act=1;F.sd[key(x)]=ss.set;
-if(ss.set<x.s){ss.set++;save();rest(x.rs)}else{F.done[key(x)]=1;const n=nextItem();if(n<0){finishSession()}else{ss.i=n;ss.set=firstSet(n);save();rest(x.rs)}}}
+if(ss.set<x.s){ss.set++;save();rest(x.rs)}else{F.done[key(x)]=1;const n=nextItem();if(n<0){finishSession()}else{const tr=x.b==="w"&&ss.L[n].b==="m";ss.i=n;ss.set=firstSet(n);save();rest(tr?TRANS:x.rs,tr)}}}
 // the set to start a move on: the one after the last set already done
 const firstSet=i=>{const x=ss.L[i];return Math.min(x.s,(S.fz.sd[key(x)]||0)+1)};
 function skipEx(){clearInterval(th);ss.hold=null;const x=ss.L[ss.i],F=S.fz;F.done[key(x)]=2;const n=nextItem();if(n<0)finishSession();else{ss.i=n;ss.set=firstSet(n);save();sv()}}
@@ -831,15 +873,18 @@ else if(a==="go"){const F=plan();if(!F)return;
 // everything marked but the workout didn't count: reopen only the skipped moves
 if(F.L.every(x=>F.done[key(x)]))F.L.forEach(x=>{if(F.done[key(x)]===2)delete F.done[key(x)]});
 if(F.L.every(x=>F.done[key(x)])){F.done={};F.sd={}}
-ss={L:F.L,i:F.L.findIndex(x=>!F.done[key(x)]),set:1,rest:0,fin:0,p15count:0,t0:Date.now(),sets:0,reps:0,hold:null,act:0};ss.set=firstSet(ss.i);save();sv()}
+ss={L:F.L,i:F.L.findIndex(x=>!F.done[key(x)]),set:1,rest:0,fin:0,p15count:0,t0:Date.now(),sets:0,reps:0,hold:null,act:0};ss.set=firstSet(ss.i);save();sv();askNotify()}
 else if(a==="cs"){completeSet()}
 else if(a==="hold"){startHold()}
 else if(a==="holdx"){clearInterval(th);ss.hold=null;sv()}
-else if(a==="skip"){clearInterval(tm);ss.rest=0;sv()}
-else if(a==="p15"){if(ss.p15count>=3){toast("Stop resting, start grinding. You got this.");return}ss.p15count++;ss.rest+=15;ss.max+=15;ss.end+=15000;const el=document.querySelector(".rt-n");if(el)el.textContent=ss.rest;const circ=document.querySelector(".rt-c");if(circ){const C=2*Math.PI*80;circ.setAttribute("stroke-dashoffset",C*(1-ss.rest/ss.max))}const eb=document.getElementById("restExtra");if(eb){eb.textContent="+"+(ss.p15count*15)+"s";eb.classList.add("show")}toast(["Good to go.","One last breather.","That’s all the rest you need."][ss.p15count-1]||"")}
+else if(a==="skip"){skipRest()}
+else if(a==="p15"){addRest()}
 else if(a==="stop")stop();
 else if(a==="rs"){ask(`<h2>Reset progress?</h2><p class="mu">This clears your workout history and today’s session. Equipment and schedule stay. This can’t be undone.</p><button class="cta" data-a="rs2">Yes, reset</button><button class="cta g" data-a="close2">Cancel</button>`)}
 else if(a==="rs2"){S.h={};S.fz=null;S.ov={};S.n=0;S.vc={};S.more=null;S.t0=iso(new Date());save();closeMask();render();toast("Progress reset")}
+else if(a==="nton"){closeMask();ntTurnOn()}
+else if(a==="ntno"){closeMask();S.nt=0;save();toast("You can turn notifications on later in Settings")}
+else if(a==="ntg"){if(v==="on")ntTurnOn();else{S.nt=0;save();refSet()}}
 else if(a==="close2")closeMask()};
 render();
 
