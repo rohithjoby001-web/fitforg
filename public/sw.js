@@ -132,7 +132,8 @@ async function idle(m) {
   const list = await self.registration.getNotifications({ tag: TAG })
   if (list.some((n) => n.data && n.data.kind === 'alert')) return
   return show('Workout in progress', {
-    body: m.name + ' · ' + m.label + '. Tap to carry on.',
+    // two lines: what you're on, then the tap hint — clearer than one run-on sentence
+    body: m.name + ' · ' + m.label + '\nTap to carry on',
     silent: true, renotify: false, data: { kind: 'idle' }
   })
 }

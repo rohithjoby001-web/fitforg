@@ -109,6 +109,22 @@ Fitforg has no server and sends no push messages. Notifications only happen duri
 
 Coming back to the app clears it. Tapping the notification opens the app.
 
+### Why does the notification show "fitforg.pages.dev"?
+
+That line isn't coming from this code — `sw.js` never sets a URL anywhere in the notification. It's Chrome/Android's own notification chrome: any notification raised by a website's service worker is attributed to Chrome at the OS level, which shows the origin under the app name so a page can't impersonate a system or native-app notification. That's still true even once the site is "installed" to the home screen as a PWA/WebAPK — Chrome has only stopped doing this for installed PWAs on **macOS** (from Chrome 152), not Android. Re-adding the icon to the home screen won't change it.
+
+The only thing that removes the domain is finishing the Android wrapper from the Bubblewrap section above: a signed TWA with Digital Asset Links verified (`assetlinks.json`, already set up here) **and** notification delegation switched on. Once the phone has that signed APK installed — instead of the Chrome "Add to Home Screen" PWA — Android hands the notification to the app itself, not Chrome, and the domain disappears.
+
+1. If you still have the folder where you ran `bubblewrap init` (that's where the fingerprint in `assetlinks.json` came from), open its `twa-manifest.json` and set:
+   ```json
+   "enableNotifications": true,
+   "monochromeIconUrl": "https://fitforg.pages.dev/badge-96.png"
+   ```
+   then run `bubblewrap update && bubblewrap build`.
+2. If that folder is gone, start over: `bubblewrap init --manifest https://fitforg.pages.dev/manifest.webmanifest`, answer **yes** when it asks about notifications, then `bubblewrap build`.
+3. Confirm the SHA-256 fingerprint Bubblewrap prints matches the one already in `public/.well-known/assetlinks.json`. If it's a new keystore, copy the new fingerprint in and redeploy — a mismatch quietly breaks the trust check and Chrome falls back to showing the domain again.
+4. On the phone: remove the current Chrome-installed "Fitforg" icon and install `app-release-signed.apk` instead (sideload it, or ship it through the Play Store). That APK is what gives you the clean "Fitforg" notification with no URL.
+
 How it works:
 - `src/notify.js` (app side) sends the current workout state to the service worker when the page goes to the background, and clears it when you come back.
 - `public/sw.js` (service worker) ticks the countdown once a second and shows the alert. The worker does the ticking because Chrome slows down timers in background pages. Chrome lets a worker run for up to 5 minutes per message. The longest rest in the app is 90 s plus three +15s, so every rest fits.
