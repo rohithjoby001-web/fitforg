@@ -186,7 +186,7 @@ details{background:var(--s1);border:1px solid var(--ln);border-radius:16px;paddi
 #splash.out{opacity:0;transform:scale(1.02);pointer-events:none}
 #splash .sp-ghost{position:absolute;width:560px;right:-190px;top:-40px;fill:none;stroke:#2b2b2b;stroke-width:1.2;pointer-events:none;width:96.5cqh;height:100cqh;right:auto;left:calc(61.7cqw - 44.05cqh);top:auto;bottom:calc(100px + env(safe-area-inset-bottom,0px) - .72cqh)}
 #splash .sp-sm{position:absolute;left:26px;top:calc(34px + env(safe-area-inset-top,0px));width:34px;height:auto;fill:#fff;left:8.67cqw;width:11.33cqw;top:calc(11.33cqw + env(safe-area-inset-top,0px))}
-#splash .sp-txt{position:absolute;left:26px;right:26px;bottom:calc(130px + env(safe-area-inset-bottom,0px));text-align:left;opacity:0;animation:sp-up .8s .5s forwards}
+#splash .sp-txt{position:absolute;left:26px;right:26px;top:38cqh;text-align:left;opacity:0;animation:sp-up .8s .5s forwards}
 #splash .sp-name{font-family:var(--lb);font-weight:400;font-size:36px;letter-spacing:.14em;line-height:1;margin:0 0 12px}
 #splash .sp-name b{font-weight:700}
 #splash .sp-tag{font-family:var(--hd);font-size:18px;line-height:1.3;color:#8c8c8c;letter-spacing:normal}
@@ -330,7 +330,7 @@ main{padding-bottom:120px}
 
 
 .toast{bottom:auto;top:max(14px,env(safe-area-inset-top));animation:fade .2s}
-#splash.quick .sp-txt{bottom:calc(64px + env(safe-area-inset-bottom,0px));animation-duration:.45s;animation-delay:.05s}
+#splash.quick .sp-txt{animation-duration:.45s;animation-delay:.05s}
 .alt2 .cta{white-space:nowrap}
 @media (max-width:380px){.alt2 .cta svg{display:none}}
 .pk.lk{opacity:.45}

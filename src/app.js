@@ -897,16 +897,16 @@ render();
 // ----- Splash screen controller -----
 ;(function(){
 const sp=document.getElementById("splash"),go=document.getElementById("sp-go"),lock=["main","nav"].map(i=>document.getElementById(i));
-const rd=()=>{try{if(localStorage.getItem("ff_welcome")==="1")return 1}catch(e){}return /(?:^|; )ff_welcome=1/.test(document.cookie)?1:0};
+// "quick" (returning visit) is decided and applied by the inline script in
+// index.html, before first paint — read that instead of recomputing it here,
+// so there's one source of truth and the button never flashes into view.
+const seen=sp.classList.contains("quick");
 const wr=()=>{try{localStorage.setItem("ff_welcome","1")}catch(e){}try{document.cookie="ff_welcome=1; max-age=315360000; path=/; SameSite=Lax"}catch(e){}};
-let seen=rd();
-try{if(!seen&&localStorage.getItem("ff3"))seen=1}catch(e){}   // data from the previous app version means they have used it before (ff4 is not checked: the app writes it while loading)
-if(location.hash==="#welcome")seen=0;     // add #welcome to the address to preview the first-launch screen
 lock.forEach(n=>n.inert=true);
 let done=0;
-function leave(){if(done)return;done=1;sp.classList.add("out");lock.forEach(n=>n.inert=false);setTimeout(function(){sp.remove();render();still();if(!S.eqSet)setTimeout(function(){setupSheet(true)},300)},450)}
-if(seen){sp.classList.add("quick");sp.onclick=leave;setTimeout(leave,1200)}
-else{wr();go.onclick=leave}
+function leave(){if(done)return;done=1;wr();sp.classList.add("out");lock.forEach(n=>n.inert=false);setTimeout(function(){sp.remove();render();still();if(!S.eqSet)setTimeout(function(){setupSheet(true)},300)},450)}
+if(seen){sp.onclick=leave;setTimeout(leave,1200)}
+else{go.onclick=leave}
 })();
 
 // ----- PWA install prompt (WebAPK via beforeinstallprompt) -----
