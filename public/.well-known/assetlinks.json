@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "dev.pages.fitforg.twa",
+        "sha256_cert_fingerprints": ["44:47:DB:D2:37:FE:8E:48:40:6F:EC:7F:B3:6D:6D:CB:4C:46:02:16:E3:47:CB:44:95:6A:42:BF:24:3E:25:5D"]
+      }
+    }]
